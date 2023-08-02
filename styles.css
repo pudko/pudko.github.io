@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,300;0,400;0,700;1,700&family=Raleway:wght@500&display=swap");
 body {
   font-family: "Bai Jamjuree", sans-serif;
-  background-color: #1c1e21;
+  background-color: #000;
   margin: 0;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
@@ -83,6 +83,15 @@ h3 {
   margin-top: 31.5px;
   margin-bottom: 21px;
   margin-left: 16px;
+}
+
+h5 {
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+  margin-top: 31.5px;
+  margin-bottom: 21px;
 }
 
 .indexh3 {
@@ -253,7 +262,6 @@ p {
 
 section {
   min-height: 350px;
-  margin-bottom: 200px;
 }
 
 .anchor-service {
@@ -268,6 +276,7 @@ section {
     margin-left: 200px;
     margin-top: 64px;
     margin-right: 32px;
+    margin-bottom: 64px;
   }
 }
 
@@ -356,7 +365,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #1c1e21;
+  background-color: #000;
   border-bottom: 1px solid #777777;
   z-index: 99999;
 }
@@ -1033,7 +1042,6 @@ footer {
 }
 
 * {
-  margin: 0;
   padding: 0;
 }
 
