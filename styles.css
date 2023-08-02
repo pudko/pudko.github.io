@@ -260,9 +260,7 @@ p {
   margin-bottom: 12px;
 }
 
-section {
-  min-height: 350px;
-}
+
 
 .anchor-service {
   background-color: red;
@@ -685,6 +683,7 @@ button {
   font-weight: bold;
   cursor: pointer;
   margin-top: 20px;
+  margin-bottom: 40px;
   -webkit-appearance: none;
 }
 
