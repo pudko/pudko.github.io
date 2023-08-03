@@ -273,42 +273,7 @@
       </div>
 
       <!-- More about me modal -->    
-      <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <div class="modal-content">
-            <h2>PARKOUR A JA </h2>
-            <p data-lang="sk">
-              Pohybu sa aktívne venujem od mojich 6 rokov. Začal som ako zápasník v gréckorímskom a voľnom štýle, kde sa mi 
-              podarilo získať 7x titul majstra Slovenska. Zápasenie ma naučilo pevným pohybovým základom, športovej 
-              disciplíne a tímovej morálke. Súčasť, každého tréningu bola gymnastikcá rozcvička, na ktorej sme robili
-              rôzne prvky od kotrmelcov až po saltá. Bola to moja najoblúbenejšia časť tréningu.
-            </p>
-
-            <p data-lang="sk">
-              Dozvedel som sa o novej pohybovej disciplíne nazývanej Parkour a Freerunning. Úplne ma to pohltilo.
-              Po niekoľkoročných skúsenostiach vlastného tréningu a zbierania informácii od profesionálov, som začal
-              šíriť svoje skúsenosti mladším generáciam. Stal som sa trénerom.
-            </p>
-            
-            
-            <p data-lang="cs">
-              Pohybu se aktivně věnuju od mých 7 let. Začal jsem jako zápasník v gréckořímském a volném stylu, kde jsem
-              získal 7x titul mistra Slovenska. Zápas mně naučil pevným pohybovým základúm, sportovní
-              disciplíne a tímové morálce. Součástí, každého tréningu byla gymnastická rozcvička, na které jsme delali
-              různé prvky od kotrmelců až po salta. Byla to má nejoblíbenější část tréninku.
-          </p>
-          <p data-lang="cs">
-            Když jsem měl 6 let začal jsem chodit na zápasení v řecko-římském a volném stylu, které mě naučilo 
-            pevným pohybovým základem, sportovní disciplíně a týmové morálce. Součást, každého tréninku byla 
-            gymnastická rozcvička, na které jsme dělali různé prvky od kotrmelců až po salta. 
-            Byla to moje nejoblíbenější část tréninku.
-          </p>                              
-          <p data-lang="cs">
-            Dozvedel jsem se o nové pohybové disciplíně nazývané Parkour a Freerunning. Úplně mně to pohltilo.
-            Po nekolikaročných zkušenostech vlastního tréningu a zběru informácii od profesionálú, jsem začal
-            šířit své zkušenosti mladším generací. Stal jsem se trenérem.
-        </div>
-      </div>
+     
 
       <!-- GDPR modal -->    
       <div id="acceptModal" class="modal">
@@ -375,39 +340,13 @@
       </footer>
     </main>
     <script src="script.js"></script>
-    <script> 
-        var modal = document.getElementById("myModal");
-        modal.style.display = "none";
-        
-        var btn = document.getElementById("myBtn");
-        var span = document.getElementsByClassName("close")[0];
-        btn.onclick = function() {
-            modal.style.display = "block";
-            document.body.style.overflow = 'hidden';
-        }
-
-        span.onclick = function() {
-            modal.style.display = "none";
-            document.body.style.overflow = 'scroll';
-        }
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
     <script>   
       var modal = document.getElementById("acceptModal");
       modal.style.display = "none";
       
-      var btn = document.getElementById("openTermsBtn");
-      var acceptBtn = document.getElementById("acceptButton");
+      var btn = document.getElementById("myBtn");
       var span = document.getElementsByClassName("closeCross")[0];
 
-      acceptBtn.onclick = function() {
-          modal.style.display = "none";
-          document.body.style.overflow = 'scroll';
-      }
 
       btn.onclick = function() {
           modal.style.display = "block";

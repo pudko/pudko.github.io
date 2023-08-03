@@ -94,9 +94,6 @@ for (i = 0; i < el2.length; i++) {
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-document.querySelector(
-  '#standard-select [value="' + urlParams.get("option") + '"]'
-).selected = true;
 
 function ready(fn) {
   if (document.readyState != "loading") {
