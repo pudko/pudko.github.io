@@ -15,11 +15,7 @@ main {
   overflow-x: hidden;
 }
 
-html {
-   {
-    /* scroll-behavior: smooth; */
-  }
-}
+
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -94,7 +90,24 @@ h5 {
   margin-bottom: 21px;
 }
 
+h6 {
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  margin-top: 40px;
+}
+
 .indexh3 {
+  margin-top: -8px;
+  margin-bottom: -4px;
+  margin-left: 5px;
+}
+
+.indexh4 {
+  font-size: 10px;
+  color: white;
   margin-top: -8px;
   margin-bottom: -4px;
   margin-left: 5px;
