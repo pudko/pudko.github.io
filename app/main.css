@@ -1,0 +1,326 @@
+@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;700&display=swap");
+
+* {
+  font-family: "Bai Jamjuree", sans-serif;
+  font-size: 12px;
+}
+
+body {
+  color: white;
+  background-color: #1e1b1b;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+button {
+  cursor: pointer;
+  height: 31px;
+  font-size: 9px;
+  font-weight: bold;
+  border: none;
+  color: white;
+  background-color: #f29f00;
+}
+
+input {
+  width: 100%;
+  height: 31px;
+  box-sizing: border-box;
+  text-indent: 42px;
+  font-size: 9px;
+  border: none;
+  outline: none;
+}
+
+input[type="date"] {
+  text-indent: 20px; /* Reset text-indent */
+  padding: 1px 2px; /* Set padding as needed */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translate(0, -50%);
+  pointer-events: none;
+}
+
+.icon {
+  width: 12.25px;
+}
+
+.container-main {
+  display: flex;
+  justify-content: center;
+}
+
+.container-content-big {
+  max-width: 300px;
+  width: 100%;
+  margin: 0 55px;
+}
+
+.container-content-small {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 32px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.login-form img {
+  width: 85px;
+  height: 85px;
+  margin-bottom: 31px;
+}
+
+.login-form .input-container:not(:last-of-type) {
+  margin-bottom: 17px;
+}
+
+.login-form button {
+  max-width: 140px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/*  Customer List */
+
+#members-list {
+  margin-top: 20px;
+  height: calc(100% - 150px);
+  overflow-x: scroll;
+}
+
+#members-list .member {
+  display: flex;
+  align-items: center;
+  padding-top: 17px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #938f8e;
+  color: white;
+}
+
+.member-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.member-id {
+  margin-left: 17px;
+}
+
+#members-list .member .member-info-button {
+  min-width: 84px;
+  margin-left: auto;
+  font-size: 11px;
+}
+
+.add-member {
+  display: flex;
+  justify-content: right;
+  margin-top: auto;
+}
+
+.add-member .add-member-button {
+  height: 60px;
+  width: 60px;
+  margin-bottom: 40px;
+  padding: 0;
+  background-color: transparent;
+}
+
+/* User Registration */
+
+.header {
+  display: flex;
+  align-items: center;
+  max-width: 312px;
+  width: 100%;
+  height: 78px;
+  border-bottom: 1px solid #938f8e;
+}
+
+.user-registration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 33px;
+}
+
+.user-registration .person-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.user-registration .person-icon-container .person-icon {
+  width: 27px;
+}
+
+.user-registration .form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 17px;
+  width: 100%;
+  margin-top: 31px;
+}
+
+.user-registration .form .create-user-button {
+  padding: 0 23px;
+  margin-top: 2px;
+}
+
+.user-registration #new-member-validation-info {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: red;
+}
+
+/* User Detail Page */
+.member-header {
+  display: flex;
+  align-items: center;
+  height: 88px;
+  border-bottom: 1px solid #938f8e;
+}
+
+.member-header #member-id {
+  margin-left: 17px;
+}
+
+.member-header .membership-status {
+  display: flex;
+  place-items: center;
+  height: 32px;
+  margin-left: auto;
+  padding: 0 10px;
+  font-size: 10px;
+  font-weight: bold;
+  background-color: #52b0a9;
+}
+
+.member-detail {
+  margin-top: 20px;
+}
+
+.member-detail .memberships-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+
+.member-detail .memberships-container li ul:not(:first-child) {
+  padding-top: 10px;
+}
+
+.member-detail .memberships-container li ul:not(:last-child) {
+  border-bottom: 1px solid #938f8e;
+  padding-bottom: 10px;
+}
+
+.member-detail .memberships-container .membership {
+  margin-bottom: 18px;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #f4f4f4;
+}
+
+.member-detail .memberships-container .membership .title {
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #8a8a8a;
+}
+
+.member-detail .memberships-container .membership .value {
+  font-size: 12px;
+  color: #1e1b1b;
+}
+
+.member-detail .action-buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 20px;
+  height: 58px;
+  width: 100%;
+  -webkit-box-shadow: 0px 1px 27px 0px rgba(51, 46, 46, 1);
+  -moz-box-shadow: 0px 1px 27px 0px rgba(51, 46, 46, 1);
+  box-shadow: 0px 1px 27px 0px rgba(51, 46, 46, 1);
+  background-color: #f4f4f4;
+}
+
+.member-detail .action-buttons button {
+  padding: 0 15px;
+}
+
+.member-detail .action-buttons .confirm-participation-button {
+  background-color: #4eb3a9;
+}
+
+/* Renew Subscription */
+
+.member-info {
+  display: flex;
+  align-items: center;
+  padding: 17px 0;
+  border-bottom: 1px solid #938f8e;
+}
+
+.renew-membership-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 17px;
+}
+
+.renew-membership-form button {
+  padding: 0 50px;
+}
