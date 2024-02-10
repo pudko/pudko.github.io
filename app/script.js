@@ -323,41 +323,37 @@ function clearQueryParams() {
 async function handleCreateNewMember() {
   // Get user Inputs
   const memberIDInput = document.getElementById("new-member-id")
-  const memberStartDateInput = document.getElementById("member-membership-start-date")
-  const memberEndDateInput = document.getElementById("member-membership-end-date")
+  const startDateInput = document.getElementById("member-membership-start-date")
+  const endDateInput = document.getElementById("member-membership-end-date")
 
   // Validation info text <div> (shows value if there is a validation errror or success)
-  const newMemberValidationInfo = document.getElementById("new-member-validation-info")
+  const validationLabel = document.getElementById("new-member-validation-info")
 
   // Create date
-  const memberStartDate = new Date(memberStartDateInput.value)
-  const memberEndDate = new Date(memberEndDateInput.value)
+  const startDate = new Date(startDateInput.value)
+  const endDate = new Date(endDateInput.value)
 
   // Format memberID - delete spaces, toUpperCase()
-  // Format memberStartDateInput && memberEndDateInput - (dd.MM.yyyy)
+  // Format startDateInput && endDateInput - (dd.MM.yyyy)
   const memberIDFormatted = formatMemberID(memberIDInput.value)
-  const memberStartDateFormatted = formatDateWithDots(memberStartDate)
-  const memberEndDateFormatted = formatDateWithDots(memberEndDate)
+  const memberStartDateFormatted = formatDateWithDots(startDate)
+  const memberEndDateFormatted = formatDateWithDots(endDate)
 
   // Validate inputs - return error string or null
-  const validationError = await validateNewMemberInputs(
-    memberIDFormatted,
-    memberStartDate,
-    memberEndDate
-  )
+  const validationError = await validateNewMemberInputs(memberIDFormatted, startDate, endDate)
 
   // Set textContent to error.
   if (validationError) {
-    newMemberValidationInfo.style.color = "red"
-    newMemberValidationInfo.textContent = validationError
+    validationLabel.style.color = "red"
+    validationLabel.textContent = validationError
     return
   }
 
   newMember(memberIDFormatted, memberStartDateFormatted, memberEndDateFormatted)
 
   // TODO HIGH - Add succes info to PATCH - response.ok instead.
-  newMemberValidationInfo.style.color = "green"
-  newMemberValidationInfo.textContent = memberIDFormatted + " úspešne pridaný!"
+  validationLabel.style.color = "green"
+  validationLabel.textContent = memberIDFormatted + " úspešne pridaný!"
 
   // Reset inputs to null
   memberIDInput.value = null
@@ -366,49 +362,50 @@ async function handleCreateNewMember() {
   // Because in html input, onBlur is set to change input type=text when
   // there is no value so placeholder can be shown. We need first to focus
   // to make onBlur work.
-  memberStartDateInput.focus()
-  memberStartDateInput.value = null
-  memberStartDateInput.blur()
-  memberEndDateInput.focus()
-  memberEndDateInput.value = null
-  memberEndDateInput.blur()
+  startDateInput.focus()
+  startDateInput.value = null
+  startDateInput.blur()
+  endDateInput.focus()
+  endDateInput.value = null
+  endDateInput.blur()
 }
 
 async function handleRenewMembership() {
   const memberID = getUserIDFromParams()
-  const memberStartDateInput = document.getElementById("renew-membership-start-date")
-  const memberEndDateInput = document.getElementById("renew-membership-end-date")
+  const startDateInput = document.getElementById("renew-membership-start-date")
+  const endDateInput = document.getElementById("renew-membership-end-date")
 
-  const renewMembershipValidationInfo = document.getElementById("renew-membership-validation-info")
+  const validationLabel = document.getElementById("renew-membership-validation-info")
 
   // Create date
-  const memberStartDate = new Date(memberStartDateInput.value)
-  const memberEndDate = new Date(memberEndDateInput.value)
+  const startDate = new Date(startDateInput.value)
+  const endDate = new Date(endDateInput.value)
 
-  // Format memberStartDateInput && memberEndDateInput - (dd.MM.yyyy)
-  const memberStartDateFormatted = formatDateWithDots(memberStartDate)
-  const memberEndDateFormatted = formatDateWithDots(memberEndDate)
+  // Format startDateInput && endDateInput - (dd.MM.yyyy)
+  const memberStartDateFormatted = formatDateWithDots(startDate)
+  const memberEndDateFormatted = formatDateWithDots(endDate)
 
-  const validationError = validateRenewMembershipInputs(memberStartDate, memberEndDate)
+  // Get Member object
+  const member = await getUser(memberID)
+
+  const validationError = validateRenewMembership(member, startDate, endDate)
 
   if (validationError) {
-    renewMembershipValidationInfo.style.color = "red"
-    renewMembershipValidationInfo.textContent = validationError
+    validationLabel.style.color = "red"
+    validationLabel.textContent = validationError
     return
   }
 
-  const member = await getUser(memberID)
-
   if (!member) {
-    renewMembershipValidationInfo.style.color = "red"
-    renewMembershipValidationInfo.textContent = "ID neexistuje"
+    validationLabel.style.color = "red"
+    validationLabel.textContent = "ID neexistuje"
     return
   }
 
   // renew(memberID, member, memberStartDateFormatted, memberEndDateFormatted)
 
-  renewMembershipValidationInfo.style.color = "green"
-  renewMembershipValidationInfo.textContent = "Nové predplatné pre: " + memberID
+  validationLabel.style.color = "green"
+  validationLabel.textContent = "Nové predplatné pre: " + memberID
 }
 
 function renew(id, current, startDate, endDate) {
@@ -597,17 +594,44 @@ async function validateNewMemberInputs(memberID, startDate, endDate) {
     return "ID nesmie byť prázdne!"
   }
 
+  const dateValidationResult = validateMembershipDates(startDate, endDate)
+  if (dateValidationResult) {
+    return dateValidationResult
+  }
+
   const isUnique = await isIDUnique(memberID)
   if (!isUnique) {
     return "Používateľ s rovnakým ID už existuje!"
   }
 
-  return validateMembershipDates(startDate, endDate)
+  return null // Return null when no error
 }
 
-function validateRenewMembershipInputs(startDate, endDate) {
-  // Check if any input is empty
-  return validateMembershipDates(startDate, endDate)
+function checkMembershipOverlap(memberships, newStartDate, newEndDate) {
+  for (const membership of memberships) {
+    if (
+      newStartDate < formatDateToISO(membership.endDate) &&
+      newEndDate > formatDateToISO(membership.startDate)
+    ) {
+      return `V tomto období už je evidované predplatné: ${membership.startDate} - ${membership.endDate}`
+    }
+  }
+  return null // Return null when no error
+}
+
+function validateRenewMembership(member, startDate, endDate) {
+  const dateValidationResult = validateMembershipDates(startDate, endDate)
+  // Check if date is in the future and is not empty
+  if (dateValidationResult) {
+    return dateValidationResult
+  }
+
+  const membershipOverlapResult = checkMembershipOverlap(member.membership, startDate, endDate)
+  // Check if new membership is not overlaping with different already existing memberships.
+  if (membershipOverlapResult) {
+    return membershipOverlapResult
+  }
+  return null // Return null when no error
 }
 
 function sortMembershipsByDate(memberships) {
@@ -652,7 +676,9 @@ function formatDateWithDots(inputDate) {
 }
 
 function formatDateToISO(date) {
-  return new Date(date.split(".").reverse().join("-"))
+  const formattedDate = new Date(date.split(".").reverse().join("-"))
+  formattedDate.setHours(0, 0, 0, 0)
+  return formattedDate
 }
 
 function formatMemberID(memberID) {
