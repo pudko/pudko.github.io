@@ -610,8 +610,8 @@ async function validateNewMemberInputs(memberID, startDate, endDate) {
 function checkMembershipOverlap(memberships, newStartDate, newEndDate) {
   for (const membership of memberships) {
     if (
-      newStartDate < formatDateToISO(membership.endDate) &&
-      newEndDate > formatDateToISO(membership.startDate)
+      newStartDate <= formatDateToISO(membership.endDate) &&
+      newEndDate >= formatDateToISO(membership.startDate)
     ) {
       return `V tomto období už je evidované predplatné: ${membership.startDate} - ${membership.endDate}`
     }
