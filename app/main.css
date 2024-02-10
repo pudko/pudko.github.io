@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;700&display=swap");
 
 * {
   font-family: "Bai Jamjuree", sans-serif;
@@ -268,26 +268,29 @@ li {
   background-color: #f4f4f4;
 }
 .member-detail .memberships-container .membership.pre-purchased {
-  outline: 3px solid #ff9c1b;
-  background-color: #fff1de;
+  background-color: #bfcce4;
+  border: 5px solid #486dae;
 }
+
 .member-detail .memberships-container .membership.active {
-  outline: 3px solid #18d77b;
-  background-color: #e0fff0;
+  background-color: #d5f0ed;
+  border: 5px solid #66b0a9;
 }
 .member-detail .memberships-container .membership.expired {
-  outline: 3px solid #b31f1f;
-  background-color: #ffcece;
+  background-color: #ecdad5;
+  border: 5px solid #dc765a;
 }
 
 .member-detail .memberships-container .membership .title {
   margin-bottom: 10px;
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 500;
   color: #8a8a8a;
 }
 
 .member-detail .memberships-container .membership .value {
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 500;
   color: #1e1b1b;
 }
 
