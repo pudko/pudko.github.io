@@ -402,7 +402,7 @@ async function handleRenewMembership() {
     return
   }
 
-  // renew(memberID, member, memberStartDateFormatted, memberEndDateFormatted)
+  renew(memberID, member, memberStartDateFormatted, memberEndDateFormatted)
 
   validationLabel.style.color = "green"
   validationLabel.textContent = "Nové predplatné pre: " + memberID
