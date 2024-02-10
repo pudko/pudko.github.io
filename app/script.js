@@ -95,35 +95,44 @@ async function generateMembersList() {
   }
 }
 
-async function generateMembershipList(userID) {
+async function handleMembershipList(userID) {
   const allMemberships = document.getElementById("all-memberships")
   const userData = await getUser(userID)
-  const memberships = userData.membership
-  for (i in memberships) {
+  let memberships = userData.membership
+
+  memberships = calculateMembershipsStatus(memberships)
+  memberships = sortMembershipsByDate(memberships)
+
+  memberships.forEach((membership) => {
+    const isPrePurchased = membership.isPrePurchased ? "pre-purchased" : ""
+    const isActiveClass = membership.isActive ? "active" : ""
+    const isExpiredClass = membership.isExpired ? "expired" : ""
+
+    const membershipClass = `membership ${isPrePurchased}${isActiveClass}${isExpiredClass}`
+
     allMemberships.innerHTML += `
-    <li class="membership">
+    <li class="${membershipClass}">
       <ul class="customer-membership-start">
         <li class="title">Dátum začatia predplatného</li>
-        <li class="value">${memberships[i].startDate}</li>
+        <li class="value">${membership.startDate}</li>
       </ul>
       <ul class="customer-membership-end">
         <li class="title">Predplatné uplynie</li>
-        <li class="value">${memberships[i].endDate}</li>
+        <li class="value">${membership.endDate}</li>
       </ul>
       <ul class="customer-training-count">
         <li class="title">Počet absolbovaných tréningov</li>
-        <li class="value">${memberships[i].trainingCounter}</li>
+        <li class="value">${membership.trainingCounter}</li>
       </ul>
     </li>
     `
-    console.log(memberships[i])
-  }
+  })
 }
 
 function renderAdmin() {
   const currentURL = new URL(window.location.href)
   const currentParams = new URLSearchParams(currentURL.search)
-  const userParam = currentURL.searchParams.get("user")
+  const memberID = currentURL.searchParams.get("user")
   const action = currentURL.searchParams.get("action")
 
   const content = document.getElementById("content")
@@ -164,7 +173,7 @@ function renderAdmin() {
         <div class="member-icon-container">
           <object class="icon" type="image/svg+xml" data="assets/images/person-icon.svg"></object>
         </div>
-        <div id="member-id">${userParam}</div>
+        <div id="member-id">${memberID}</div>
         <div class="membership-status">ČLENSTVO AKTÍVNE</div>
       </header>
       <div class="member-detail">
@@ -187,7 +196,7 @@ function renderAdmin() {
         <div class="member-icon-container">
           <object class="icon" type="image/svg+xml" data="assets/images/person-icon.svg"></object>
         </div>
-        <div class="member-id">ID: ${userParam}</div>
+        <div class="member-id">ID: ${memberID}</div>
       </div>
       <div class="renew-membership-form">
         <div class="input-container">
@@ -197,7 +206,7 @@ function renderAdmin() {
             onBlur="(!this.value ? this.type='text' : null)"
             type="text"
             placeholder="Začiatočný dátum členstva"
-            id="member-renew-membership-start-date"
+            id="renew-membership-start-date"
           />
         </div>
         <div class="input-container">
@@ -207,10 +216,11 @@ function renderAdmin() {
             onBlur="(!this.value ? this.type='text' : null)"
             type="text"
             placeholder="Konečný dátum členstva"
-            id="member-renew-membership-end-date"
+            id="renew-membership-end-date"
           />
         </div>
-        <button type="submit">POTVRDIŤ</button>
+        <button onClick="handleRenewMembership()">POTVRDIŤ</button>
+        <div id="renew-membership-validation-info"></div>
       </div>
     </div>
   </div>
@@ -262,7 +272,7 @@ function renderAdmin() {
   const loginData = getLoginData()
 
   if (loginData) {
-    if (userParam !== null) {
+    if (memberID !== null) {
       paramsCount++
       if (action === "renew") {
         paramsCount++
@@ -271,7 +281,7 @@ function renderAdmin() {
         window.location.href = "https://playinmove.sk"
       } else {
         content.innerHTML = userDetailTemplate
-        generateMembershipList(userParam)
+        handleMembershipList(memberID)
       }
     } else if (action === "newUser") {
       paramsCount++
@@ -310,39 +320,44 @@ function clearQueryParams() {
   history.pushState({}, "", currentURL.toString())
 }
 
-function handleCreateNewMember() {
+async function handleCreateNewMember() {
   // Get user Inputs
   const memberIDInput = document.getElementById("new-member-id")
   const memberStartDateInput = document.getElementById("member-membership-start-date")
   const memberEndDateInput = document.getElementById("member-membership-end-date")
 
   // Validation info text <div> (shows value if there is a validation errror or success)
-  const newCustomerValidationInfo = document.getElementById("new-member-validation-info")
+  const newMemberValidationInfo = document.getElementById("new-member-validation-info")
 
   // Create date
   const memberStartDate = new Date(memberStartDateInput.value)
   const memberEndDate = new Date(memberEndDateInput.value)
 
-  // Format memberID - delete spaces
+  // Format memberID - delete spaces, toUpperCase()
   // Format memberStartDateInput && memberEndDateInput - (dd.MM.yyyy)
-  const memberIDFormatted = removeWhiteSpacesFromString(memberIDInput.value)
+  const memberIDFormatted = formatMemberID(memberIDInput.value)
   const memberStartDateFormatted = formatDateWithDots(memberStartDate)
   const memberEndDateFormatted = formatDateWithDots(memberEndDate)
 
   // Validate inputs - return error string or null
-  const validationError = validateNewMemberInputs(memberIDFormatted, memberStartDate, memberEndDate)
+  const validationError = await validateNewMemberInputs(
+    memberIDFormatted,
+    memberStartDate,
+    memberEndDate
+  )
 
+  // Set textContent to error.
   if (validationError) {
-    newCustomerValidationInfo.style.color = "red"
-    newCustomerValidationInfo.textContent = validationError
+    newMemberValidationInfo.style.color = "red"
+    newMemberValidationInfo.textContent = validationError
     return
   }
-  // TODO CRITICAL - Check if memberIDFormatted is unique amongs all users
+
   newMember(memberIDFormatted, memberStartDateFormatted, memberEndDateFormatted)
 
   // TODO HIGH - Add succes info to PATCH - response.ok instead.
-  newCustomerValidationInfo.style.color = "green"
-  newCustomerValidationInfo.textContent = memberIDFormatted + " úspešne pridaný!"
+  newMemberValidationInfo.style.color = "green"
+  newMemberValidationInfo.textContent = memberIDFormatted + " úspešne pridaný!"
 
   // Reset inputs to null
   memberIDInput.value = null
@@ -357,6 +372,84 @@ function handleCreateNewMember() {
   memberEndDateInput.focus()
   memberEndDateInput.value = null
   memberEndDateInput.blur()
+}
+
+async function handleRenewMembership() {
+  const memberID = getUserIDFromParams()
+  const memberStartDateInput = document.getElementById("renew-membership-start-date")
+  const memberEndDateInput = document.getElementById("renew-membership-end-date")
+
+  const renewMembershipValidationInfo = document.getElementById("renew-membership-validation-info")
+
+  // Create date
+  const memberStartDate = new Date(memberStartDateInput.value)
+  const memberEndDate = new Date(memberEndDateInput.value)
+
+  // Format memberStartDateInput && memberEndDateInput - (dd.MM.yyyy)
+  const memberStartDateFormatted = formatDateWithDots(memberStartDate)
+  const memberEndDateFormatted = formatDateWithDots(memberEndDate)
+
+  const validationError = validateRenewMembershipInputs(memberStartDate, memberEndDate)
+
+  if (validationError) {
+    renewMembershipValidationInfo.style.color = "red"
+    renewMembershipValidationInfo.textContent = validationError
+    return
+  }
+
+  const member = await getUser(memberID)
+
+  if (!member) {
+    renewMembershipValidationInfo.style.color = "red"
+    renewMembershipValidationInfo.textContent = "ID neexistuje"
+    return
+  }
+
+  // renew(memberID, member, memberStartDateFormatted, memberEndDateFormatted)
+
+  renewMembershipValidationInfo.style.color = "green"
+  renewMembershipValidationInfo.textContent = "Nové predplatné pre: " + memberID
+}
+
+function renew(id, current, startDate, endDate) {
+  let newMembership = current
+  newMembership.membership.push({
+    startDate: startDate,
+    endDate: endDate,
+    trainingCounter: 0,
+  })
+
+  callRenew(id, newMembership)
+}
+
+async function callRenew(id, newData) {
+  const loginData = getLoginData()
+  if (loginData) {
+    const idToken = await auth(loginData.email, loginData.password)
+    try {
+      const response = await fetch(
+        `https://playinmove-default-rtdb.europe-west1.firebasedatabase.app/users/${id}.json?auth=${idToken}`,
+        {
+          method: "PATCH",
+          body: JSON.stringify(newData),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      )
+      if (response.ok) {
+        console.log("Membership added")
+      } else {
+        console.log("Something went wrong")
+      }
+    } catch (error) {
+      console.error("Error:", error.message)
+    }
+  }
+  //call auth - get idToken
+  // PATH method
+  //https://playinmove-default-rtdb.europe-west1.firebasedatabase.app/users/USER_ID.json?auth=ADD_ID_TOKEN
+  //body newData
 }
 
 function newMember(id, startDate, endDate) {
@@ -401,27 +494,6 @@ async function callNewMembership(newMembership) {
   // PATH method
   //https://playinmove-default-rtdb.europe-west1.firebasedatabase.app/users.json?auth=ADD_ID_TOKEN
   // body newMembership
-}
-
-function renew(id, current, startDate, endDate) {
-  let newMembership = current
-  newMembership.membership.push({
-    startDate: startDate,
-    endDate: endDate,
-    trainingCounter: 0,
-  })
-
-  callRenew(id, newMembership)
-}
-
-function callRenew(id, newData) {
-  const loginData = getLoginData()
-  if (loginData) {
-  }
-  //call auth - get idToken
-  // PATH method
-  //https://playinmove-default-rtdb.europe-west1.firebasedatabase.app/users/USER_ID.json?auth=ADD_ID_TOKEN
-  //body newData
 }
 
 async function getUser(id) {
@@ -475,37 +547,96 @@ async function getUserList() {
 
 // COMPOSABLES
 //
-function isValidDate(date) {
+async function getUserIDsList() {
+  const users = await getUserList()
+  const userIDsList = []
+  for (id in users) {
+    userIDsList.push(id.toUpperCase())
+  }
+  return userIDsList
+}
+
+async function isIDUnique(id) {
+  const userIDsList = await getUserIDsList()
+  return !userIDsList.includes(formatMemberID(id))
+}
+
+function getUserIDFromParams() {
+  const currentURL = new URL(window.location.href)
+  return currentURL.searchParams.get("user") || null
+}
+
+function isDate(date) {
   return date instanceof Date && !isNaN(date) && date.toString() !== "Invalid Date"
 }
 
-function validateNewMemberInputs(memberID, startDate, endDate) {
-  // Check if any input is empty
-  if (!memberID || !isValidDate(startDate) || !isValidDate(endDate)) {
-    return "Vyplň všetky polia."
-  }
-
-  const startDateTimestamp = startDate.getTime()
-  const endDateTimestamp = endDate.getTime()
-
+function validateMembershipDates(startDate, endDate) {
+  currentDate = new Date()
+  currentDate.setHours(0, 0, 0, 0)
+  startDate.setHours(0, 0, 0, 0)
+  endDate.setHours(0, 0, 0, 0)
   // Check if endDate is later than startDate
-  if (startDateTimestamp > endDateTimestamp) {
+  if (startDate > endDate) {
     return "Konečný dátum musí byť väčší."
   }
-
   // Check if endDate is in the future
-  // TODO MEDIUM - Make endDate to not have to be +1 day from today
-  if (new Date().getTime() > endDateTimestamp) {
+  if (currentDate > endDate) {
     return "Konečný dátum musí byť v budúcnosti."
+  }
+
+  if (!isDate(startDate) || !isDate(endDate)) {
+    return "Dátum nesmie byť prázdny."
   }
 
   return null
 }
 
+async function validateNewMemberInputs(memberID, startDate, endDate) {
+  // Check if any input is empty
+  if (!memberID) {
+    return "ID nesmie byť prázdne!"
+  }
+
+  const isUnique = await isIDUnique(memberID)
+  if (!isUnique) {
+    return "Používateľ s rovnakým ID už existuje!"
+  }
+
+  return validateMembershipDates(startDate, endDate)
+}
+
+function validateRenewMembershipInputs(startDate, endDate) {
+  // Check if any input is empty
+  return validateMembershipDates(startDate, endDate)
+}
+
+function sortMembershipsByDate(memberships) {
+  return memberships.sort((a, b) => {
+    const dateA = new Date(a.startDate.split(".").reverse().join("-"))
+    const dateB = new Date(b.startDate.split(".").reverse().join("-"))
+    return dateB - dateA
+  })
+}
+
+function calculateMembershipsStatus(memberships) {
+  const currentDate = new Date()
+  currentDate.setHours(0, 0, 0, 0)
+
+  return memberships.map((membership) => ({
+    endDate: membership.endDate,
+    startDate: membership.startDate,
+    trainingCounter: membership.trainingCounter,
+    isPrePurchased: currentDate < formatDateToISO(membership.startDate),
+    isActive:
+      currentDate >= formatDateToISO(membership.startDate) &&
+      currentDate <= formatDateToISO(membership.endDate),
+    isExpired: currentDate > formatDateToISO(membership.endDate),
+  }))
+}
+
 function formatDateWithDots(inputDate) {
   // Parse the input date string and create a Date object
   const date = new Date(inputDate)
-
   // Check if the date is valid
   if (isNaN(date.getDate())) {
     return null
@@ -514,11 +645,18 @@ function formatDateWithDots(inputDate) {
   const day = date.getDate()
   const month = date.getMonth() + 1 // Note: months are zero-based
   const year = date.getFullYear()
-
   // Format the date string with dots
   const formattedDate = `${day}.${month}.${year}`
 
   return formattedDate
+}
+
+function formatDateToISO(date) {
+  return new Date(date.split(".").reverse().join("-"))
+}
+
+function formatMemberID(memberID) {
+  return removeWhiteSpacesFromString(memberID).toUpperCase()
 }
 
 function removeWhiteSpacesFromString(input) {
@@ -535,18 +673,18 @@ function listenPopState() {
     renderAdmin()
   })
 
-  document.addEventListener("click", (event) => {
-    const currentURL = new URL(window.location.href)
-    const action = currentURL.searchParams.get("action")
+  // document.addEventListener("click", (event) => {
+  //   const currentURL = new URL(window.location.href)
+  //   const action = currentURL.searchParams.get("action")
 
-    const newCustomerValidationInfo = document.getElementById("new-member-validation-info")
-    const createUserButton = document.getElementById("create-user-button")
+  //   const newMemberValidationInfo = document.getElementById("new-member-validation-info")
+  //   const createUserButton = document.getElementById("create-user-button")
 
-    // Clear the newCustomerValidationInfo to null when click anywhere expect createUserButton
-    if (event.target !== createUserButton && action === "newUser") {
-      newCustomerValidationInfo.textContent = null
-    }
-  })
+  //   // Clear the newMemberValidationInfo to null when click anywhere expect createUserButton
+  //   if (event.target !== createUserButton && action === "newUser") {
+  //     newMemberValidationInfo.textContent = null
+  //   }
+  // })
 }
 //
 // /LISTERS

@@ -267,6 +267,18 @@ li {
   border-radius: 12px;
   background-color: #f4f4f4;
 }
+.member-detail .memberships-container .membership.pre-purchased {
+  outline: 3px solid #ff9c1b;
+  background-color: #fff1de;
+}
+.member-detail .memberships-container .membership.active {
+  outline: 3px solid #18d77b;
+  background-color: #e0fff0;
+}
+.member-detail .memberships-container .membership.expired {
+  outline: 3px solid #b31f1f;
+  background-color: #ffcece;
+}
 
 .member-detail .memberships-container .membership .title {
   margin-bottom: 10px;
