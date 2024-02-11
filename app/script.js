@@ -81,12 +81,41 @@ function clearLogin() {
 
 async function generateMembersList() {
   const membersList = document.getElementById("members-list")
-  const allMembers = await getUserList()
+  let allMembers = await getUserList()
+
+  let membershipsWithStatus = {}
+
+  for (memberID of Object.keys(allMembers)) {
+    membershipsWithStatus[memberID] = {
+      membership: calculateMembershipsStatus(allMembers[memberID]),
+    }
+  }
+
+  allMembers = membershipsWithStatus
+
+  function getStatus() {
+    let prePurchased = false
+
+    for (membership of allMembers[id].membership) {
+      if (membership.isActive) {
+        return "active"
+      }
+      if (membership.isPrePurchased) {
+        prePurchased = true
+      }
+    }
+    return prePurchased ? "pre-purchased" : "expired"
+  }
+
   for (id in allMembers) {
+    console.log("ID: " + id)
+
+    const statusClass = getStatus()
+
     membersList.innerHTML += `
     <li class="member">
-      <div class="member-icon-container">
-        <object class="icon" type="image/svg+xml" data="assets/images/person-icon.svg"></object>
+      <div class="member-icon-container ${statusClass}">
+        <object class="icon" type="image/svg+xml" data="assets/images/person-icon-white.svg"></object>
       </div>
       <div class="member-id">ID: ${id}</div>
       <button onClick='addQueryParam("user", "${id}")' class="member-info-button">Informácie</button>
@@ -414,13 +443,13 @@ async function handleRenewMembership() {
 }
 
 function renew(id, memberships, startDate, endDate) {
-  let newmemberships = memberships
-  newmemberships.membership.push({
+  let newMemberships = memberships
+  newMemberships.membership.push({
     startDate: startDate,
     endDate: endDate,
     trainingCounter: 0,
   })
-  callRenew(id, newmemberships)
+  callRenew(id, newMemberships)
 }
 
 async function callRenew(id, newData) {
@@ -681,11 +710,11 @@ function sortMembershipsByDate(memberships) {
   })
 }
 
-function calculateMembershipsStatus(memberships) {
+function calculateMembershipsStatus(member) {
   const currentDate = new Date()
   currentDate.setHours(0, 0, 0, 0)
 
-  return memberships.membership.map((membership) => ({
+  return member.membership.map((membership) => ({
     endDate: membership.endDate,
     startDate: membership.startDate,
     trainingCounter: membership.trainingCounter,

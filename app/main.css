@@ -142,6 +142,16 @@ li {
   background-color: white;
 }
 
+.member-icon-container.active {
+  background-color: #66b0a9;
+}
+.member-icon-container.pre-purchased {
+  background-color: #486dae;
+}
+.member-icon-container.expired {
+  background-color: #dc765a;
+}
+
 .member-id {
   margin-left: 17px;
 }
