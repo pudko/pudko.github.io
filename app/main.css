@@ -315,7 +315,7 @@ li {
   padding: 0 15px;
 }
 
-.member-detail .action-buttons .confirm-participation-button {
+.member-detail .action-buttons #confirm-participation-button {
   background-color: #4eb3a9;
 }
 

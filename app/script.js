@@ -98,7 +98,11 @@ async function generateMembersList() {
 async function handleMembershipList(userID) {
   const allMemberships = document.getElementById("all-memberships")
   const userData = await getUser(userID)
-  let memberships = userData.membership
+  let memberships = userData
+
+  document.getElementById("confirm-participation-button").addEventListener("click", function () {
+    incrementTrainingCounter(userID)
+  })
 
   memberships = calculateMembershipsStatus(memberships)
   memberships = sortMembershipsByDate(memberships)
@@ -179,13 +183,14 @@ function renderAdmin() {
       <div class="member-detail">
         <ul id="all-memberships" class="memberships-container"></ul>
         <div class="action-buttons">
-          <button class="confirm-participation-button">POTVRDIŤ ÚČASŤ</button>
+          <button id="confirm-participation-button">POTVRDIŤ ÚČASŤ</button>
           <button onClick='addQueryParam("action", "renew")'>PREDĹŽENIE PREDPLATNÉHO</button>
         </div>
       </div>
     </div
   </div>
     `
+
   const userRenewTemplate = `
   <div class="container-main">
     <div class="container-content-big">
@@ -408,15 +413,14 @@ async function handleRenewMembership() {
   validationLabel.textContent = "Nové predplatné pre: " + memberID
 }
 
-function renew(id, current, startDate, endDate) {
-  let newMembership = current
-  newMembership.membership.push({
+function renew(id, memberships, startDate, endDate) {
+  let newmemberships = memberships
+  newmemberships.membership.push({
     startDate: startDate,
     endDate: endDate,
     trainingCounter: 0,
   })
-
-  callRenew(id, newMembership)
+  callRenew(id, newmemberships)
 }
 
 async function callRenew(id, newData) {
@@ -448,6 +452,41 @@ async function callRenew(id, newData) {
   //https://playinmove-default-rtdb.europe-west1.firebasedatabase.app/users/USER_ID.json?auth=ADD_ID_TOKEN
   //body newData
 }
+
+async function incrementTrainingCounter(memberID) {
+  console.log("sme tu")
+  const userData = await getUser(memberID)
+  const memberships = userData
+  const membershipsWithStatus = calculateMembershipsStatus(memberships)
+
+  const newMemberships = {
+    membership: membershipsWithStatus.map((membership) => ({
+      endDate: membership.endDate,
+      startDate: membership.startDate,
+      trainingCounter: membership.isActive
+        ? (membership.trainingCounter += 1)
+        : membership.trainingCounter,
+    })),
+  }
+
+  await callRenew(memberID, newMemberships)
+
+  renderAdmin()
+}
+
+// function getActiveMembership(memberships) {
+//   const membershipsWithStatus = calculateMembershipsStatus(memberships)
+
+//   for (const membership of membershipsWithStatus) {
+//     if (membership.isActive === true)
+//       return {
+//         endDate: membership.endDate,
+//         startDate: membership.startDate,
+//         trainingCounter: membership.trainingCounter,
+//       }
+//   }
+//   return null
+// }
 
 function newMember(id, startDate, endDate) {
   let newMembership = {}
@@ -646,7 +685,7 @@ function calculateMembershipsStatus(memberships) {
   const currentDate = new Date()
   currentDate.setHours(0, 0, 0, 0)
 
-  return memberships.map((membership) => ({
+  return memberships.membership.map((membership) => ({
     endDate: membership.endDate,
     startDate: membership.startDate,
     trainingCounter: membership.trainingCounter,
