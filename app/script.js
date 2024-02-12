@@ -79,12 +79,12 @@ function clearLogin() {
   localStorage.removeItem("password")
 }
 
-function getUserStatus(member) {
+function getUserStatus(memberships) {
   let isActive = false
   let isPrePurchased = false
   let isSoonExpiring = false
 
-  for (membership of member) {
+  for (membership of memberships) {
     if (membership.isActive && membership.isSoonExpiring) {
       isSoonExpiring = true
     }
@@ -106,26 +106,26 @@ function getUserStatus(member) {
   }
 }
 
-async function generateMembersList() {
-  const membersList = document.getElementById("members-list")
-  let allMembers = await getUserList()
+async function generateUserList() {
+  const userList = document.getElementById("members-list")
+  let allUsers = await getUserList()
 
   let membershipsWithStatus = {}
 
-  for (memberID of Object.keys(allMembers)) {
-    membershipsWithStatus[memberID] = {
-      membership: calculateMembershipsStatus(allMembers[memberID]),
+  for (userID of Object.keys(allUsers)) {
+    membershipsWithStatus[userID] = {
+      membership: calculateMembershipsStatus(allUsers[userID]),
     }
   }
 
-  allMembers = membershipsWithStatus
+  allUsers = membershipsWithStatus
 
-  for (id in allMembers) {
+  for (id in allUsers) {
     console.log("ID: " + id)
 
-    const statusClass = getUserStatus(allMembers[id].membership)
+    const statusClass = getUserStatus(allUsers[id].membership)
 
-    membersList.innerHTML += `
+    userList.innerHTML += `
     <li class="member">
       <div class="member-icon-container ${statusClass}">
         <object class="icon" type="image/svg+xml" data="assets/images/person-icon-white.svg"></object>
@@ -139,19 +139,17 @@ async function generateMembersList() {
 
 async function handleMembershipList(userID) {
   const allMemberships = document.getElementById("all-memberships")
-  const userData = await getUser(userID)
-  let memberships = userData
+  let userData = await getUser(userID)
 
   document.getElementById("confirm-participation-button").addEventListener("click", function () {
     incrementTrainingCounter(userID)
   })
 
-  memberships = calculateMembershipsStatus(memberships)
-  memberships = sortMembershipsByDate(memberships)
-  console.log(memberships)
+  userData = sortMembershipsByDate(calculateMembershipsStatus(userData))
+  console.log(userData)
   const statusLabel = document.getElementById("membership-status")
 
-  switch (getUserStatus(memberships)) {
+  switch (getUserStatus(userData)) {
     case "expire-soon":
       statusLabel.textContent = "ČOSKORO VYPRŠÍ"
       statusLabel.style.backgroundColor = "#E8A141"
@@ -174,7 +172,7 @@ async function handleMembershipList(userID) {
   }
   statusLabel.style.display = "flex"
 
-  memberships.forEach((membership) => {
+  userData.forEach((membership) => {
     const isPrePurchased = membership.isPrePurchased ? "pre-purchased" : ""
     const isActiveClass = membership.isActive ? "active" : ""
     const isExpiredClass = membership.isExpired ? "expired" : ""
@@ -203,7 +201,7 @@ async function handleMembershipList(userID) {
 function renderAdmin() {
   const currentURL = new URL(window.location.href)
   const currentParams = new URLSearchParams(currentURL.search)
-  const memberID = currentURL.searchParams.get("user")
+  const userID = currentURL.searchParams.get("user")
   const action = currentURL.searchParams.get("action")
 
   const content = document.getElementById("content")
@@ -225,7 +223,7 @@ function renderAdmin() {
     </div>
   </div>`
 
-  const usersListTemplate = `
+  const userListTemplate = `
   <div class="container-main">
     <div class="container-content-small">
         <ul id="members-list"></ul>
@@ -244,7 +242,7 @@ function renderAdmin() {
         <div class="member-icon-container">
           <object class="icon" type="image/svg+xml" data="assets/images/person-icon.svg"></object>
         </div>
-        <div id="member-id">${memberID}</div>
+        <div id="member-id">${userID}</div>
         <div id="membership-status"></div>
       </header>
       <div class="member-detail">
@@ -268,7 +266,7 @@ function renderAdmin() {
         <div class="member-icon-container">
           <object class="icon" type="image/svg+xml" data="assets/images/person-icon.svg"></object>
         </div>
-        <div class="member-id">ID: ${memberID}</div>
+        <div class="member-id">ID: ${userID}</div>
       </div>
       <div class="renew-membership-form">
         <div class="input-container">
@@ -344,7 +342,7 @@ function renderAdmin() {
   const loginData = getLoginData()
 
   if (loginData) {
-    if (memberID !== null) {
+    if (userID !== null) {
       paramsCount++
       if (action === "renew") {
         paramsCount++
@@ -353,14 +351,14 @@ function renderAdmin() {
         window.location.href = "https://playinmove.sk"
       } else {
         content.innerHTML = userDetailTemplate
-        handleMembershipList(memberID)
+        handleMembershipList(userID)
       }
     } else if (action === "newUser") {
       paramsCount++
       content.innerHTML = userRegistrationTemplate
     } else {
-      content.innerHTML = usersListTemplate
-      generateMembersList()
+      content.innerHTML = userListTemplate
+      generateUserList()
       clearQueryParams()
     }
   } else {
@@ -405,7 +403,7 @@ async function handleCreateNewMember() {
   const startDate = new Date(startDateInput.value)
   const endDate = new Date(endDateInput.value)
 
-  // Format memberID - delete spaces, toUpperCase()
+  // Format userID - delete spaces, toUpperCase()
   // Format startDateInput && endDateInput - (dd.MM.yyyy)
   const memberIDFormatted = formatMemberID(memberIDInput.value)
   const memberStartDateFormatted = formatDateWithDots(startDate)
@@ -443,7 +441,7 @@ async function handleCreateNewMember() {
 }
 
 async function handleRenewMembership() {
-  const memberID = getUserIDFromParams()
+  const userID = getUserIDFromParams()
   const startDateInput = document.getElementById("renew-membership-start-date")
   const endDateInput = document.getElementById("renew-membership-end-date")
 
@@ -457,10 +455,10 @@ async function handleRenewMembership() {
   const memberStartDateFormatted = formatDateWithDots(startDate)
   const memberEndDateFormatted = formatDateWithDots(endDate)
 
-  // Get Member object
-  const member = await getUser(memberID)
+  // Get User object
+  const userData = await getUser(userID)
 
-  const validationError = validateRenewMembership(member, startDate, endDate)
+  const validationError = validateRenewMembership(userData, startDate, endDate)
 
   if (validationError) {
     validationLabel.style.color = "red"
@@ -468,16 +466,16 @@ async function handleRenewMembership() {
     return
   }
 
-  if (!member) {
+  if (!userData) {
     validationLabel.style.color = "red"
     validationLabel.textContent = "ID neexistuje"
     return
   }
 
-  renew(memberID, member, memberStartDateFormatted, memberEndDateFormatted)
+  renew(userID, userData, memberStartDateFormatted, memberEndDateFormatted)
 
   validationLabel.style.color = "green"
-  validationLabel.textContent = "Nové predplatné pre: " + memberID
+  validationLabel.textContent = "Nové predplatné pre: " + userID
 }
 
 function renew(id, memberships, startDate, endDate) {
@@ -520,10 +518,9 @@ async function callRenew(id, newData) {
   //body newData
 }
 
-async function incrementTrainingCounter(memberID) {
-  const userData = await getUser(memberID)
-  const memberships = userData
-  const membershipsWithStatus = calculateMembershipsStatus(memberships)
+async function incrementTrainingCounter(userID) {
+  const userData = await getUser(userID)
+  const membershipsWithStatus = calculateMembershipsStatus(userData)
 
   const newMemberships = {
     membership: membershipsWithStatus.map((membership) => ({
@@ -535,7 +532,7 @@ async function incrementTrainingCounter(memberID) {
     })),
   }
 
-  await callRenew(memberID, newMemberships)
+  await callRenew(userID, newMemberships)
 
   renderAdmin()
 }
@@ -693,9 +690,9 @@ function validateMembershipDates(startDate, endDate) {
   return null
 }
 
-async function validateNewMemberInputs(memberID, startDate, endDate) {
+async function validateNewMemberInputs(userID, startDate, endDate) {
   // Check if any input is empty
-  if (!memberID) {
+  if (!userID) {
     return "ID nesmie byť prázdne!"
   }
 
@@ -704,7 +701,7 @@ async function validateNewMemberInputs(memberID, startDate, endDate) {
     return dateValidationResult
   }
 
-  const isUnique = await isIDUnique(memberID)
+  const isUnique = await isIDUnique(userID)
   if (!isUnique) {
     return "Používateľ s rovnakým ID už existuje!"
   }
@@ -724,14 +721,14 @@ function checkMembershipOverlap(memberships, newStartDate, newEndDate) {
   return null // Return null when no error
 }
 
-function validateRenewMembership(member, startDate, endDate) {
+function validateRenewMembership(userData, startDate, endDate) {
   const dateValidationResult = validateMembershipDates(startDate, endDate)
   // Check if date is in the future and is not empty
   if (dateValidationResult) {
     return dateValidationResult
   }
 
-  const membershipOverlapResult = checkMembershipOverlap(member.membership, startDate, endDate)
+  const membershipOverlapResult = checkMembershipOverlap(userData.membership, startDate, endDate)
   // Check if new membership is not overlaping with different already existing memberships.
   if (membershipOverlapResult) {
     return membershipOverlapResult
@@ -747,11 +744,11 @@ function sortMembershipsByDate(memberships) {
   })
 }
 
-function calculateMembershipsStatus(member) {
+function calculateMembershipsStatus(userData) {
   const currentDate = new Date()
   currentDate.setHours(0, 0, 0, 0)
 
-  return member.membership.map((membership) => ({
+  return userData.membership.map((membership) => ({
     endDate: membership.endDate,
     startDate: membership.startDate,
     trainingCounter: membership.trainingCounter,
@@ -797,8 +794,8 @@ function formatDateToISO(date) {
   return formattedDate
 }
 
-function formatMemberID(memberID) {
-  return removeWhiteSpacesFromString(memberID).toUpperCase()
+function formatMemberID(userID) {
+  return removeWhiteSpacesFromString(userID).toUpperCase()
 }
 
 function removeWhiteSpacesFromString(input) {
