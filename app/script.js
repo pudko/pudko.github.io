@@ -79,6 +79,20 @@ function clearLogin() {
   localStorage.removeItem("password")
 }
 
+function getUserStatus(member) {
+  let prePurchased = false
+
+  for (membership of member) {
+    if (membership.isActive) {
+      return "active"
+    }
+    if (membership.isPrePurchased) {
+      prePurchased = true
+    }
+  }
+  return prePurchased ? "pre-purchased" : "expired"
+}
+
 async function generateMembersList() {
   const membersList = document.getElementById("members-list")
   let allMembers = await getUserList()
@@ -93,24 +107,10 @@ async function generateMembersList() {
 
   allMembers = membershipsWithStatus
 
-  function getStatus() {
-    let prePurchased = false
-
-    for (membership of allMembers[id].membership) {
-      if (membership.isActive) {
-        return "active"
-      }
-      if (membership.isPrePurchased) {
-        prePurchased = true
-      }
-    }
-    return prePurchased ? "pre-purchased" : "expired"
-  }
-
   for (id in allMembers) {
     console.log("ID: " + id)
 
-    const statusClass = getStatus()
+    const statusClass = getUserStatus(allMembers[id].membership)
 
     membersList.innerHTML += `
     <li class="member">
@@ -135,6 +135,26 @@ async function handleMembershipList(userID) {
 
   memberships = calculateMembershipsStatus(memberships)
   memberships = sortMembershipsByDate(memberships)
+  const statusLabel = document.getElementById("membership-status")
+
+  switch (getUserStatus(memberships)) {
+    case "active":
+      statusLabel.textContent = "ČLENSTVO AKTÍVNE"
+      statusLabel.style.backgroundColor = "#66b0a9"
+      break
+    case "pre-purchased":
+      statusLabel.textContent = "ČLENSTVO KÚPENÉ"
+      statusLabel.style.backgroundColor = "#486dae"
+      break
+    case "expired":
+      statusLabel.textContent = "ČLENSTVO NEAKTÍVNE"
+      statusLabel.style.backgroundColor = "#dc765a"
+      break
+    default:
+      statusLabel.textContent = "ČLENSTVO NEAKTÍVNE"
+      statusLabel.style.backgroundColor = "#dc765a"
+  }
+  statusLabel.style.display = "flex"
 
   memberships.forEach((membership) => {
     const isPrePurchased = membership.isPrePurchased ? "pre-purchased" : ""
@@ -207,7 +227,7 @@ function renderAdmin() {
           <object class="icon" type="image/svg+xml" data="assets/images/person-icon.svg"></object>
         </div>
         <div id="member-id">${memberID}</div>
-        <div class="membership-status">ČLENSTVO AKTÍVNE</div>
+        <div id="membership-status"></div>
       </header>
       <div class="member-detail">
         <ul id="all-memberships" class="memberships-container"></ul>

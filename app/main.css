@@ -241,8 +241,8 @@ li {
   margin-left: 17px;
 }
 
-.member-header .membership-status {
-  display: flex;
+.member-header #membership-status {
+  display: none;
   place-items: center;
   height: 32px;
   margin-left: auto;
