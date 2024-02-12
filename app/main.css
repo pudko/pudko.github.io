@@ -145,6 +145,9 @@ li {
 .member-icon-container.active {
   background-color: #66b0a9;
 }
+.member-icon-container.expire-soon {
+  background-color: #e8a141;
+}
 .member-icon-container.pre-purchased {
   background-color: #486dae;
 }

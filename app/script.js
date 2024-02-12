@@ -80,17 +80,30 @@ function clearLogin() {
 }
 
 function getUserStatus(member) {
-  let prePurchased = false
+  let isActive = false
+  let isPrePurchased = false
+  let isSoonExpiring = false
 
   for (membership of member) {
+    if (membership.isActive && membership.isSoonExpiring) {
+      isSoonExpiring = true
+    }
     if (membership.isActive) {
-      return "active"
+      isActive = true
     }
     if (membership.isPrePurchased) {
-      prePurchased = true
+      isPrePurchased = true
     }
   }
-  return prePurchased ? "pre-purchased" : "expired"
+  if (isSoonExpiring && !isPrePurchased) {
+    return "expire-soon"
+  } else if (isActive) {
+    return "active"
+  } else if (isPrePurchased) {
+    return "pre-purchased"
+  } else {
+    return "expired"
+  }
 }
 
 async function generateMembersList() {
@@ -135,9 +148,14 @@ async function handleMembershipList(userID) {
 
   memberships = calculateMembershipsStatus(memberships)
   memberships = sortMembershipsByDate(memberships)
+  console.log(memberships)
   const statusLabel = document.getElementById("membership-status")
 
   switch (getUserStatus(memberships)) {
+    case "expire-soon":
+      statusLabel.textContent = "ČOSKORO VYPRŠÍ"
+      statusLabel.style.backgroundColor = "#E8A141"
+      break
     case "active":
       statusLabel.textContent = "ČLENSTVO AKTÍVNE"
       statusLabel.style.backgroundColor = "#66b0a9"
@@ -503,7 +521,6 @@ async function callRenew(id, newData) {
 }
 
 async function incrementTrainingCounter(memberID) {
-  console.log("sme tu")
   const userData = await getUser(memberID)
   const memberships = userData
   const membershipsWithStatus = calculateMembershipsStatus(memberships)
@@ -742,8 +759,19 @@ function calculateMembershipsStatus(member) {
     isActive:
       currentDate >= formatDateToISO(membership.startDate) &&
       currentDate <= formatDateToISO(membership.endDate),
+    isSoonExpiring:
+      currentDate >= formatDateToISO(membership.startDate) &&
+      currentDate <= formatDateToISO(membership.endDate) &&
+      getDateDifferenceInDays(currentDate, formatDateToISO(membership.endDate)) < 5,
     isExpired: currentDate > formatDateToISO(membership.endDate),
   }))
+}
+
+// Function to calculate the difference between two dates
+function getDateDifferenceInDays(date1, date2) {
+  const millisecondsPerDay = 24 * 60 * 60 * 1000
+  const differenceInMillis = Math.abs(date1 - date2)
+  return Math.floor(differenceInMillis / millisecondsPerDay)
 }
 
 function formatDateWithDots(inputDate) {
