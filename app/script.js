@@ -86,12 +86,18 @@ function getUserStatus(memberships) {
   let index = 0
 
   for (const membership of memberships) {
-    if (membership.isActive && membership.isSoonExpiring) {
-      isSoonExpiring = true
+    if (membership.isSoonExpiring && membership.isActive) {
+      if (
+        !memberships[index - 1] ||
+        getDateDifferenceInDays(
+          formatDateToISO(membership.endDate),
+          formatDateToISO(memberships[index - 1].startDate)
+        ) > 1
+      ) {
+        isSoonExpiring = true
+      }
     }
     if (membership.isActive) {
-      console.log("getUserStatus")
-      console.log(memberships[index - 1])
       isActive = true
     }
     if (membership.isPrePurchased) {
@@ -118,7 +124,7 @@ async function generateUserList() {
 
   for (userID of Object.keys(allUsers)) {
     membershipsWithStatus[userID] = {
-      membership: calculateMembershipsStatus(allUsers[userID]),
+      membership: sortMembershipsByDate(calculateMembershipsStatus(allUsers[userID])),
     }
   }
 
