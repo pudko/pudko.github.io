@@ -119,7 +119,7 @@ li {
 
 #members-list {
   margin-top: 20px;
-  height: calc(100% - 150px);
+  height: calc(100vh - 130px);
   overflow-x: scroll;
 }
 

@@ -83,19 +83,23 @@ function getUserStatus(memberships) {
   let isActive = false
   let isPrePurchased = false
   let isSoonExpiring = false
+  let index = 0
 
-  for (membership of memberships) {
+  for (const membership of memberships) {
     if (membership.isActive && membership.isSoonExpiring) {
       isSoonExpiring = true
     }
     if (membership.isActive) {
+      console.log("getUserStatus")
+      console.log(memberships[index - 1])
       isActive = true
     }
     if (membership.isPrePurchased) {
       isPrePurchased = true
     }
+    index++
   }
-  if (isSoonExpiring && !isPrePurchased) {
+  if (isSoonExpiring) {
     return "expire-soon"
   } else if (isActive) {
     return "active"
@@ -121,8 +125,6 @@ async function generateUserList() {
   allUsers = membershipsWithStatus
 
   for (id in allUsers) {
-    console.log("ID: " + id)
-
     const statusClass = getUserStatus(allUsers[id].membership)
 
     userList.innerHTML += `
