@@ -47,10 +47,23 @@ async function checkLogin() {
     }
     return false
   }
+  return false
 }
 
 async function renderAdminPanel() {
-  if (checkLogin()) {
+  if (await checkLogin()) {
+    const userDetail = document.getElementById("member-detail")
+    const userID = getUserIDFromParams()
+
+    userDetail.innerHTML += `
+    <div class="action-buttons">
+      <button id="confirm-participation-button">POTVRDIŤ ÚČASŤ</button>
+      <a href="admin.html?user=${userID}&action=renew">PREDĹŽENIE PREDPLATNÉHO</a>
+    </div>
+  `
+    document.getElementById("confirm-participation-button").addEventListener("click", function () {
+      incrementTrainingCounter(userID)
+    })
     //getelementyid
     //getelementitd.innnerhtml = templatePanel
   }
@@ -139,19 +152,16 @@ async function generateUserList() {
         <object class="icon" type="image/svg+xml" data="assets/images/person-icon-white.svg"></object>
       </div>
       <div class="member-id">ID: ${id}</div>
-      <button onClick='addQueryParam("user", "${id}")' class="member-info-button">Informácie</button>
+      <a href="user.html?user=${id}" class="member-info-button">Informácie</a>
     </li>
     `
+    //onClick='addQueryParam("user", "${id}")'
   }
 }
 
 async function handleMembershipList(userID) {
   const allMemberships = document.getElementById("all-memberships")
   let userData = await getUser(userID)
-
-  document.getElementById("confirm-participation-button").addEventListener("click", function () {
-    incrementTrainingCounter(userID)
-  })
 
   userData = sortMembershipsByDate(calculateMembershipsStatus(userData))
   console.log(userData)
@@ -206,7 +216,40 @@ async function handleMembershipList(userID) {
   })
 }
 
-function renderAdmin() {
+async function renderUser() {
+  console.log("Render USER")
+  const currentURL = new URL(window.location.href)
+  const userID = currentURL.searchParams.get("user")
+
+  const userContent = document.getElementById("user-content")
+
+  const userDetailTemplate = `
+  <div class="container-main">
+    <div class="container-content-small">
+      <header class="member-header">
+        <div class="member-icon-container">
+          <object class="icon" type="image/svg+xml" data="assets/images/person-icon.svg"></object>
+        </div>
+        <div id="member-id">${userID}</div>
+        <div id="membership-status"></div>
+      </header>
+      <div id="member-detail">
+        <ul id="all-memberships" class="memberships-container"></ul>
+      </div>
+    </div
+  </div>
+    `
+
+  if (await getUser(userID)) {
+    userContent.innerHTML = userDetailTemplate
+    await handleMembershipList(userID)
+    renderAdminPanel()
+  } else {
+    window.location.href = "https://playinmove.sk"
+  }
+}
+
+async function renderAdmin() {
   const currentURL = new URL(window.location.href)
   const currentParams = new URLSearchParams(currentURL.search)
   const userID = currentURL.searchParams.get("user")
@@ -242,27 +285,6 @@ function renderAdmin() {
         </div>
     </div>
   </div>`
-
-  const userDetailTemplate = `
-  <div class="container-main">
-    <div class="container-content-small">
-      <header class="member-header">
-        <div class="member-icon-container">
-          <object class="icon" type="image/svg+xml" data="assets/images/person-icon.svg"></object>
-        </div>
-        <div id="member-id">${userID}</div>
-        <div id="membership-status"></div>
-      </header>
-      <div class="member-detail">
-        <ul id="all-memberships" class="memberships-container"></ul>
-        <div class="action-buttons">
-          <button id="confirm-participation-button">POTVRDIŤ ÚČASŤ</button>
-          <button onClick='addQueryParam("action", "renew")'>PREDĹŽENIE PREDPLATNÉHO</button>
-        </div>
-      </div>
-    </div
-  </div>
-    `
 
   const userRenewTemplate = `
   <div class="container-main">
@@ -346,23 +368,17 @@ function renderAdmin() {
     </div>  
   </div>
   `
-  let paramsCount = 0
   const loginData = getLoginData()
+  console.log("RenderAdmin")
 
   if (loginData) {
-    if (userID !== null) {
-      paramsCount++
-      if (action === "renew") {
-        paramsCount++
+    if (userID !== null && action === "renew") {
+      if (await getUser(userID)) {
         content.innerHTML = userRenewTemplate
-      } else if (currentParams.size > paramsCount) {
-        window.location.href = "https://playinmove.sk"
       } else {
-        content.innerHTML = userDetailTemplate
-        handleMembershipList(userID)
+        window.location.href = "https://playinmove.sk"
       }
     } else if (action === "newUser") {
-      paramsCount++
       content.innerHTML = userRegistrationTemplate
     } else {
       content.innerHTML = userListTemplate
@@ -542,7 +558,7 @@ async function incrementTrainingCounter(userID) {
 
   await callRenew(userID, newMemberships)
 
-  renderAdmin()
+  renderUser()
 }
 
 // function getActiveMembership(memberships) {
