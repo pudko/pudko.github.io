@@ -332,14 +332,29 @@ li {
 #member-detail .action-buttons button {
   padding: 0 15px;
 }
-#member-detail .action-buttons a {
-  cursor: pointer;
+
+#member-detail .action-buttons .renew-button {
   padding: 10px 15px;
   font-size: 9px;
   font-weight: bold;
   text-decoration: none;
   color: white;
   background-color: #f29f00;
+}
+
+#member-detail .action-buttons .back-button {
+  display: flex;
+  align-items: center;
+  height: 31px;
+  padding: 0 10px;
+  text-decoration: none;
+  background-color: #1e1b1b;
+}
+
+#member-detail .action-buttons .back-button .back-icon {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
 }
 
 #member-detail .action-buttons #confirm-participation-button {
