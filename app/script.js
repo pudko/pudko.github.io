@@ -254,7 +254,6 @@ async function renderUser() {
 
 async function renderAdmin() {
   const currentURL = new URL(window.location.href)
-  const currentParams = new URLSearchParams(currentURL.search)
   const userID = currentURL.searchParams.get("user")
   const action = currentURL.searchParams.get("action")
 
@@ -324,6 +323,8 @@ async function renderAdmin() {
         </div>
         <button onClick="handleRenewMembership()">POTVRDIŤ</button>
         <div id="renew-membership-validation-info"></div>
+        <div id="confirmation-modal"></div>
+        <div id="modal-background"></div>
       </div>
     </div>
   </div>
@@ -499,10 +500,20 @@ async function handleRenewMembership() {
     return
   }
 
-  renew(userID, userData, memberStartDateFormatted, memberEndDateFormatted)
+  const isConfirmed = await openConfimationModal(
+    "Potvrdiť predplatné?",
+    `${memberStartDateFormatted} - ${memberEndDateFormatted}`
+  )
 
-  validationLabel.style.color = "green"
-  validationLabel.textContent = "Nové predplatné pre: " + userID
+  if (isConfirmed) {
+    renew(userID, userData, memberStartDateFormatted, memberEndDateFormatted)
+
+    validationLabel.style.color = "green"
+    validationLabel.textContent = "Nové predplatné pre: " + userID
+  } else {
+    console.log("Renew aborded...")
+    // Perform actions when the user clicks No
+  }
 }
 
 function renew(id, memberships, startDate, endDate) {
@@ -586,12 +597,12 @@ function openConfimationModal(title, description) {
 }
 
 async function incrementTrainingCounter(userID) {
-  const userChoice = await openConfimationModal(
+  const isConfirmed = await openConfimationModal(
     "Potvrdiť účasť?",
     "Účasť bude nenávratne potvrdená."
   )
 
-  if (userChoice) {
+  if (isConfirmed) {
     const userData = await getUser(userID)
     const membershipsWithStatus = calculateMembershipsStatus(userData)
 
@@ -774,9 +785,9 @@ async function validateNewMemberInputs(userID, startDate, endDate) {
     return "ID nesmie byť prázdne!"
   }
 
-  const dateValidationResult = validateMembershipDates(startDate, endDate)
-  if (dateValidationResult) {
-    return dateValidationResult
+  const dateValidationErrors = validateMembershipDates(startDate, endDate)
+  if (dateValidationErrors) {
+    return dateValidationErrors
   }
 
   const isUnique = await isIDUnique(userID)
@@ -800,16 +811,16 @@ function checkMembershipOverlap(memberships, newStartDate, newEndDate) {
 }
 
 function validateRenewMembership(userData, startDate, endDate) {
-  const dateValidationResult = validateMembershipDates(startDate, endDate)
+  const dateValidationErrors = validateMembershipDates(startDate, endDate)
   // Check if date is in the future and is not empty
-  if (dateValidationResult) {
-    return dateValidationResult
+  if (dateValidationErrors) {
+    return dateValidationErrors
   }
 
-  const membershipOverlapResult = checkMembershipOverlap(userData.membership, startDate, endDate)
+  const membershipOverlapErrors = checkMembershipOverlap(userData.membership, startDate, endDate)
   // Check if new membership is not overlaping with different already existing memberships.
-  if (membershipOverlapResult) {
-    return membershipOverlapResult
+  if (membershipOverlapErrors) {
+    return membershipOverlapErrors
   }
   return null // Return null when no error
 }
