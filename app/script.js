@@ -236,6 +236,8 @@ async function renderUser() {
       </header>
       <div id="member-detail">
         <ul id="all-memberships" class="memberships-container"></ul>
+        <div id="confirmation-modal"></div>
+        <div id="modal-background"></div>
       </div>
     </div
   </div>
@@ -543,23 +545,74 @@ async function callRenew(id, newData) {
   //body newData
 }
 
+function openConfimationModal(title, description) {
+  return new Promise((resolve) => {
+    const modal = document.getElementById("confirmation-modal")
+    const modalBackground = document.getElementById("modal-background")
+
+    modalBackground.style.display = "block"
+
+    modal.innerHTML = `
+    <div class="title">${title}</div>
+    <div class="description">${description}</div>
+    <div class="modal-action-buttons">
+      <button id="modal-no">NIE</button>
+      <button id="modal-yes">ÁNO</button>
+    </div>
+    `
+    modal.style.display = "flex"
+
+    const buttonModalYes = document.getElementById("modal-yes")
+    const buttonModalNo = document.getElementById("modal-no")
+
+    function hideModal() {
+      modal.style.display = "none"
+      modal.innerHTML = `` // Hide the modal
+      modalBackground.style.display = "none"
+    }
+
+    // Event listener for the Yes button
+    buttonModalYes.addEventListener("click", () => {
+      hideModal()
+      resolve(true) // Resolve the promise with true
+    })
+
+    // Event listener for the No button
+    buttonModalNo.addEventListener("click", () => {
+      hideModal()
+      resolve(false) // Resolve the promise with false
+    })
+  })
+}
+
 async function incrementTrainingCounter(userID) {
-  const userData = await getUser(userID)
-  const membershipsWithStatus = calculateMembershipsStatus(userData)
+  const userChoice = await openConfimationModal(
+    "Potvrdiť účasť?",
+    "Účasť bude nenávratne potvrdená."
+  )
 
-  const newMemberships = {
-    membership: membershipsWithStatus.map((membership) => ({
-      endDate: membership.endDate,
-      startDate: membership.startDate,
-      trainingCounter: membership.isActive
-        ? (membership.trainingCounter += 1)
-        : membership.trainingCounter,
-    })),
+  if (userChoice) {
+    const userData = await getUser(userID)
+    const membershipsWithStatus = calculateMembershipsStatus(userData)
+
+    const newMemberships = {
+      membership: membershipsWithStatus.map((membership) => ({
+        endDate: membership.endDate,
+        startDate: membership.startDate,
+        trainingCounter: membership.isActive
+          ? (membership.trainingCounter += 1)
+          : membership.trainingCounter,
+      })),
+    }
+
+    await callRenew(userID, newMemberships)
+
+    renderUser()
+    // Perform actions when the user clicks Yes
+  } else {
+    console.log("User clicked No. Aborting...")
+    // Perform actions when the user clicks No
   }
-
-  await callRenew(userID, newMemberships)
-
-  renderUser()
 }
 
 // function getActiveMembership(memberships) {
