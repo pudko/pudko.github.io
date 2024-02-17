@@ -316,11 +316,12 @@ li {
 .member-header #membership-status {
   display: none;
   place-items: center;
-  height: 32px;
+  height: 35px;
   margin-left: auto;
   padding: 0 10px;
   font-size: 10px;
   font-weight: bold;
+  border-radius: 7px;
   background-color: #52b0a9;
 }
 
@@ -401,6 +402,7 @@ li {
   font-size: 10px;
   font-weight: bold;
   text-decoration: none;
+  border-radius: 7px;
   color: white;
   background-color: #f29f00;
 }
@@ -411,6 +413,7 @@ li {
   height: 40px;
   padding: 0 15px;
   text-decoration: none;
+  border-radius: 7px;
   background-color: #1e1b1b;
 }
 
@@ -423,6 +426,7 @@ li {
 #member-detail .action-buttons #confirm-participation-button {
   padding: 0 15px;
   font-size: 10px;
+  border-radius: 7px;
   background-color: #4eb3a9;
 }
 
