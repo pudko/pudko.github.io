@@ -58,7 +58,7 @@ async function renderAdminPanel() {
     userDetail.innerHTML += `
     <div class="action-buttons">
       <a href="admin.html" class="back-button"><span class="back-icon material-symbols-outlined">arrow_back</span></a>
-      <a href="admin.html?user=${userID}&action=renew" class="renew-button">PREDĹŽENIE PREDPLATNÉHO</a>
+      <a href="admin.html?user=${userID}&action=renew" class="renew-button">NOVÉ PREDPLATNÉ</a>
       <button id="confirm-participation-button">POTVRDIŤ ÚČASŤ</button>
     </div>
   `
