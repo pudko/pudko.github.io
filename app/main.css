@@ -150,10 +150,9 @@ li {
 .container-content-small {
   display: flex;
   flex-direction: column;
-  max-width: 300px;
+  max-width: 331px;
   width: 100%;
-  min-height: 100vh;
-  margin: 0 32px;
+  margin: 0 22px;
 }
 
 .login-form {
@@ -197,6 +196,9 @@ li {
 }
 
 .member-icon-container {
+  /* position: relative; */
+  /* top: 100%;
+  transform: translate(0px, -50%); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -302,31 +304,59 @@ li {
 }
 
 /* User Detail Page */
-.member-header {
+#member-header {
+  height: 200px;
+}
+
+#member-header .membership-info-container {
+  position: relative;
+  top: 100%;
+  transform: translate(0, -54%);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  height: 88px;
-  border-bottom: 1px solid #938f8e;
 }
 
-.member-header #member-id {
-  margin-left: 17px;
-}
-
-.member-header #membership-status {
-  display: none;
-  place-items: center;
-  height: 35px;
-  margin-left: auto;
-  padding: 0 10px;
-  font-size: 10px;
+#member-header .membership-info-container #member-id {
+  margin-bottom: 20px;
+  font-size: 29px;
   font-weight: bold;
-  border-radius: 7px;
-  background-color: #52b0a9;
+}
+
+#member-header .membership-info-container #member-status-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+#member-header #membership-status {
+  display: none;
+  margin-top: 15px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+#member-header #membership-notification {
+  display: none;
+  gap: 10px;
+  margin-top: 35px;
+  padding: 11px 12px;
+  border: 1px solid #f39e1f;
+  border-radius: 12px;
+}
+
+#member-header #membership-notification #notification-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #f39e1f;
 }
 
 #member-detail {
-  margin-top: 20px;
+  margin-top: 245px;
 }
 
 #member-detail .memberships-container {

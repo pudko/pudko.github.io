@@ -163,31 +163,54 @@ async function generateUserList() {
 async function handleMembershipList(userID) {
   const allMemberships = document.getElementById("all-memberships")
   let userData = await getUser(userID)
+  const activeMembership = getActiveMembership(userData)
+  let membershipDaysLeft = 0
+  if (activeMembership) {
+    membershipDaysLeft =
+      getDateDifferenceInDays(formatDateToISO(activeMembership.endDate), new Date()) + 1
+  }
 
   userData = sortMembershipsByDate(calculateMembershipsStatus(userData))
   console.log(userData)
   const statusLabel = document.getElementById("membership-status")
+  const memberHeader = document.getElementById("member-header")
+  const memberID = document.getElementById("member-id")
+  const iconContainer = document.getElementById("member-status-icon-container")
+  const notificationContainer = document.getElementById("membership-notification")
+  const notificationText = document.getElementById("notification-text")
 
   switch (getUserStatus(userData)) {
-    case "expire-soon":
-      statusLabel.textContent = "ČOSKORO VYPRŠÍ"
-      statusLabel.style.backgroundColor = "#E8A141"
-      break
     case "active":
-      statusLabel.textContent = "ČLENSTVO AKTÍVNE"
-      statusLabel.style.backgroundColor = "#66b0a9"
+    case "expire-soon":
+      statusLabel.textContent = "Prebiehajúce členstvo"
+      notificationText.textContent = `Uplynie za ${membershipDaysLeft} dní`
+      notificationContainer.style.display = "flex"
+      statusLabel.style.color = "#FEC342"
+      memberHeader.style.backgroundColor = "#F7E1BD"
+      iconContainer.style.backgroundColor = "#FEC342"
+      iconContainer.innerHTML = `<object class="member-status-icon" width="79px" type="image/svg+xml" data="assets/images/membership-in-progress-icon.svg"></object>`
+      memberID.style.color = "#FEC342"
+
       break
     case "pre-purchased":
-      statusLabel.textContent = "ČLENSTVO KÚPENÉ"
-      statusLabel.style.backgroundColor = "#486dae"
+      statusLabel.textContent = "Členstvo zakúpené"
+      statusLabel.style.color = "#486dae"
+      memberHeader.style.backgroundColor = "#CFDDF1"
+      iconContainer.style.backgroundColor = "#486dae"
+      iconContainer.innerHTML = `<object class="member-status-icon" width="74px" type="image/svg+xml" data="assets/images/membership-purchased-icon.svg"></object>`
+      memberID.style.color = "#486dae"
       break
     case "expired":
-      statusLabel.textContent = "ČLENSTVO NEAKTÍVNE"
-      statusLabel.style.backgroundColor = "#dc765a"
-      break
     default:
-      statusLabel.textContent = "ČLENSTVO NEAKTÍVNE"
-      statusLabel.style.backgroundColor = "#dc765a"
+      statusLabel.textContent = "Členstvo uplynulo"
+      notificationText.textContent = `O nové členstvo môžete zažiadať tu: michal.pudela@gmail.com | +421 949 129 155`
+      notificationContainer.style.display = "flex"
+      statusLabel.style.color = "#4EB3A9"
+      memberHeader.style.backgroundColor = "#DFF1F0"
+      iconContainer.style.backgroundColor = "#4EB3A9"
+      iconContainer.innerHTML = `<object class="member-status-icon" width="78px" type="image/svg+xml" data="assets/images/membership-end-icon.svg"></object>`
+      memberID.style.color = "#4EB3A9"
+      break
   }
   statusLabel.style.display = "flex"
 
@@ -225,15 +248,23 @@ async function renderUser() {
   const userContent = document.getElementById("user-content")
 
   const userDetailTemplate = `
+  <header id="member-header">
+    <div class="membership-info-container">
+      <div id="member-id">ID: ${userID}</div>
+      <div id="member-status-icon-container"></div>
+      <div id="membership-status"></div>
+      <div class="container-main" style="position:absolute; top:100%;">
+        <div class="container-content-small">
+          <div id="membership-notification">
+            <object class="notification-icon" width="16px" type="image/svg+xml" data="assets/images/notification-icon.svg"></object>
+            <div id="notification-text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
   <div class="container-main">
     <div class="container-content-small">
-      <header class="member-header">
-        <div class="member-icon-container">
-          <object class="icon" type="image/svg+xml" data="assets/images/person-icon.svg"></object>
-        </div>
-        <div id="member-id">${userID}</div>
-        <div id="membership-status"></div>
-      </header>
       <div id="member-detail">
         <ul id="all-memberships" class="memberships-container"></ul>
         <div id="confirmation-modal"></div>
@@ -626,19 +657,19 @@ async function incrementTrainingCounter(userID) {
   }
 }
 
-// function getActiveMembership(memberships) {
-//   const membershipsWithStatus = calculateMembershipsStatus(memberships)
+function getActiveMembership(memberships) {
+  const membershipsWithStatus = calculateMembershipsStatus(memberships)
 
-//   for (const membership of membershipsWithStatus) {
-//     if (membership.isActive === true)
-//       return {
-//         endDate: membership.endDate,
-//         startDate: membership.startDate,
-//         trainingCounter: membership.trainingCounter,
-//       }
-//   }
-//   return null
-// }
+  for (const membership of membershipsWithStatus) {
+    if (membership.isActive === true)
+      return {
+        endDate: membership.endDate,
+        startDate: membership.startDate,
+        trainingCounter: membership.trainingCounter,
+      }
+  }
+  return null
+}
 
 function newMember(id, startDate, endDate) {
   let newMembership = {}
