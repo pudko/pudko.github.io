@@ -143,6 +143,7 @@ async function generateUserList() {
   }
 
   allUsers = membershipsWithStatus
+  console.log(allUsers)
 
   for (id in allUsers) {
     const statusClass = getUserStatus(allUsers[id].membership)
@@ -371,20 +372,16 @@ async function renderAdmin() {
         <div class="input-container">
           <object class="icon input-icon" type="image/svg+xml" data="assets/images/calendar-icon.svg"></object>
           <input
-            onfocus="(this.type='date'); this.showPicker()"
-            onBlur="(!this.value ? this.type='text' : null)"
-            type="text"
-            placeholder="Začiatočný dátum členstva"
+            onfocus="this.showPicker()"
+            type="date"
             id="renew-membership-start-date"
           />
         </div>
         <div class="input-container">
           <object class="icon input-icon" type="image/svg+xml" data="assets/images/calendar-icon.svg"></object>
           <input
-            onfocus="(this.type='date'); this.showPicker()"
-            onBlur="(!this.value ? this.type='text' : null)"
-            type="text"
-            placeholder="Konečný dátum členstva"
+            onfocus="this.showPicker()"
+            type="date"
             id="renew-membership-end-date"
           />
         </div>
@@ -894,20 +891,21 @@ function sortMembershipsByDate(memberships) {
 function calculateMembershipsStatus(userData) {
   const currentDate = new Date()
   currentDate.setHours(0, 0, 0, 0)
+  console.log(formatDateToISO(userData.membership[0].startDate))
 
-  return userData.membership.map((membership) => ({
-    endDate: membership.endDate,
-    startDate: membership.startDate,
-    trainingCounter: membership.trainingCounter,
-    isPrePurchased: currentDate < formatDateToISO(membership.startDate),
+  return userData.membership.map((currentMembership) => ({
+    endDate: currentMembership.endDate,
+    startDate: currentMembership.startDate,
+    trainingCounter: currentMembership.trainingCounter,
+    isPrePurchased: currentDate < formatDateToISO(currentMembership.startDate),
     isActive:
-      currentDate >= formatDateToISO(membership.startDate) &&
-      currentDate <= formatDateToISO(membership.endDate),
+      currentDate >= formatDateToISO(currentMembership.startDate) &&
+      currentDate <= formatDateToISO(currentMembership.endDate),
     isSoonExpiring:
-      currentDate >= formatDateToISO(membership.startDate) &&
-      currentDate <= formatDateToISO(membership.endDate) &&
-      getDateDifferenceInDays(currentDate, formatDateToISO(membership.endDate)) < 5,
-    isExpired: currentDate > formatDateToISO(membership.endDate),
+      currentDate >= formatDateToISO(currentMembership.startDate) &&
+      currentDate <= formatDateToISO(currentMembership.endDate) &&
+      getDateDifferenceInDays(currentDate, formatDateToISO(currentMembership.endDate)) < 5,
+    isExpired: currentDate > formatDateToISO(currentMembership.endDate),
   }))
 }
 
@@ -936,9 +934,24 @@ function formatDateWithDots(inputDate) {
 }
 
 function formatDateToISO(date) {
-  const formattedDate = new Date(date.split(".").reverse().join("-"))
-  formattedDate.setHours(0, 0, 0, 0)
-  return formattedDate
+  const parts = date.split(".")
+
+  // Ensure the parts array has at least three elements
+  if (parts.length === 3) {
+    const day = parseInt(parts[0], 10)
+    const month = parseInt(parts[1] - 1, 10)
+    const year = parseInt(parts[2], 10)
+
+    // Check if the extracted values are valid
+    if (!isNaN(day) && !isNaN(month) && !isNaN(year)) {
+      const formattedDate = new Date(Date.UTC(year, month, day))
+      formattedDate.setUTCHours(0, 0, 0, 0)
+      return formattedDate
+    }
+  }
+
+  // Return null or handle the error in your application logic
+  return null
 }
 
 function formatMemberID(userID) {
