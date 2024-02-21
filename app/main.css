@@ -400,6 +400,10 @@ li {
   background-color: #cfddf1;
 }
 
+#member-detail .memberships-container .membership.pre-purchased .membership-image {
+  width: 56px;
+}
+
 #member-detail .memberships-container .membership.pre-purchased .membership-image-container {
   background-color: #426db5;
 }
@@ -412,6 +416,10 @@ li {
   background-color: #f7e1bd;
 }
 
+#member-detail .memberships-container .membership.active .membership-image {
+  width: 56px;
+}
+
 #member-detail .memberships-container .membership.active .membership-image-container {
   background-color: #fec342;
 }
@@ -420,16 +428,36 @@ li {
   border-bottom: 1px solid #fec342;
 }
 
-#member-detail .memberships-container .membership.expired {
+#member-detail .memberships-container .membership.expired-success {
   background-color: #dff1f0;
 }
 
-#member-detail .memberships-container .membership.expired .membership-image-container {
+#member-detail .memberships-container .membership.expired-success .membership-image {
+  width: 59px;
+}
+
+#member-detail .memberships-container .membership.expired-success .membership-image-container {
   background-color: #4eb3a9;
 }
 
-#member-detail .memberships-container .membership.expired .customer-membership-dates {
+#member-detail .memberships-container .membership.expired-success .customer-membership-dates {
   border-bottom: 1px solid #4eb3a9;
+}
+
+#member-detail .memberships-container .membership.expired {
+  background-color: #e2cac7;
+}
+
+#member-detail .memberships-container .membership.expired .membership-image {
+  width: 56px;
+}
+
+#member-detail .memberships-container .membership.expired .membership-image-container {
+  background-color: #ea6f50;
+}
+
+#member-detail .memberships-container .membership.expired .customer-membership-dates {
+  border-bottom: 1px solid #ea6f50;
 }
 
 #member-detail .memberships-container .membership .title {

@@ -222,11 +222,11 @@ async function handleMembershipList(userID) {
       statusLabel.textContent = "Členstvo uplynulo"
       notificationText.textContent = `O nové členstvo môžete zažiadať tu: michal.pudela@gmail.com | +421 949 129 155`
       notificationContainer.style.display = "flex"
-      statusLabel.style.color = "#4EB3A9"
-      memberHeader.style.backgroundColor = "#DFF1F0"
-      iconContainer.style.backgroundColor = "#4EB3A9"
+      statusLabel.style.color = "#ea6f50"
+      memberHeader.style.backgroundColor = "#E2CAC7"
+      iconContainer.style.backgroundColor = "#ea6f50"
       iconContainer.innerHTML = `<object class="member-status-icon" width="78px" type="image/svg+xml" data="assets/images/membership-end-icon.svg"></object>`
-      memberID.style.color = "#4EB3A9"
+      memberID.style.color = "#ea6f50"
       break
   }
   statusLabel.style.display = "flex"
@@ -237,9 +237,15 @@ async function handleMembershipList(userID) {
     let membershipStatusTitle = ""
 
     if (membership.isExpired) {
-      membershipClass = "expired"
-      membershipImage = "assets/images/membership-end-icon.svg"
-      membershipStatusTitle = "Členstvo uplynulo"
+      if (membership.trainingCounter > 7) {
+        membershipClass = "expired-success"
+        membershipImage = "assets/images/membership-end-success-icon.svg"
+        membershipStatusTitle = "Členstvo uplynulo"
+      } else {
+        membershipClass = "expired"
+        membershipImage = "assets/images/membership-end-icon.svg"
+        membershipStatusTitle = "Členstvo uplynulo"
+      }
     } else if (membership.isPrePurchased) {
       membershipClass = "pre-purchased"
       membershipImage = "assets/images/membership-purchased-icon.svg"
@@ -253,7 +259,7 @@ async function handleMembershipList(userID) {
     allMemberships.innerHTML += `
     <li class="membership ${membershipClass}">
       <div class="membership-image-container">
-        <object class="membership-image" width="56px" type="image/svg+xml" data="${membershipImage}"></object>
+        <object class="membership-image" type="image/svg+xml" data="${membershipImage}"></object>
       </div>
       <div class="membership-info">
         <ul class="customer-membership-dates">
@@ -409,9 +415,8 @@ async function renderAdmin() {
           <div class="input-container">
             <object class="icon input-icon" type="image/svg+xml" data="assets/images/calendar-icon.svg"></object>
             <input
-              onfocus="(this.type='date'); this.showPicker()"
-              onBlur="(!this.value ? this.type='text' : null)"
-              type="text"
+              onfocus="this.showPicker()"
+              type="date"
               placeholder="Začiatočný dátum členstva"
               id="member-membership-start-date"
             />
@@ -419,10 +424,8 @@ async function renderAdmin() {
           <div class="input-container">
             <object class="icon input-icon" type="image/svg+xml" data="assets/images/calendar-icon.svg"></object>
             <input
-              onfocus="(this.type='date'); this.showPicker()"
-              onBlur="(!this.value ? this.type='text' : null)"
-              type="text"
-              placeholder="Konečný dátum členstva"
+              onfocus="this.showPicker()"
+              type="date"
               id="member-membership-end-date"
             />
           </div>
@@ -521,12 +524,6 @@ async function handleCreateNewMember() {
   // Because in html input, onBlur is set to change input type=text when
   // there is no value so placeholder can be shown. We need first to focus
   // to make onBlur work.
-  startDateInput.focus()
-  startDateInput.value = null
-  startDateInput.blur()
-  endDateInput.focus()
-  endDateInput.value = null
-  endDateInput.blur()
 }
 
 async function handleRenewMembership() {
