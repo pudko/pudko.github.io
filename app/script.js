@@ -187,9 +187,9 @@ async function handleMembershipList(userID) {
         break
     }
   }
-
+  console.log("no sorted", userData)
   userData = sortMembershipsByDate(calculateMembershipsStatus(userData))
-  console.log(userData)
+  console.log("sorted", userData)
   const statusLabel = document.getElementById("membership-status")
   const memberHeader = document.getElementById("member-header")
   const memberID = document.getElementById("member-id")
@@ -882,8 +882,8 @@ function validateRenewMembership(userData, startDate, endDate) {
 
 function sortMembershipsByDate(memberships) {
   return memberships.sort((a, b) => {
-    const dateA = new Date(a.startDate.split(".").reverse().join("-"))
-    const dateB = new Date(b.startDate.split(".").reverse().join("-"))
+    const dateA = new Date(formatDateToISO(a.startDate))
+    const dateB = new Date(formatDateToISO(b.startDate))
     return dateB - dateA
   })
 }
