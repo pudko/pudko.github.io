@@ -350,7 +350,7 @@ async function renderAdmin() {
         <ul id="members-list"></ul>
         <div class="add-member">
           <button class="add-member-button" onClick='addQueryParam("action", "newUser")' >
-            <img src="assets/images/add-member-icon.svg"/>
+            <object class="add-member-icon" type="image/svg+xml" data="assets/images/add-member-icon.svg"></object>
           </button>
         </div>
     </div>
