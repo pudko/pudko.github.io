@@ -293,7 +293,7 @@ async function renderUser() {
       <div class="container-main" style="position:absolute; top:100%;">
         <div class="container-content-small">
           <div id="membership-notification">
-            <object class="notification-icon" width="16px" type="image/svg+xml" data="assets/images/notification-icon.svg"></object>
+            <object class="notification-icon" width="16px" height="16px" type="image/svg+xml" data="assets/images/notification-icon.svg"></object>
             <div id="notification-text"></div>
           </div>
         </div>
