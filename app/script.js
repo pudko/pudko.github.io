@@ -161,9 +161,8 @@ async function generateUserList() {
   }
 }
 
-async function handleMembershipList(userID) {
+async function handleMembershipList(userData) {
   const allMemberships = document.getElementById("all-memberships")
-  let userData = await getUser(userID)
   const activeMembership = getActiveMembership(userData)
   let membershipDaysLeft = 0
   let membershipDaysLeftText = ""
@@ -187,9 +186,7 @@ async function handleMembershipList(userID) {
         break
     }
   }
-  console.log("no sorted", userData)
   userData = sortMembershipsByDate(calculateMembershipsStatus(userData))
-  console.log("sorted", userData)
   const statusLabel = document.getElementById("membership-status")
   const memberHeader = document.getElementById("member-header")
   const memberID = document.getElementById("member-id")
@@ -231,6 +228,8 @@ async function handleMembershipList(userID) {
       break
   }
   statusLabel.style.display = "flex"
+
+  allMemberships.innerHTML = ""
 
   userData.forEach((membership) => {
     let membershipClass = ""
@@ -311,9 +310,11 @@ async function renderUser() {
   </div>
     `
 
-  if (await getUser(userID)) {
+  const userData = await getUser(userID)
+
+  if (userData) {
     userContent.innerHTML = userDetailTemplate
-    await handleMembershipList(userID)
+    await handleMembershipList(userData)
     renderAdminPanel()
   } else {
     window.location.href = "https://playinmove.sk"
@@ -673,7 +674,7 @@ async function incrementTrainingCounter(userID) {
 
     await callRenew(userID, newMemberships)
 
-    renderUser()
+    handleMembershipList(newMemberships)
     // Perform actions when the user clicks Yes
   } else {
     console.log("User clicked No. Aborting...")
