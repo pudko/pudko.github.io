@@ -341,7 +341,8 @@ li {
 }
 
 #member-header #membership-notification {
-  display: none;
+  display: flex;
+  visibility: hidden;
   gap: 10px;
   margin-top: 35px;
   padding: 11px 12px;
@@ -365,44 +366,81 @@ li {
   margin-bottom: 60px;
 }
 
-#member-detail .memberships-container li ul:not(:first-child) {
+#member-detail .memberships-container .membership .customer-training-count {
   padding-top: 10px;
 }
 
-#member-detail .memberships-container li ul:not(:last-child) {
-  border-bottom: 1px solid #938f8e;
+#member-detail .memberships-container .membership .customer-membership-dates {
   padding-bottom: 10px;
 }
 
 #member-detail .memberships-container .membership {
+  display: flex;
+  gap: 20px;
   margin-bottom: 18px;
-  padding: 20px;
   border-radius: 12px;
   background-color: #f4f4f4;
+  overflow: hidden;
 }
+
+#member-detail .memberships-container .membership .membership-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 133px;
+}
+
+#member-detail .memberships-container .membership .membership-info {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0;
+}
+
 #member-detail .memberships-container .membership.pre-purchased {
-  background-color: #bfcce4;
-  border: 5px solid #486dae;
+  background-color: #cfddf1;
+}
+
+#member-detail .memberships-container .membership.pre-purchased .membership-image-container {
+  background-color: #426db5;
+}
+
+#member-detail .memberships-container .membership.pre-purchased .customer-membership-dates {
+  border-bottom: 1px solid #426db5;
 }
 
 #member-detail .memberships-container .membership.active {
-  background-color: #d5f0ed;
-  border: 5px solid #66b0a9;
+  background-color: #f7e1bd;
 }
+
+#member-detail .memberships-container .membership.active .membership-image-container {
+  background-color: #fec342;
+}
+
+#member-detail .memberships-container .membership.active .customer-membership-dates {
+  border-bottom: 1px solid #fec342;
+}
+
 #member-detail .memberships-container .membership.expired {
-  background-color: #ecdad5;
-  border: 5px solid #dc765a;
+  background-color: #dff1f0;
+}
+
+#member-detail .memberships-container .membership.expired .membership-image-container {
+  background-color: #4eb3a9;
+}
+
+#member-detail .memberships-container .membership.expired .customer-membership-dates {
+  border-bottom: 1px solid #4eb3a9;
 }
 
 #member-detail .memberships-container .membership .title {
   margin-bottom: 10px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
-  color: #8a8a8a;
+  color: #1e1b1b;
 }
 
 #member-detail .memberships-container .membership .value {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   color: #1e1b1b;
 }

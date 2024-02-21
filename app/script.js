@@ -165,9 +165,26 @@ async function handleMembershipList(userID) {
   let userData = await getUser(userID)
   const activeMembership = getActiveMembership(userData)
   let membershipDaysLeft = 0
+  let membershipDaysLeftText = ""
   if (activeMembership) {
     membershipDaysLeft =
       getDateDifferenceInDays(formatDateToISO(activeMembership.endDate), new Date()) + 1
+    switch (membershipDaysLeft) {
+      case 0:
+        membershipDaysLeftText = "Uplynie dnes!"
+        break
+      case 1:
+        membershipDaysLeftText = `Uplynie za ${membershipDaysLeft} deň`
+        break
+      case 2:
+      case 3:
+      case 4:
+        membershipDaysLeftText = `Uplynie za ${membershipDaysLeft} dni`
+        break
+      default:
+        membershipDaysLeftText = `Uplynie za ${membershipDaysLeft} dní`
+        break
+    }
   }
 
   userData = sortMembershipsByDate(calculateMembershipsStatus(userData))
@@ -183,8 +200,8 @@ async function handleMembershipList(userID) {
     case "active":
     case "expire-soon":
       statusLabel.textContent = "Prebiehajúce členstvo"
-      notificationText.textContent = `Uplynie za ${membershipDaysLeft} dní`
-      notificationContainer.style.display = "flex"
+      notificationText.textContent = membershipDaysLeftText
+      notificationContainer.style.visibility = "visible"
       statusLabel.style.color = "#FEC342"
       memberHeader.style.backgroundColor = "#F7E1BD"
       iconContainer.style.backgroundColor = "#FEC342"
@@ -215,26 +232,39 @@ async function handleMembershipList(userID) {
   statusLabel.style.display = "flex"
 
   userData.forEach((membership) => {
-    const isPrePurchased = membership.isPrePurchased ? "pre-purchased" : ""
-    const isActiveClass = membership.isActive ? "active" : ""
-    const isExpiredClass = membership.isExpired ? "expired" : ""
+    let membershipClass = ""
+    let membershipImage = ""
+    let membershipStatusTitle = ""
 
-    const membershipClass = `membership ${isPrePurchased}${isActiveClass}${isExpiredClass}`
+    if (membership.isExpired) {
+      membershipClass = "expired"
+      membershipImage = "assets/images/membership-end-icon.svg"
+      membershipStatusTitle = "Členstvo uplynulo"
+    } else if (membership.isPrePurchased) {
+      membershipClass = "pre-purchased"
+      membershipImage = "assets/images/membership-purchased-icon.svg"
+      membershipStatusTitle = "Členstvo zakúpené"
+    } else if (membership.isActive) {
+      membershipClass = "active"
+      membershipImage = "assets/images/membership-in-progress-icon.svg"
+      membershipStatusTitle = "Prebiehajúce členstvo"
+    }
 
     allMemberships.innerHTML += `
-    <li class="${membershipClass}">
-      <ul class="customer-membership-start">
-        <li class="title">Dátum začatia predplatného</li>
-        <li class="value">${membership.startDate}</li>
-      </ul>
-      <ul class="customer-membership-end">
-        <li class="title">Predplatné uplynie</li>
-        <li class="value">${membership.endDate}</li>
-      </ul>
-      <ul class="customer-training-count">
-        <li class="title">Počet absolbovaných tréningov</li>
-        <li class="value">${membership.trainingCounter}</li>
-      </ul>
+    <li class="membership ${membershipClass}">
+      <div class="membership-image-container">
+        <object class="membership-image" width="56px" type="image/svg+xml" data="${membershipImage}"></object>
+      </div>
+      <div class="membership-info">
+        <ul class="customer-membership-dates">
+          <li class="title">${membershipStatusTitle}</li>
+          <li class="value">${membership.startDate} - ${membership.endDate}</li>
+        </ul>
+        <ul class="customer-training-count">
+          <li class="title">Abslovované tréningy</li>
+          <li class="value">${membership.trainingCounter}</li>
+        </ul>
+      </div>
     </li>
     `
   })
