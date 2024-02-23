@@ -146,12 +146,33 @@ async function generateUserList() {
   console.log(allUsers)
 
   for (id in allUsers) {
-    const statusClass = getUserStatus(allUsers[id].membership)
+    const userStatus = getUserStatus(allUsers[id].membership)
+
+    switch (userStatus) {
+      case "expire-soon":
+        userStatusProfileImage = "assets/images/membership-expire-soon-icon.svg"
+        membershipStatusTitle = "Členstvo zakúpené"
+        break
+      case "active":
+        userStatusProfileImage = "assets/images/membership-in-progress-icon.svg"
+        membershipStatusTitle = "Prebiehajúce členstvo"
+        break
+      case "pre-purchased":
+        userStatusProfileImage = "assets/images/membership-purchased-icon.svg"
+        membershipStatusTitle = "Členstvo zakúpené"
+        break
+      case "expired":
+      default:
+        userStatusProfileImage = "assets/images/membership-end-icon.svg"
+        membershipStatusTitle = "Členstvo uplynulo"
+    }
+
+    console.log(userStatus)
 
     userList.innerHTML += `
     <li class="member">
-      <div class="member-icon-container ${statusClass}">
-        <object class="icon" type="image/svg+xml" data="assets/images/person-icon-white.svg"></object>
+      <div class="member-icon-container ${userStatus}">
+        <object style="width:30px;" type="image/svg+xml" data="${userStatusProfileImage}"></object>
       </div>
       <div class="member-id">ID: ${id}</div>
       <a href="user.html?user=${id}" class="member-info-button">Informácie</a>
@@ -219,7 +240,7 @@ async function handleMembershipList(userData) {
     default:
       statusLabel.textContent = "Členstvo uplynulo"
       notificationText.textContent = `O nové členstvo môžete zažiadať tu: michal.pudela@gmail.com | +421 949 129 155`
-      notificationContainer.style.display = "flex"
+      notificationContainer.style.visibility = "visible"
       statusLabel.style.color = "#ea6f50"
       memberHeader.style.backgroundColor = "#E2CAC7"
       iconContainer.style.backgroundColor = "#ea6f50"
