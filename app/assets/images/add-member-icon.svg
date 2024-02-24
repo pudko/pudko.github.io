@@ -1,1 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" height="38" viewBox="0 -960 960 960" width="38"><path fill="#fff" d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" width="32px" height="32px" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.47 32.47">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <path class="cls-1" d="m16.23,32.47c-.9,0-1.62-.73-1.62-1.62V1.62c0-.9.73-1.62,1.62-1.62s1.62.73,1.62,1.62v29.22c0,.9-.73,1.62-1.62,1.62Z"/>
+      <path class="cls-1" d="m30.84,17.86H1.62c-.9,0-1.62-.73-1.62-1.62s.73-1.62,1.62-1.62h29.22c.9,0,1.62.73,1.62,1.62s-.73,1.62-1.62,1.62Z"/>
+    </g>
+  </g>
+</svg>

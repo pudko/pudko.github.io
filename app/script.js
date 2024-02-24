@@ -56,11 +56,12 @@ async function renderAdminPanel() {
     const userID = getUserIDFromParams()
 
     userDetail.innerHTML += `
-    <div class="action-buttons">
-      <a href="admin.html" class="back-button"><span class="back-icon material-symbols-outlined">arrow_back</span></a>
-      <a href="admin.html?user=${userID}&action=renew" class="renew-button">NOVÉ PREDPLATNÉ</a>
-      <button id="confirm-participation-button">POTVRDIŤ ÚČASŤ</button>
+    <div class="admin-navbar">
+      <a href="admin.html" class="back-button"><object style="width:18px;pointer-events:none;" type="image/svg+xml" data="assets/images/list-icon.svg"></object></a>
+      <a href="admin.html?user=${userID}&action=renew" class="renew-button"><object style="width:20px;pointer-events:none;" type="image/svg+xml" data="assets/images/renew-membership-icon.svg"></object></a>
     </div>
+    <button id="confirm-participation-button">POTVRDIŤ ÚČASŤ</button>
+
   `
     document.getElementById("confirm-participation-button").addEventListener("click", function () {
       incrementTrainingCounter(userID)
