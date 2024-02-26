@@ -50,7 +50,7 @@ async function checkLogin() {
   return false
 }
 
-async function renderAdminPanel() {
+async function renderAdminPanel(userData) {
   if (await checkLogin()) {
     const userDetail = document.getElementById("member-detail")
     const userID = getUserIDFromParams()
@@ -60,9 +60,15 @@ async function renderAdminPanel() {
       <a href="admin.html" class="back-button"><object style="width:18px;pointer-events:none;" type="image/svg+xml" data="assets/images/list-icon.svg"></object></a>
       <a href="admin.html?user=${userID}&action=renew" class="renew-button"><object style="width:20px;pointer-events:none;" type="image/svg+xml" data="assets/images/renew-membership-icon.svg"></object></a>
     </div>
-    <button id="confirm-participation-button">POTVRDIŤ ÚČASŤ</button>
+    <button disabled id="confirm-participation-button" class="confirm-participation-button disabled">POTVRDIŤ ÚČASŤ</button>
 
   `
+    const confirmButton = document.getElementById("confirm-participation-button")
+    if (getActiveMembership(userData) !== null) {
+      confirmButton.disabled = false
+      confirmButton.classList.remove("disabled")
+    }
+
     document.getElementById("confirm-participation-button").addEventListener("click", function () {
       incrementTrainingCounter(userID)
     })
@@ -208,6 +214,7 @@ async function handleMembershipList(userData) {
         break
     }
   }
+
   userData = sortMembershipsByDate(calculateMembershipsStatus(userData))
   const statusLabel = document.getElementById("membership-status")
   const memberHeader = document.getElementById("member-header")
@@ -215,6 +222,8 @@ async function handleMembershipList(userData) {
   const iconContainer = document.getElementById("member-status-icon-container")
   const notificationContainer = document.getElementById("membership-notification")
   const notificationText = document.getElementById("notification-text")
+
+  console.log(userData)
 
   switch (getUserStatus(userData)) {
     case "active":
@@ -337,7 +346,7 @@ async function renderUser() {
   if (userData) {
     userContent.innerHTML = userDetailTemplate
     await handleMembershipList(userData)
-    renderAdminPanel()
+    renderAdminPanel(userData)
   } else {
     window.location.href = "https://playinmove.sk"
   }
@@ -683,7 +692,6 @@ async function incrementTrainingCounter(userID) {
   if (isConfirmed) {
     const userData = await getUser(userID)
     const membershipsWithStatus = calculateMembershipsStatus(userData)
-
     const newMemberships = {
       membership: membershipsWithStatus.map((membership) => ({
         endDate: membership.endDate,
@@ -841,6 +849,8 @@ function validateMembershipDates(startDate, endDate) {
   currentDate.setHours(0, 0, 0, 0)
   startDate.setHours(0, 0, 0, 0)
   endDate.setHours(0, 0, 0, 0)
+  console.log(startDate)
+  console.log(endDate)
   // Check if endDate is later than startDate
   if (startDate > endDate) {
     return "Konečný dátum musí byť väčší."
@@ -914,7 +924,6 @@ function sortMembershipsByDate(memberships) {
 function calculateMembershipsStatus(userData) {
   const currentDate = new Date()
   currentDate.setHours(0, 0, 0, 0)
-  console.log(formatDateToISO(userData.membership[0].startDate))
 
   return userData.membership.map((currentMembership) => ({
     endDate: currentMembership.endDate,
@@ -968,7 +977,7 @@ function formatDateToISO(date) {
     // Check if the extracted values are valid
     if (!isNaN(day) && !isNaN(month) && !isNaN(year)) {
       const formattedDate = new Date(Date.UTC(year, month, day))
-      formattedDate.setUTCHours(0, 0, 0, 0)
+      formattedDate.setHours(0, 0, 0, 0)
       return formattedDate
     }
   }

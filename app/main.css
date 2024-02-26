@@ -538,7 +538,7 @@ li {
   color: white;
 }
 
-#confirm-participation-button {
+.confirm-participation-button {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -549,6 +549,10 @@ li {
   -moz-box-shadow: 0px 1px 27px 0px rgba(51, 46, 46, 1);
   box-shadow: 0px 1px 27px 0px rgba(51, 46, 46, 1);
   background-color: #4eb3a9;
+}
+
+.confirm-participation-button.disabled {
+  background-color: #496966;
 }
 
 /* Renew Subscription */
