@@ -54,6 +54,7 @@ async function renderAdminPanel(userData) {
   if (await checkLogin()) {
     const userDetail = document.getElementById("member-detail")
     const userID = getUserIDFromParams()
+    document.getElementById("member-header").style.paddingTop = "58px"
 
     userDetail.innerHTML += `
     <div class="admin-navbar">
@@ -229,8 +230,10 @@ async function handleMembershipList(userData) {
     case "active":
     case "expire-soon":
       statusLabel.textContent = "Prebiehajúce členstvo"
-      notificationText.textContent = membershipDaysLeftText
-      notificationContainer.style.visibility = "visible"
+      if (membershipDaysLeft <= 7) {
+        notificationText.textContent = membershipDaysLeftText
+        notificationContainer.style.visibility = "visible"
+      }
       statusLabel.style.color = "#FEC342"
       memberHeader.style.backgroundColor = "#F7E1BD"
       iconContainer.style.backgroundColor = "#FEC342"
@@ -936,7 +939,7 @@ function calculateMembershipsStatus(userData) {
     isSoonExpiring:
       currentDate >= formatDateToISO(currentMembership.startDate) &&
       currentDate <= formatDateToISO(currentMembership.endDate) &&
-      getDateDifferenceInDays(currentDate, formatDateToISO(currentMembership.endDate)) < 5,
+      getDateDifferenceInDays(currentDate, formatDateToISO(currentMembership.endDate)) <= 7,
     isExpired: currentDate > formatDateToISO(currentMembership.endDate),
   }))
 }
