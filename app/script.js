@@ -555,6 +555,10 @@ async function handleCreateNewMember() {
   // Reset inputs to null
   memberIDInput.value = null
 
+  setTimeout(function () {
+    window.location.href = "admin.html"
+  }, 2000)
+
   // Focus input FIRST, make it NULL and then BLUR.
   // Because in html input, onBlur is set to change input type=text when
   // there is no value so placeholder can be shown. We need first to focus

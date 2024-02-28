@@ -378,7 +378,7 @@ li {
 }
 
 #member-header #membership-notification #notification-text a {
-  color: #eb8b08;
+  color: var(--orange-color);
 }
 
 #member-detail {
