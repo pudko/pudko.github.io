@@ -377,6 +377,10 @@ li {
   color: var(--orange-color);
 }
 
+#member-header #membership-notification #notification-text a {
+  color: #eb8b08;
+}
+
 #member-detail {
   margin-top: 245px;
 }

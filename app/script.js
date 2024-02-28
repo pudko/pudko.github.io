@@ -195,6 +195,9 @@ async function handleMembershipList(userData) {
   const activeMembership = getActiveMembership(userData)
   let membershipDaysLeft = 0
   let membershipDaysLeftText = ""
+  const getNewMembershipInfoText =
+    "O nové členstvo môžete zažiadať tu: <a href='mailto:michal.pudela@gmail.com'>michal.pudela@gmail.com</a> | <a href='tel:+421949129155'>+421 949 129 155</a>"
+
   if (activeMembership) {
     membershipDaysLeft =
       getDateDifferenceInDays(formatDateToISO(activeMembership.endDate), new Date()) + 1
@@ -231,7 +234,7 @@ async function handleMembershipList(userData) {
     case "expire-soon":
       statusLabel.textContent = "Prebiehajúce členstvo"
       if (membershipDaysLeft <= 7) {
-        notificationText.textContent = membershipDaysLeftText
+        notificationText.innerHTML = membershipDaysLeftText + "<br>" + getNewMembershipInfoText
         notificationContainer.style.visibility = "visible"
       }
       statusLabel.style.color = "#FEC342"
@@ -252,7 +255,7 @@ async function handleMembershipList(userData) {
     case "expired":
     default:
       statusLabel.textContent = "Členstvo uplynulo"
-      notificationText.textContent = `O nové členstvo môžete zažiadať tu: michal.pudela@gmail.com | +421 949 129 155`
+      notificationText.innerHTML = getNewMembershipInfoText
       notificationContainer.style.visibility = "visible"
       statusLabel.style.color = "#ea6f50"
       memberHeader.style.backgroundColor = "#E2CAC7"
