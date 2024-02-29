@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;700&display=swap");
 
 :root {
-  --yellow-color: #fec342;
-  --blue-color: #426db5;
-  --orange-color: #eb8b08;
-  --red-color: #ea6f50;
+  --yellow-color: #fcb223;
+  --blue-color: #63acdf;
+  --yellow-faded-color: #fecc84;
+  --orange-color: #e76624;
+  --pink-color: #f05d77;
   --black-color: #1e1b1b;
 }
 
@@ -28,7 +29,6 @@ button {
   font-weight: bold;
   border: none;
   color: white;
-  background-color: var(--orange-color);
 }
 
 input {
@@ -123,11 +123,11 @@ li {
 }
 
 #confirmation-modal .modal-action-buttons #modal-yes {
-  background-color: #4eb3a9;
+  background-color: #40bda3;
 }
 
 #confirmation-modal .modal-action-buttons #modal-no {
-  background-color: var(--red-color);
+  background-color: var(--pink-color);
 }
 
 .input-container {
@@ -222,13 +222,13 @@ li {
   background-color: var(--yellow-color);
 }
 .member-icon-container.expire-soon {
-  background-color: var(--orange-color);
+  background-color: var(--yellow-faded-color);
 }
 .member-icon-container.pre-purchased {
   background-color: var(--blue-color);
 }
 .member-icon-container.expired {
-  background-color: var(--red-color);
+  background-color: var(--pink-color);
 }
 
 .member-id {
@@ -314,6 +314,7 @@ li {
 .user-registration .form .create-user-button {
   padding: 0 23px;
   margin-top: 2px;
+  background-color: #4a87c6;
 }
 
 .user-registration #new-member-validation-info {
@@ -367,18 +368,18 @@ li {
   gap: 10px;
   margin-top: 35px;
   padding: 11px 12px;
-  border: 1px solid var(--orange-color);
+  border: 1px solid var(--yellow-faded-color);
   border-radius: 12px;
 }
 
 #member-header #membership-notification #notification-text {
   font-size: 13px;
   font-weight: 600;
-  color: var(--orange-color);
+  color: var(--yellow-faded-color);
 }
 
 #member-header #membership-notification #notification-text a {
-  color: var(--orange-color);
+  color: var(--yellow-faded-color);
 }
 
 #member-detail {
@@ -462,11 +463,11 @@ li {
 }
 
 #member-detail .memberships-container .membership.expired-success .membership-image-container {
-  background-color: #4eb3a9;
+  background-color: #40bda3;
 }
 
 #member-detail .memberships-container .membership.expired-success .customer-membership-dates {
-  border-bottom: 1px solid #4eb3a9;
+  border-bottom: 1px solid #40bda3;
 }
 
 #member-detail .memberships-container .membership.expired {
@@ -478,11 +479,11 @@ li {
 }
 
 #member-detail .memberships-container .membership.expired .membership-image-container {
-  background-color: var(--red-color);
+  background-color: var(--pink-color);
 }
 
 #member-detail .memberships-container .membership.expired .customer-membership-dates {
-  border-bottom: 1px solid var(--red-color);
+  border-bottom: 1px solid var(--pink-color);
 }
 
 #member-detail .memberships-container .membership .title {
@@ -533,7 +534,7 @@ li {
   height: 32px;
   width: 32px;
   border-radius: 50%;
-  background-color: var(--blue-color);
+  background-color: #4a87c6;
 }
 
 #member-detail .admin-navbar .back-button .back-icon {
@@ -552,7 +553,7 @@ li {
   -webkit-box-shadow: 0px 1px 27px 0px rgba(51, 46, 46, 1);
   -moz-box-shadow: 0px 1px 27px 0px rgba(51, 46, 46, 1);
   box-shadow: 0px 1px 27px 0px rgba(51, 46, 46, 1);
-  background-color: #4eb3a9;
+  background-color: #40bda3;
 }
 
 .confirm-participation-button.disabled {
@@ -578,4 +579,5 @@ li {
 
 .renew-membership-form button {
   padding: 0 50px;
+  background-color: #4a87c6;
 }

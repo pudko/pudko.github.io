@@ -237,18 +237,18 @@ async function handleMembershipList(userData) {
         notificationText.innerHTML = membershipDaysLeftText + "<br>" + getNewMembershipInfoText
         notificationContainer.style.visibility = "visible"
       }
-      statusLabel.style.color = "#FEC342"
-      memberHeader.style.backgroundColor = "#F7E1BD"
-      iconContainer.style.backgroundColor = "#FEC342"
+      statusLabel.style.color = "#fecc84"
+      memberHeader.style.backgroundColor = "#fff8d6"
+      iconContainer.style.backgroundColor = "#fcb223"
       iconContainer.innerHTML = `<object class="member-status-icon" width="79px" type="image/svg+xml" data="assets/images/membership-in-progress-icon.svg"></object>`
-      memberID.style.color = "#FEC342"
+      memberID.style.color = "#fecc84"
 
       break
     case "pre-purchased":
       statusLabel.textContent = "Členstvo zakúpené"
       statusLabel.style.color = "#486dae"
-      memberHeader.style.backgroundColor = "#CFDDF1"
-      iconContainer.style.backgroundColor = "#486dae"
+      memberHeader.style.backgroundColor = "#def1ee"
+      iconContainer.style.backgroundColor = "#63acdf"
       iconContainer.innerHTML = `<object class="member-status-icon" width="74px" type="image/svg+xml" data="assets/images/membership-purchased-icon.svg"></object>`
       memberID.style.color = "#486dae"
       break
@@ -257,11 +257,11 @@ async function handleMembershipList(userData) {
       statusLabel.textContent = "Členstvo uplynulo"
       notificationText.innerHTML = getNewMembershipInfoText
       notificationContainer.style.visibility = "visible"
-      statusLabel.style.color = "#ea6f50"
-      memberHeader.style.backgroundColor = "#E2CAC7"
-      iconContainer.style.backgroundColor = "#ea6f50"
+      statusLabel.style.color = "#F05D77"
+      memberHeader.style.backgroundColor = "#fdeaf2"
+      iconContainer.style.backgroundColor = "#f05d77"
       iconContainer.innerHTML = `<object class="member-status-icon" width="78px" type="image/svg+xml" data="assets/images/membership-end-icon.svg"></object>`
-      memberID.style.color = "#ea6f50"
+      memberID.style.color = "#F05D77"
       break
   }
   statusLabel.style.display = "flex"
@@ -558,11 +558,6 @@ async function handleCreateNewMember() {
   setTimeout(function () {
     window.location.href = "admin.html"
   }, 2000)
-
-  // Focus input FIRST, make it NULL and then BLUR.
-  // Because in html input, onBlur is set to change input type=text when
-  // there is no value so placeholder can be shown. We need first to focus
-  // to make onBlur work.
 }
 
 async function handleRenewMembership() {
