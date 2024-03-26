@@ -183,10 +183,11 @@ li {
   margin-bottom: 17px;
 }
 
-.login-form button {
+.login-form .login-button {
   max-width: 140px;
   width: 100%;
   margin-top: 20px;
+  background-color: var(--blue-color);
 }
 
 /*  Customer List */

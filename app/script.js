@@ -1,4 +1,5 @@
 async function auth(email, password) {
+  console.log("AUTH")
   try {
     const response = await fetch(
       "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyB0RBAJGcbtDP32Oof2sJ5B-HfGRcs3azY",
@@ -34,7 +35,7 @@ async function login() {
   const password = document.getElementById("password").value
   const idToken = await auth(email, password)
   if (idToken) {
-    setLoginData(email, password)
+    setLoginData(email, password, idToken)
     renderAdmin()
   }
 }
@@ -42,16 +43,17 @@ async function login() {
 async function checkLogin() {
   let loginData = getLoginData()
   if (loginData) {
-    if (await auth(loginData["email"], loginData["password"])) {
-      return true
-    }
-    return false
+    // if (await auth(loginData["email"], loginData["password"])) {
+    return true
+    // }
+    // return false
   }
   return false
 }
 
 async function renderAdminPanel(userData) {
-  if (await checkLogin()) {
+  const idToken = localStorage.getItem("idToken")
+  if (idToken) {
     const userDetail = document.getElementById("member-detail")
     const userID = getUserIDFromParams()
     document.getElementById("member-header").style.paddingTop = "58px"
@@ -91,9 +93,10 @@ function getLoginData() {
   }
 }
 
-function setLoginData(email, password) {
+function setLoginData(email, password, idToken) {
   localStorage.setItem("email", email)
   localStorage.setItem("password", password)
+  localStorage.setItem("idToken", idToken)
 }
 
 function clearLogin() {
@@ -377,7 +380,7 @@ async function renderAdmin() {
           <object class="icon input-icon" type="image/svg+xml" data="assets/images/lock-icon.svg"></object>
           <input type="password" id="password" placeholder="Heslo" />
         </div>
-        <button onClick="login()">PRIHLÁSIŤ SA</button>
+        <button class="login-button" onClick="login()">PRIHLÁSIŤ SA</button>
       </div>
     </div>
   </div>`
