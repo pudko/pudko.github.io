@@ -6,9 +6,7 @@ import LogoIcon from "~/assets/svg/logo-playInMove.svg"
   <div class="container">
     <div class="navbar">
       <NuxtLink to="/"><LogoIcon style="width: 216px" :fontControlled="false" /></NuxtLink>
-      <NuxtLink to="/parkour-treningy" class="navbar-item" active-class="active">
-        Parkour tréningy
-      </NuxtLink>
+      <NuxtLink to="/" class="navbar-item" active-class="active"> Parkour tréningy </NuxtLink>
       <NuxtLink to="/trener" class="navbar-item" active-class="active"> Trenér </NuxtLink>
       <NuxtLink to="/parkour-tutorialy" class="navbar-item" active-class="active">
         Parkour tutoriály a umenie parkouru
