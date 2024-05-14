@@ -1,0 +1,106 @@
+h1 {
+  font-weight: 700;
+  font-size: 63px;
+  margin-top: 123px;
+}
+
+#parkour-tutorials {
+}
+
+.training-description {
+  max-width: 1450px;
+  width: 100%;
+  text-align: center;
+  padding-top: 25px;
+  font-size: 26px;
+  font-weight: 500;
+  border-top: 2px solid #fff;
+}
+
+.content-container {
+  position: absolute;
+  width: 100%;
+  min-height: 652px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.parkour-tutorials-background {
+  position: relative;
+  width: 100%;
+  height: 652px;
+  overflow: hidden;
+}
+.parkour-tutorials-background-two {
+  position: relative;
+  width: 100%;
+  height: 687px;
+  overflow: hidden;
+  margin-top: 158px;
+}
+
+.parkour-tutorials-video-list-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 92px;
+}
+
+.parkour-tutorials-video-list {
+  display: flex;
+  gap: 40px;
+  max-width: 1800px;
+  margin-left: 122px;
+  padding-bottom: 20px;
+  overflow: scroll;
+}
+
+.parkour-tutorials-video-list .video-container:last-child {
+  padding-right: 20px;
+}
+
+.video-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.video {
+  width: 615px;
+  height: 347px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+#parkour-art .video-info {
+  min-height: 372px;
+}
+
+.video-info {
+  padding-right: 38px;
+  padding-left: 38px;
+  padding-top: 28px;
+  padding-bottom: 38px;
+  border-left: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.video-info-title {
+  font-size: 30px;
+  font-weight: 500;
+  color: #5d748b;
+}
+
+.video-info-description {
+  font-size: 23px;
+  font-weight: 400;
+  color: #5d748b;
+  margin-top: 23px;
+}
+
+#parkour-art {
+  margin-bottom: 208px;
+}

@@ -276,7 +276,6 @@ import SubscriptionCard from "~/assets/svg/subscription-card.svg"
       </div>
     </div>
   </section>
-  <!-- </div> -->
 </template>
 
 <style scoped>

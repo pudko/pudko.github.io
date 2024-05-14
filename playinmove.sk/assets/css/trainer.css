@@ -1,0 +1,79 @@
+.trainer-info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trainer-info-container {
+  position: absolute;
+  text-align: center;
+  max-width: 1760px;
+  width: 100%;
+}
+
+.trainer-info-header {
+  border-bottom: 2px solid #fff;
+}
+
+.trainer-info-header h1 {
+  font-size: 59px;
+  font-weight: 700;
+  margin-top: 156px;
+  margin-bottom: 32px;
+}
+
+.trainer-info-content {
+  display: flex;
+  justify-content: center;
+  margin: 0 50px;
+}
+
+.title {
+  margin-bottom: 22px;
+}
+.certificate {
+  text-decoration: underline;
+  padding-bottom: 73px;
+}
+
+.title,
+.certificate {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 1316px;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.background {
+  width: 1920px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.description {
+  font-size: 26px;
+  font-weight: 500;
+  max-width: 1716px;
+  letter-spacing: 1.6px;
+  padding-top: 70px;
+}
+
+.border-image {
+  position: absolute;
+  width: 1299px;
+  margin-top: -18px;
+  margin-left: -30px;
+}
+
+.trainer-image {
+  position: relative;
+  transform: translateY(-60%);
+}
