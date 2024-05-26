@@ -20,14 +20,30 @@
             type="image/svg+xml"
             data="/assets/svg/logo-playInMove.svg"
             class="logo-size"
-          ></object
-        ></a>
-        <a href="/" class="navbar-item"> Parkour tréningy </a>
-        <a href="/trener.html" class="navbar-item"> Trenér </a>
-        <a href="/parkour-tutorialy.html" class="navbar-item">
-          Parkour tutoriály a umenie parkouru
+          ></object>
         </a>
-        <a href="/kontakt.html" class="navbar-item active"> Kontakt </a>
+        <div id="menu-items" class="menu-items">
+          <a href="/" class="navbar-item"
+            ><span style="position: relative"> Parkour tréningy</span>
+          </a>
+          <a href="/trener.html" class="navbar-item">
+            <span style="position: relative">Trenér</span>
+          </a>
+          <a href="/parkour-tutorialy.html" class="navbar-item">
+            <span style="position: relative">Parkourtutoriály a umenie parkouru</span>
+          </a>
+          <a href="/kontakt.html" class="navbar-item active">
+            <span style="position: relative">Kontakt</span>
+          </a>
+        </div>
+
+        <img
+          onclick="openHamburgerMenu()"
+          src="/assets/svg/hamburger-menu-icon.svg"
+          alt="menu"
+          id="hamburger-menu-button"
+          class="hamburger-menu-icon"
+        />
       </div>
     </div>
     <section>

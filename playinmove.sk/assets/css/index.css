@@ -35,6 +35,7 @@
   width: 100%;
   position: relative;
   overflow: hidden;
+  margin-top: 106px;
 }
 
 .right-background {
@@ -680,11 +681,6 @@ h1 {
     min-height: 740px;
   }
 
-  .container {
-    position: fixed;
-    width: 100%;
-    z-index: 2;
-  }
   .section-welcome-header-wrapper {
     margin-top: 213px;
   }
