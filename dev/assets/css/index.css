@@ -1,0 +1,1058 @@
+.monthly-subscription-icon {
+  width: 52px;
+  height: auto;
+}
+
+.one-time-access-icon {
+  width: 44px;
+  height: auto;
+}
+
+.pattern {
+  background-repeat: no-repeat;
+  background-image: url(/assets/svg/pattern-color.svg);
+  background-size: cover;
+  z-index: -1;
+  position: absolute;
+  height: 946px;
+  width: 100%;
+  overflow: hidden;
+  top: -105px;
+  left: 125px;
+}
+.pattern-no-color {
+  position: relative;
+}
+
+#section-welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-welcome-header-wrapper {
+  max-width: 1920px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin-top: 106px;
+}
+
+.right-background {
+  padding-bottom: 23px;
+  width: 941px;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  background-image: url("/assets/svg/right-bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.right-background h1 {
+  position: relative;
+  text-align: center;
+  margin-top: 160px;
+  margin-bottom: 100px;
+  font-size: 49px;
+  font-weight: 700;
+  width: 537px;
+}
+
+.right-background h1::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-bottom: 2px solid #fff;
+  width: 844px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 40px;
+}
+.right-background .description-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-background .description {
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+  max-width: 740px;
+  width: 100%;
+}
+
+.join-us {
+  padding-left: 125px;
+  box-sizing: border-box;
+  z-index: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 219px;
+  background-color: #233548;
+}
+.join-us h1 {
+  font-size: 49px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.join-us .button-join-us {
+  position: absolute;
+  width: 103px;
+  bottom: 0;
+  transform: translateY(50%);
+}
+
+#section-group-training,
+#section-individual-training,
+#section-parkour-workshop {
+  display: flex;
+}
+
+#section-group-training {
+  margin-top: 200px;
+  padding-top: 370px;
+}
+
+#section-individual-training {
+  margin-top: 140px;
+  padding-top: 360px;
+}
+
+#section-parkour-workshop {
+  margin-top: 100px;
+  padding-top: 360px;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 59px;
+}
+
+.training-title-description {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.training-description {
+  padding: 0 20px 50px 20px;
+  box-sizing: border-box;
+  max-width: 1609px;
+  width: 100%;
+  margin-top: 40px;
+  font-size: 30px;
+  font-weight: 500;
+  border-top: 2px solid #fff;
+}
+
+.training-description.individual,
+.training-description.workshop {
+  max-width: 1625px;
+}
+
+.border-image {
+  position: absolute;
+  width: 1001px;
+}
+
+.border-image.group {
+  margin-top: -30px;
+  margin-left: -20px;
+}
+
+.border-image.individual,
+.border-image.workshop {
+  margin-top: -25px;
+  margin-left: -25px;
+}
+
+.training-header {
+  z-index: 1;
+  position: absolute;
+  transform: translate(0, -50%);
+}
+
+.guys-icon {
+  position: absolute;
+  left: 105%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 318px;
+  height: auto;
+}
+
+.target-icon {
+  position: absolute;
+  right: 110%;
+  top: 60%;
+  transform: translateY(-50%);
+  width: 223px;
+  height: auto;
+}
+
+.workshop-icon {
+  position: absolute;
+  left: 110%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 264px;
+  height: auto;
+}
+
+.content-container {
+  z-index: 1;
+  text-align: center;
+  margin-top: 300px;
+}
+
+.training-background {
+  position: relative;
+  max-width: 1794px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.training-container {
+  margin-left: 125px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.training-background.group {
+  min-height: 937px;
+  background-image: url(/assets/svg/svg-group-training-background.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.training-background.individual {
+  min-height: 829px;
+  background-image: url(/assets/svg/svg-individual-training-background.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.training-background.workshop {
+  min-height: 882px;
+  background-image: url(/assets/svg/svg-workshop-training-background.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.subscriptions {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20px;
+  max-width: 823px;
+  justify-content: space-between;
+  margin-top: 52px;
+}
+
+.subscription-card {
+  max-width: 370px;
+  width: 100%;
+  border: 1px solid #000;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.subscription-card-header-container {
+  height: 132px;
+  border-bottom: 2px solid #d4dadd;
+}
+
+.subscription-card-header {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.subscription-card-header-description {
+  font-size: 15px;
+  font-weight: 500;
+  margin-left: 27px;
+  margin-top: 15px;
+}
+
+.subscription-card-title {
+  font-size: 23px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.subscription-card.group .wrapper {
+  position: relative;
+  top: 29px;
+}
+
+.subscription-card.group .info-content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.subscription-card.group .info-content {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 17px;
+  padding-bottom: 17px;
+}
+
+.subscription-card.group .info-content:not(:last-child) {
+  border-bottom: 1px solid #d4dadd;
+}
+
+.subscription-card.group .info-content-title {
+  font-size: 26px;
+}
+
+.subscription-card.group .info-content-title,
+.subscription-card.group .info-content-age-range,
+.subscription-card.group .info-content-date,
+.subscription-card.group .info-content-time {
+  font-weight: 500;
+}
+
+.subscription-card.group .info-content-age-range,
+.subscription-card.group .info-content-time {
+  font-size: 15px;
+}
+
+.subscription-card.group .info-content-title,
+.subscription-card.group .info-content-date {
+  font-size: 26px;
+}
+
+.subscription-card.group .subscription-card-bottom {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 115px;
+  padding-left: 27px;
+  padding-right: 27px;
+  background-color: #233548;
+}
+
+.subscription-card.group .subscription-card-bottom-price-container {
+  color: #fff;
+}
+
+.subscription-card.group .subscription-card-bottom-price-container.one-time-access {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.subscription-card.group .subscription-card-bottom-price {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.subscription-card.group .subscription-card-bottom-price-description {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.subscription-card.individual {
+  margin-top: 74px;
+}
+
+.subscription-card.individual .subscription-card-header-container {
+  display: flex;
+  align-items: center;
+}
+
+.subscription-card.individual .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin-left: 26px;
+}
+
+.subscription-card.individual .info-content-container {
+  display: flex;
+  align-items: center;
+  min-height: 80px;
+}
+
+.subscription-card.individual .info-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 24px;
+  padding-right: 62px;
+  padding-top: 17px;
+  padding-bottom: 17px;
+}
+
+.subscription-card.individual .subscription-card-bottom {
+  color: #fff;
+  font-size: 15px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 24px;
+  padding-right: 24px;
+  background-color: #233548;
+}
+
+.subscription-card.individual .price-list {
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+.subscription-card.individual .price-list .price {
+  font-size: 26px;
+}
+
+.subscription-card.individual .price-info-text {
+  max-width: 110px;
+  width: 100%;
+  font-weight: 300;
+}
+
+.subscription-card.workshop {
+  margin-top: 85px;
+  margin-bottom: 85px;
+}
+
+.subscription-card.workshop .subscription-card-header-container {
+  display: flex;
+  align-items: center;
+}
+
+.subscription-card.workshop .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin-left: 26px;
+}
+
+.subscription-card.workshop .info-content {
+  font-weight: 500;
+  font-size: 13px;
+  padding-left: 24px;
+  padding-right: 62px;
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+.subscription-card.workshop .info-content:not(:last-child) {
+  border-bottom: 1px solid #d4dadd;
+}
+
+.subscription-card.workshop .subscription-card-bottom {
+  color: #fff;
+  font-size: 15px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 24px;
+  padding-right: 24px;
+  background-color: #233548;
+}
+
+.subscription-card.workshop .price-list {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+.subscription-card.workshop .price-list .price {
+  font-size: 35px;
+}
+
+.subscription-card.workshop .price-info-text {
+  font-size: 13px;
+  font-weight: 300;
+  max-width: 130px;
+  width: 100%;
+}
+
+.phone-number {
+  color: #000;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 1900px) {
+  #section-group-training {
+    margin-top: 150px;
+    padding-top: 250px;
+  }
+
+  #section-individual-training {
+    margin-top: 130px;
+    padding-top: 250px;
+  }
+
+  #section-parkour-workshop {
+    margin-top: 100px;
+    padding-top: 250px;
+  }
+  .guys-icon {
+    width: 220px;
+  }
+  .target-icon {
+    width: 150px;
+  }
+
+  .workshop-icon {
+    width: 180px;
+  }
+
+  .border-image.group {
+    width: 640px;
+    margin-top: -20px;
+    margin-left: -25px;
+  }
+
+  .border-image.individual {
+    width: 640px;
+    margin-top: -10px;
+    margin-left: -20px;
+  }
+
+  .border-image.workshop {
+    width: 640px;
+    margin-top: -10px;
+    margin-left: -20px;
+  }
+
+  .training-png {
+    width: 600px;
+  }
+
+  .content-container {
+    margin-top: 220px;
+  }
+}
+
+@media only screen and (max-width: 1600px) {
+  .right-background h1 {
+    font-size: 41px;
+    margin-top: 100px;
+    margin-bottom: 60px;
+  }
+
+  .right-background h1::after {
+    width: 550px;
+  }
+
+  .right-background {
+    padding-bottom: 40px;
+    width: 700px;
+  }
+  .right-background .description {
+    max-width: 550px;
+    width: 100%;
+    font-size: 26px;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .training-background.group {
+    min-height: 660px;
+  }
+  .training-background.individual {
+    min-height: 610px;
+  }
+
+  .training-background.workshop {
+    min-height: 700px;
+  }
+
+  #section-group-training {
+    margin-top: 150px;
+    padding-top: 180px;
+  }
+
+  #section-individual-training {
+    margin-top: 130px;
+    padding-top: 180px;
+  }
+
+  #section-parkour-workshop {
+    margin-top: 100px;
+    padding-top: 180px;
+  }
+  h1 {
+    font-size: 43px;
+  }
+
+  .training-title-description {
+    font-size: 26px;
+  }
+  .training-description {
+    font-size: 26px;
+  }
+
+  .training-png {
+    width: 400px;
+  }
+
+  .border-image.group {
+    width: 420px;
+    margin-top: -5px;
+    margin-left: -12px;
+  }
+
+  .border-image.individual {
+    width: 420px;
+    margin-top: -4px;
+    margin-left: -10px;
+  }
+
+  .border-image.workshop {
+    width: 420px;
+    margin-top: -4px;
+    margin-left: -10px;
+  }
+
+  .guys-icon {
+    width: 150px;
+  }
+
+  .target-icon {
+    width: 100px;
+  }
+
+  .workshop-icon {
+    width: 110px;
+  }
+
+  .right-background h1 {
+    max-width: 420px;
+    width: 100%;
+    font-size: 35px;
+    margin-top: 70px;
+    margin-bottom: 40px;
+  }
+
+  .right-background h1::after {
+    width: 420px;
+    margin-top: 30px;
+  }
+
+  .right-background {
+    padding-bottom: 40px;
+    width: 550px;
+  }
+  .right-background .description {
+    max-width: 420px;
+    width: 100%;
+    font-size: 24px;
+  }
+  .content-container {
+    margin-top: 170px;
+  }
+}
+
+@media only screen and (max-width: 920px) {
+  .training-background.group {
+    min-height: 750px;
+  }
+
+  .training-background.individual {
+    min-height: 600px;
+  }
+
+  .training-background.workshop {
+    min-height: 740px;
+  }
+
+  .section-welcome-header-wrapper {
+    margin-top: 213px;
+  }
+  .pattern {
+    left: 0;
+    top: 0;
+    background-image: url(/assets/svg/pattern-color-mobile.svg);
+    height: 100%;
+  }
+  .right-background {
+    background-image: url(/assets/svg/right-bg-mobile.svg.svg);
+    width: 100%;
+    background-size: cover;
+    min-height: 780px;
+  }
+
+  .right-background h1 {
+    max-width: 620px;
+    font-size: 48px;
+  }
+
+  .right-background .description {
+    max-width: 640px;
+    width: 100%;
+    font-size: 30px;
+    padding-bottom: 50px;
+  }
+
+  .training-container {
+    margin-left: 0;
+  }
+  .join-us {
+    padding-left: 0;
+  }
+  .subscriptions {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  #section-group-training {
+    padding-top: 380px;
+    margin-top: -80px;
+  }
+
+  #section-individual-training {
+    padding-top: 380px;
+    margin-top: -130px;
+  }
+
+  #section-parkour-workshop {
+    padding-top: 380px;
+    margin-top: -130px;
+  }
+  .section-welcome-header-wrapper {
+    padding-bottom: 300px;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  #section-group-training {
+    padding-top: 330px;
+    margin-top: -80px;
+  }
+
+  #section-individual-training {
+    padding-top: 330px;
+    margin-top: -130px;
+  }
+
+  #section-parkour-workshop {
+    padding-top: 330px;
+    margin-top: -130px;
+  }
+  .training-background.group {
+    min-height: 670px;
+  }
+
+  .training-background.individual {
+    min-height: 520px;
+  }
+
+  .training-background.workshop {
+    min-height: 660px;
+  }
+  .join-us {
+    height: 160px;
+  }
+
+  .join-us h1 {
+    font-size: 36px;
+  }
+
+  .join-us .button-join-us {
+    width: 80px;
+  }
+  h1 {
+    font-size: 35px;
+  }
+
+  .right-background {
+    min-height: 690px;
+  }
+
+  .right-background h1 {
+    max-width: 440px;
+    font-size: 35px;
+  }
+
+  .right-background .description {
+    padding: 0 25px 20px 25px;
+    box-sizing: border-box;
+    font-size: 26px;
+  }
+  .section-welcome-header-wrapper {
+    margin-top: 198px;
+    padding-bottom: 250px;
+  }
+  .training-title-description {
+    font-size: 23px;
+  }
+  .training-description {
+    font-size: 23px;
+  }
+
+  .training-png {
+    width: 280px;
+  }
+
+  .border-image.group {
+    width: 300px;
+    margin-top: -5px;
+    margin-left: -10px;
+  }
+
+  .border-image.individual {
+    width: 300px;
+    margin-top: -5px;
+    margin-left: -10px;
+  }
+
+  .border-image.workshop {
+    width: 300px;
+    margin-top: -5px;
+    margin-left: -10px;
+  }
+
+  .guys-icon {
+    width: 90px;
+  }
+
+  .target-icon {
+    width: 70px;
+  }
+
+  .workshop-icon {
+    width: 80px;
+  }
+  .content-container {
+    margin-top: 120px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .section-welcome-header-wrapper {
+    margin-top: 188px;
+    padding-bottom: 200px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .section-welcome-header-wrapper {
+    margin-top: 183px;
+    padding-bottom: 180px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .section-welcome-header-wrapper {
+    padding-bottom: 160px;
+  }
+  .training-background.group {
+    min-height: 580px;
+  }
+
+  .training-background.individual {
+    min-height: 450px;
+  }
+
+  .training-background.workshop {
+    min-height: 530px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+  .right-background {
+    min-height: 540px;
+  }
+  .right-background h1 {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    max-width: 300px;
+    font-size: 24px;
+  }
+
+  .right-background h1::after {
+    margin-top: 20px;
+  }
+
+  .right-background .description {
+    font-size: 21px;
+  }
+
+  .join-us {
+    height: 110px;
+  }
+
+  .join-us h1 {
+    font-size: 26px;
+  }
+
+  .join-us .button-join-us {
+    width: 60px;
+  }
+
+  #section-group-training {
+    padding-top: 270px;
+    margin-top: -100px;
+  }
+  #section-individual-training {
+    padding-top: 270px;
+    margin-top: -100px;
+  }
+
+  #section-parkour-workshop {
+    padding-top: 270px;
+    margin-top: -100px;
+  }
+
+  .training-title-description {
+    font-size: 20px;
+  }
+  .training-description {
+    font-size: 18px;
+  }
+
+  .training-png {
+    width: 194px;
+  }
+
+  .border-image.group {
+    width: 210px;
+    margin-top: -3px;
+    margin-left: -8px;
+  }
+
+  .border-image.individual {
+    width: 210px;
+    margin-top: -3px;
+    margin-left: -8px;
+  }
+
+  .border-image.workshop {
+    width: 210px;
+    margin-top: -3px;
+    margin-left: -8px;
+  }
+
+  .guys-icon {
+    width: 64px;
+  }
+
+  .target-icon {
+    width: 47px;
+  }
+
+  .workshop-icon {
+    width: 55px;
+  }
+  .content-container {
+    margin-top: 80px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  h1 {
+    font-size: 22px;
+  }
+  .section-welcome-header-wrapper {
+    margin-top: 178px;
+  }
+  .right-background {
+    min-height: 362px;
+  }
+  .right-background h1 {
+    font-size: 21px;
+    max-width: 230px;
+  }
+  .right-background .description {
+    font-size: 14px;
+    max-width: 365px;
+  }
+
+  .join-us {
+    height: 80px;
+  }
+
+  .join-us h1 {
+    font-size: 20px;
+  }
+
+  .join-us .button-join-us {
+    width: 40px;
+  }
+
+  .training-title-description {
+    font-size: 17px;
+  }
+
+  .training-description {
+    font-size: 16px;
+  }
+
+  .training-background.group {
+    min-height: 500px;
+  }
+
+  .training-background.individual {
+    min-height: 395px;
+  }
+
+  .training-background.workshop {
+    min-height: 490px;
+  }
+
+  .subscription-card-title {
+    font-size: 20px;
+  }
+
+  .monthly-subscription-icon {
+    width: 46px;
+  }
+
+  .one-time-access-icon {
+    width: 38px;
+  }
+
+  .subscription-card.group .wrapper {
+    top: 15px;
+  }
+
+  .subscription-card-header-container {
+    height: 116px;
+  }
+
+  .subscription-card-header-description {
+    margin-left: 46px;
+    font-size: 13px;
+  }
+
+  .subscription-card.group .info-content-title,
+  .subscription-card.group .info-content-date {
+    font-size: 22px;
+  }
+
+  .subscription-card.group .info-content-age-range,
+  .subscription-card.group .info-content-time {
+    font-size: 13px;
+  }
+
+  .section-welcome-header-wrapper {
+    padding-bottom: 126px;
+  }
+}
