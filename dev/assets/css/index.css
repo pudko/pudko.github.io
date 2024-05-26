@@ -10,7 +10,7 @@
 
 .pattern {
   background-repeat: no-repeat;
-  background-image: url(/assets/svg/pattern-color.svg);
+  background-image: url("../svg/pattern-color.svg");
   background-size: cover;
   z-index: -1;
   position: absolute;
@@ -44,7 +44,7 @@
   display: flex;
   justify-content: center;
   margin-left: auto;
-  background-image: url("/assets/svg/right-bg.svg");
+  background-image: url("../svg/right-bg.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -227,7 +227,7 @@ h1 {
 
 .training-background.group {
   min-height: 937px;
-  background-image: url(/assets/svg/svg-group-training-background.svg);
+  background-image: url(../svg/svg-group-training-background.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -235,7 +235,7 @@ h1 {
 
 .training-background.individual {
   min-height: 829px;
-  background-image: url(/assets/svg/svg-individual-training-background.svg);
+  background-image: url(../svg/svg-individual-training-background.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -243,7 +243,7 @@ h1 {
 
 .training-background.workshop {
   min-height: 882px;
-  background-image: url(/assets/svg/svg-workshop-training-background.svg);
+  background-image: url(../svg/svg-workshop-training-background.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -687,11 +687,11 @@ h1 {
   .pattern {
     left: 0;
     top: 0;
-    background-image: url(/assets/svg/pattern-color-mobile.svg);
+    background-image: url("../svg/pattern-color-mobile.svg");
     height: 100%;
   }
   .right-background {
-    background-image: url(/assets/svg/right-bg-mobile.svg.svg);
+    background-image: url("../svg/right-bg-mobile.svg.svg");
     width: 100%;
     background-size: cover;
     min-height: 780px;

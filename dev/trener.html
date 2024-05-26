@@ -9,43 +9,70 @@
     <link rel="stylesheet" href="assets/css/navbar.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
 
-    <link rel="stylesheet" href="assets/css/index.css" />
+    <link rel="stylesheet" href="assets/css/trainer.css" />
   </head>
   <body>
     <div class="container">
       <div class="navbar">
-        <a href="/">
+        <a href="index.html">
           <object
             style="pointer-events: none"
             type="image/svg+xml"
-            data="/assets/svg/logo-playInMove.svg"
+            data="assets/svg/logo-playInMove.svg"
             class="logo-size"
           ></object>
         </a>
         <div id="menu-items" class="menu-items">
-          <a href="/" class="navbar-item"
+          <a href="index.html" class="navbar-item"
             ><span style="position: relative"> Parkour tréningy</span>
           </a>
-          <a href="/trener.html" class="navbar-item active">
+          <a href="trener.html" class="navbar-item active">
             <span style="position: relative">Trenér</span>
           </a>
-          <a href="/parkour-tutorialy.html" class="navbar-item">
+          <a href="parkour-tutorialy.html" class="navbar-item">
             <span style="position: relative">Parkourtutoriály a umenie parkouru</span>
           </a>
-          <a href="/kontakt.html" class="navbar-item">
+          <a href="kontakt.html" class="navbar-item">
             <span style="position: relative">Kontakt</span>
           </a>
+          <div id="hamburger-menu-footer">
+            <div class="hamburger-menu-footer-social-links">
+              <a href="https://www.instagram.com/playinmove/" target="_blank">
+                <object
+                  type="image/svg+xml"
+                  class="icon-social-size"
+                  data="assets/svg/icon-instagram.svg"
+                ></object
+              ></a>
+              <a href="https://www.facebook.com/profile.php?id=100069611048714" target="_blank"
+                ><object
+                  type="image/svg+xml"
+                  class="icon-social-size"
+                  data="assets/svg/icon-facebook.svg"
+                ></object>
+              </a>
+              <a href="https://www.youtube.com/channel/UC6IL4oCWK1LVL6VYLiklppQ" target="_blank"
+                ><object
+                  type="image/svg+xml"
+                  class="icon-social-size"
+                  data="assets/svg/icon-youtube.svg"
+                ></object>
+              </a>
+            </div>
+          </div>
         </div>
 
         <img
           onclick="openHamburgerMenu()"
-          src="/assets/svg/hamburger-menu-icon.svg"
+          src="assets/svg/hamburger-menu-icon.svg"
           alt="menu"
           id="hamburger-menu-button"
           class="hamburger-menu-icon"
         />
       </div>
     </div>
+    <div id="hamburger-menu-background"></div>
+
     <section>
       <div class="trainer-info">
         <div class="trainer-info-container">
@@ -79,10 +106,10 @@
           <object
             class="border-image"
             type="image/svg+xml"
-            data="/assets/svg/border-image-trainer.svg"
+            data="assets/svg/border-image-trainer.svg"
             width="216"
           ></object>
-          <img class="trainer-image" src="/assets/images/trainer-image.png" alt="" />
+          <img class="trainer-image" src="assets/images/trainer-image.png" alt="" />
         </div>
       </div>
     </section>
@@ -94,21 +121,21 @@
             <object
               type="image/svg+xml"
               class="icon-social-size"
-              data="/assets/svg/icon-instagram.svg"
+              data="assets/svg/icon-instagram.svg"
             ></object
           ></a>
           <a href="https://www.facebook.com/profile.php?id=100069611048714" target="_blank"
             ><object
               type="image/svg+xml"
               class="icon-social-size"
-              data="/assets/svg/icon-facebook.svg"
+              data="assets/svg/icon-facebook.svg"
             ></object>
           </a>
           <a href="https://www.youtube.com/channel/UC6IL4oCWK1LVL6VYLiklppQ" target="_blank"
             ><object
               type="image/svg+xml"
               class="icon-social-size"
-              data="/assets/svg/icon-youtube.svg"
+              data="assets/svg/icon-youtube.svg"
             ></object>
           </a>
         </div>

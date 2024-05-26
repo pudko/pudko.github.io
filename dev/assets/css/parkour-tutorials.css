@@ -25,13 +25,15 @@ h1 {
 
 .parkour-tutorials-background {
   min-height: 652px;
-  background-image: url("/assets/svg/svg-parkour-tutorials-page-background-one.svg");
+  background-image: url("../svg/svg-parkour-tutorials-page-background-one.svg");
+  position: relative;
+  margin-top: 107px;
 }
 
 .parkour-art-background {
   margin-top: 158px;
   min-height: 687px;
-  background-image: url("/assets/svg/svg-parkour-tutorials-page-background-two.svg");
+  background-image: url("../svg/svg-parkour-tutorials-page-background-two.svg");
 }
 
 .training-description::before {
@@ -181,6 +183,11 @@ h1 {
     margin-bottom: 150px;
   }
 }
+@media only screen and (max-width: 820px) {
+  .parkour-tutorials-background {
+    margin-top: 91px;
+  }
+}
 
 @media only screen and (max-width: 768px) {
   h1 {
@@ -213,6 +220,12 @@ h1 {
   }
   #parkour-art {
     margin-bottom: 120px;
+  }
+}
+
+@media only screen and (max-width: 820px) {
+  .parkour-tutorials-background {
+    margin-top: 81px;
   }
 }
 
@@ -258,15 +271,21 @@ h1 {
 
   .parkour-tutorials-background {
     min-height: 525px;
-    background-image: url("/assets//svg//svg-parkour-tutorials-page-background-one-mobile.svg");
+    background-image: url("../svg/svg-parkour-tutorials-page-background-one-mobile.svg");
   }
   .parkour-art-background {
     min-height: 530px;
-    background-image: url("/assets//svg//svg-parkour-tutorials-page-background-two-mobile.svg");
+    background-image: url("../svg/svg-parkour-tutorials-page-background-two-mobile.svg");
   }
 
   .parkour-art-background {
     margin-top: 70px;
+  }
+}
+
+@media only screen and (max-width: 820px) {
+  .parkour-tutorials-background {
+    margin-top: 76px;
   }
 }
 
@@ -323,14 +342,20 @@ h1 {
 
   .parkour-tutorials-background {
     min-height: 390px;
-    background-image: url("/assets//svg//svg-parkour-tutorials-page-background-one-mobile.svg");
+    background-image: url("../svg/svg-parkour-tutorials-page-background-one-mobile.svg");
   }
   .parkour-art-background {
     min-height: 400px;
-    background-image: url("/assets//svg//svg-parkour-tutorials-page-background-two-mobile.svg");
+    background-image: url("../svg/svg-parkour-tutorials-page-background-two-mobile.svg");
   }
 
   .parkour-art-background {
     margin-top: 70px;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .parkour-tutorials-background {
+    margin-top: 71px;
   }
 }

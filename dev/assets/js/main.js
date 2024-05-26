@@ -9,11 +9,11 @@ function openHamburgerMenu() {
     hamburgerMenuItems.classList.add("hamburger-menu")
     hamburgerMenuFooter.style.display = "block"
     hamburgerMenuBackground.style.display = "block"
-    hamburgerMenuButton.src = "/assets/svg/hamburger-menu-close-icon.svg"
+    hamburgerMenuButton.src = "assets/svg/hamburger-menu-close-icon.svg"
   } else {
     hamburgerMenuItems.classList.remove("hamburger-menu")
     hamburgerMenuItems.classList.add("menu-items")
-    hamburgerMenuButton.src = "/assets/svg/hamburger-menu-icon.svg"
+    hamburgerMenuButton.src = "assets/svg/hamburger-menu-icon.svg"
     hamburgerMenuFooter.style.display = "none"
     hamburgerMenuBackground.style.display = "none"
   }
