@@ -50,14 +50,14 @@
   pointer-events: none;
 }
 
-.hamburger-menu a {
+.hamburger-menu > a {
   display: flex;
   align-items: center;
   height: 56px;
   padding-left: 100px;
 }
 
-.hamburger-menu a:not(:last-child) {
+.hamburger-menu > a:not(:last-child) {
   border-bottom: 1px solid #d5dbde;
 }
 
@@ -235,7 +235,7 @@
   .navbar {
     height: 80px;
   }
-  .hamburger-menu a {
+  .hamburger-menu > a {
     padding-left: 90px;
   }
   .side-menu {
@@ -250,7 +250,7 @@
   .navbar {
     height: 75px;
   }
-  .hamburger-menu a {
+  .hamburger-menu > a {
     padding-left: 80px;
   }
 
@@ -273,7 +273,7 @@
   .logo-size {
     width: 131px;
   }
-  .hamburger-menu a {
+  .hamburger-menu > a {
     padding-left: 70px;
   }
   .navbar {
