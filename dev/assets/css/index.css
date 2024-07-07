@@ -9,6 +9,7 @@
 }
 
 .pattern {
+  background-color: white;
   background-repeat: no-repeat;
   background-image: url("../svg/pattern-color.svg");
   background-size: cover;
@@ -36,6 +37,34 @@
   position: relative;
   overflow: hidden;
   margin-top: 106px;
+  height: calc(70vh - 106px);
+}
+.section-welcome-header-wrapper video{
+    width: calc(100% - 125px);
+    /*height: calc(70vh - 106px);*/
+    object-fit: cover;
+    padding-left: 125px;
+}
+
+.hero-text{
+  background-color: #fcb223;
+  position: absolute;
+  bottom: 10%;
+  left: 15%;
+  width: 35%;
+  /*transform: translate(-50%, -50%);*/
+  color: black;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: left;
+  z-index: 1;
+  border-radius: 16px;
+  padding: 20px;
+
+}
+.hero-text h1{
+  font-size: 1.1rem;
+  margin: 0;
 }
 
 .right-background {
@@ -260,6 +289,7 @@ h1 {
 }
 
 .subscription-card {
+  background-color: white;
   max-width: 370px;
   width: 100%;
   border: 1px solid #000;
@@ -672,6 +702,10 @@ h1 {
   .training-background.group {
     min-height: 750px;
   }
+  .section-welcome-header-wrapper video{
+    padding-left: 0;
+    width: 100%;
+  }
 
   .training-background.individual {
     min-height: 600px;
@@ -683,6 +717,11 @@ h1 {
 
   .section-welcome-header-wrapper {
     margin-top: 213px;
+  }
+  .hero-text{
+    width: 70%;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
   .pattern {
     left: 0;
@@ -734,9 +773,6 @@ h1 {
   #section-parkour-workshop {
     padding-top: 380px;
     margin-top: -130px;
-  }
-  .section-welcome-header-wrapper {
-    padding-bottom: 300px;
   }
 }
 
@@ -797,7 +833,6 @@ h1 {
   }
   .section-welcome-header-wrapper {
     margin-top: 198px;
-    padding-bottom: 250px;
   }
   .training-title-description {
     font-size: 23px;
@@ -847,21 +882,19 @@ h1 {
 @media screen and (max-width: 700px) {
   .section-welcome-header-wrapper {
     margin-top: 188px;
-    padding-bottom: 200px;
   }
 }
 
 @media screen and (max-width: 550px) {
   .section-welcome-header-wrapper {
     margin-top: 183px;
-    padding-bottom: 180px;
+  }
+  .hero-text {
+    width: 85%;
   }
 }
 
 @media screen and (max-width: 530px) {
-  .section-welcome-header-wrapper {
-    padding-bottom: 160px;
-  }
   .training-background.group {
     min-height: 580px;
   }
@@ -1050,9 +1083,5 @@ h1 {
   .subscription-card.group .info-content-age-range,
   .subscription-card.group .info-content-time {
     font-size: 13px;
-  }
-
-  .section-welcome-header-wrapper {
-    padding-bottom: 126px;
   }
 }

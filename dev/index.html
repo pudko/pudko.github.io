@@ -33,7 +33,7 @@
 
     <link rel="stylesheet" href="assets/css/index.css" />
   </head>
-  <body>
+  <body style="background-image: url('assets/svg/pattern-index-no-color.svg')">
     <div class="container">
       <div class="navbar">
         <a href="index.html">
@@ -104,75 +104,68 @@
     </div>
     <div id="hamburger-menu-background"></div>
 
-    <div class="side-menu">
-      <a href="#section-group-training">
+    <nav class="side-menu" id="navbar-tabs" >
+      <a class="nav-link" href="#section-group-training">
         <div class="side-menu-item">
           <div class="side-menu-icon">
-            <object
-              style="pointer-events: none"
-              type="image/svg+xml"
-              data="assets/svg/side-menu-group-icon.svg"
-              width="100%"
-              height="100%"
-            ></object>
+<!--            <embed src="assets/svg/side-menu-group-icon.svg" alt="">-->
+<!--              <object-->
+<!--                      style="pointer-events: none"-->
+<!--                      type="image/svg+xml"-->
+<!--                      data="assets/svg/side-menu-group-icon.svg"-->
+<!--                      width="100%"-->
+<!--                      height="100%"-->
+<!--              ></object>-->
           </div>
           <div class="side-menu-item-title">Skupinový tréning</div>
         </div>
       </a>
 
-      <a href="#section-individual-training">
+      <a class="nav-link" href="#section-individual-training">
         <div class="side-menu-item">
           <div class="side-menu-icon">
-            <object
-              style="pointer-events: none"
-              type="image/svg+xml"
-              data="assets/svg/side-menu-individual-icon.svg"
-              width="100%"
-              height="100%"
-            ></object>
+<!--            <object-->
+<!--              style="pointer-events: none"-->
+<!--              type="image/svg+xml"-->
+<!--              data="assets/svg/side-menu-individual-icon.svg"-->
+<!--              width="100%"-->
+<!--              height="100%"-->
+<!--            ></object>-->
           </div>
           <div class="side-menu-item-title">Individuálny tréning</div>
         </div>
       </a>
 
-      <a href="#section-parkour-workshop">
+      <a class="nav-link" href="#section-parkour-workshop">
         <div class="side-menu-item">
           <div class="side-menu-icon">
-            <object
-              style="pointer-events: none"
-              type="image/svg+xml"
-              data="assets/svg/side-menu-parkour-icon.svg"
-              width="100%"
-              height="100%"
-            ></object>
+<!--            <object-->
+<!--              style="pointer-events: none"-->
+<!--              type="image/svg+xml"-->
+<!--              data="assets/svg/side-menu-parkour-icon.svg"-->
+<!--              width="100%"-->
+<!--              height="100%"-->
+<!--            ></object>-->
           </div>
 
           <div class="side-menu-item-title">Parkour workshop</div>
         </div>
       </a>
-    </div>
-
+    </nav>
     <section id="section-welcome">
       <div class="section-welcome-header-wrapper">
-        <div class="right-background">
+        <video src="assets/Cover.mp4" autoplay loop muted></video>
+        <div class="hero-text">
           <div class="description-container">
             <h1>PLAYINMOVE - MIESTO KDE POHYB ZAČÍNA!</h1>
             <div class="description">
               <p>
-                Pohyb vnímame ako formu sebarealizácie. Od budovania disciplíny a posilňovania
-                psychiky, cez sebapoznávanie až po naplnenie našich potrieb či pochopenie nášho tela
-                za pomoci tréningu a jeho štúdia.
-              </p>
-              <p>
-                Tímové hry nás učia spolupráci. Pády nás učia zniesť ranu a znova sa postaviť.
-                Parkourové prvky nás učia prekonávať prekážky. Posilňovanie nás učí, že s dobrou
-                prípravou je všetko možné. A to je jeden z hlavných cieľov Playinmove. Reflektovať
-                rôzne smery a posúvať sa vpred bezpečne a systematicky.
+                Od budovania disciplíny a posilňovania psychiky, cez sebapoznávanie až po naplnenie naších potrieb či pochopenie nášho tela za pomoci tréningu a jeho štúdia.
               </p>
             </div>
           </div>
         </div>
-        <div class="pattern"></div>
+<!--        <div class="pattern"></div>-->
       </div>
       <div class="join-us">
         <h1>PRIDAJ SA K NÁM</h1>
@@ -186,7 +179,7 @@
       </div>
     </section>
 
-    <section id="section-group-training">
+    <section class="scrollSpyActive" id="section-group-training">
       <div class="training-container">
         <div class="training-header">
           <div class="training-header-image">
@@ -329,7 +322,7 @@
         </div>
       </div>
     </section>
-    <section id="section-individual-training">
+    <section class="scrollSpyActive" id="section-individual-training">
       <div class="training-container">
         <div class="training-header">
           <div class="training-header-image">
@@ -386,7 +379,7 @@
         </div>
       </div>
     </section>
-    <section id="section-parkour-workshop">
+    <section class="scrollSpyActive" id="section-parkour-workshop">
       <div class="training-container">
         <div class="training-header">
           <div class="training-header-image">
@@ -474,5 +467,17 @@
         </div>
       </div>
     </div>
+    <script src="https://unpkg.com/@sidsbrmnn/scrollspy@1.x/dist/scrollspy.min.js"></script>
+    <script defer>
+      window.onload = function () {
+        console.log('test');
+        scrollSpy('#navbar-tabs', {
+          sectionSelector: '.scrollSpyActive',
+          activeClass: 'active',
+          targetSelector: '.nav-link',
+          offset: 150,
+        });
+      }
+    </script>
   </body>
 </html>
