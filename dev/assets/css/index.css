@@ -308,7 +308,7 @@ h1 {
 .subscription-card {
   background-color: white;
   max-width: 370px;
-  min-width: 370px;
+  min-width: 270px;
   width: 100%;
   border: 1px solid #000;
   border-radius: 15px;
