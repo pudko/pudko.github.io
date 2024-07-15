@@ -767,6 +767,10 @@ h1 {
   .join-us {
     padding-left: 0;
   }
+
+  .join-us .button-join-us {
+    width: 4rem;
+  }
   .subscriptions {
     flex-direction: column;
     align-items: center;
@@ -857,21 +861,6 @@ h1 {
     width: 300px;
     margin-top: -5px;
     margin-left: -10px;
-  }
-
-  .guys-icon {
-    width: 90px;
-  }
-
-  .target-icon {
-    width: 70px;
-  }
-
-  .workshop-icon {
-    width: 80px;
-  }
-  .join-us .button-join-us {
-    width: 4rem;
   }
   .content-container {
     margin-top: 4rem;
