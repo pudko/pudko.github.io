@@ -311,7 +311,6 @@ h1 {
 .subscription-card-header {
   display: flex;
   gap: 14px;
-  /*justify-content: center;*/
   align-items: flex-end;
   padding: 0 24px;
 }
