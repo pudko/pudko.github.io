@@ -876,6 +876,11 @@ h1 {
   }
   .training-header{
     padding: 0 1.5rem;
+    -ms-transform: translate(0, 55%);
+    -webkit-transform: translate(0, 55%);
+    -moz-transform: translate(0, 55%);
+    -o-transform: translate(0, 55%);
+    transform: translate(0, 55%);
   }
 }
 
