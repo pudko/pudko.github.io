@@ -176,7 +176,7 @@ h1 {
   margin-top: 1rem;
   font-size: 0.875rem;
   font-weight: 500;
-  border-top: 2px solid #fff;
+  border-top: 0.5pt solid #fff;
 }
 .training-description p:first-child{
   margin-top: 1rem;
@@ -218,6 +218,9 @@ h1 {
   width: 150px;
 }
 
+.workshop-icon {
+  width: 180px;
+}
 /*.workshop-icon {*/
 /*  position: absolute;*/
 /*  left: 110%;*/
@@ -231,7 +234,7 @@ h1 {
   z-index: 1;
   text-align: left;
   margin-top: 8rem;
-  padding: 3rem 2rem;
+  padding: 4.5rem 3rem;
 }
 .content-container h1 {
   margin-bottom: 0.5rem;
@@ -308,8 +311,9 @@ h1 {
 .subscription-card-header {
   display: flex;
   gap: 14px;
-  justify-content: center;
+  /*justify-content: center;*/
   align-items: flex-end;
+  padding: 0 24px;
 }
 .subscription-card-header .monthly-subscription-icon {
   mask-image: url(../svg/icon-monthly-subscription-clip.svg);
@@ -319,7 +323,7 @@ h1 {
 .subscription-card-header-description {
   font-size: 15px;
   font-weight: 500;
-  margin-left: 27px;
+  padding-left: 24px;
   margin-top: 15px;
 }
 
