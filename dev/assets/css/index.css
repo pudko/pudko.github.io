@@ -862,6 +862,18 @@ h1 {
     margin-top: -5px;
     margin-left: -10px;
   }
+
+  .guys-icon {
+    width: 90px;
+  }
+
+  .target-icon {
+    width: 70px;
+  }
+
+  .workshop-icon {
+    width: 80px;
+  }
   .content-container {
     margin-top: 4rem;
     padding: 4.5rem 1.5rem;
