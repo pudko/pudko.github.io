@@ -868,6 +868,7 @@ h1 {
   }
   .content-container {
     margin-top: 4rem;
+    padding: 4.5rem 1.5rem;
   }
 }
 
@@ -892,7 +893,7 @@ h1 {
 @media screen and (max-width: 530px) {
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   .right-background {
     min-height: 540px;
@@ -931,7 +932,7 @@ h1 {
   }
 
   .training-title-description {
-    /*font-size: 20px;*/
+    font-size: 0.89rem;
   }
   .training-description {
     font-size: 0.875rem;
@@ -977,7 +978,7 @@ h1 {
 
 @media screen and (max-width: 460px) {
   h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
   .section-welcome-header-wrapper {
     margin-top: 178px;
