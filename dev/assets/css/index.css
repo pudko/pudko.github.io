@@ -316,8 +316,8 @@ h1 {
   padding: 0 24px;
 }
 .subscription-card-header .monthly-subscription-icon {
-  mask-image: url(../svg/icon-monthly-subscription-clip.svg);
-  -webkit-mask-image: url(../svg/icon-monthly-subscription-clip.svg);
+  /*mask-image: url(../svg/icon-monthly-subscription-clip.svg);*/
+  /*-webkit-mask-image: url(../svg/icon-monthly-subscription-clip.svg);*/
 }
 
 .subscription-card-header-description {
