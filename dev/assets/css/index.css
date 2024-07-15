@@ -1,6 +1,7 @@
 .monthly-subscription-icon {
   width: 52px;
   height: auto;
+  max-height: 41px;
 }
 
 .one-time-access-icon {
