@@ -49,13 +49,13 @@
 }
 
 .hero-text{
-  background-color: #fcb223A0;
+  /*background-color: #fcb223A0;*/
   position: absolute;
-  bottom: 10%;
-  left: calc(125px + 2%);
+  bottom: 2rem;
+  left: calc(125px + 2rem);
   width: 35%;
   /*transform: translate(-50%, -50%);*/
-  color: black;
+  color: white;
   font-size: 0.875rem;
   font-weight: 700;
   text-align: left;
@@ -67,6 +67,9 @@
 .hero-text h1{
   font-size: 1.1rem;
   margin: 0;
+}
+.hero-text p{
+  margin-bottom: 0;
 }
 
 .right-background {
