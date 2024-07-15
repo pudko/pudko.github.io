@@ -277,18 +277,18 @@ h1 {
   height: auto;
 }
 .training-background.group {
-  mask-image: url(../svg/svg-group-training-background.svg);
-  -webkit-mask-image: url(../svg/svg-group-training-background.svg);
+  mask-image: url(../svg/group-mask.svg);
+  -webkit-mask-image: url(../svg/group-mask.svg);
 }
 
 .training-background.individual {
-  mask-image: url(../svg/svg-individual-training-background.svg);
-  -webkit-mask-image: url(../svg/svg-individual-training-background.svg);
+  mask-image: url(../svg/individual-mask.svg);
+  -webkit-mask-image: url(../svg/individual-mask.svg);
 }
 
 .training-background.workshop {
-  mask-image: url(../svg/svg-workshop-training-background.svg);
-  -webkit-mask-image: url(../svg/svg-workshop-training-background.svg);
+  mask-image: url(../svg/workshop-mask.svg);
+  -webkit-mask-image: url(../svg/workshop-mask.svg);
 }
 
 .subscriptions {
