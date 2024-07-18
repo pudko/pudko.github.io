@@ -1,5 +1,5 @@
 .footer-container {
-  z-index: 3;
+  z-index: 100;
   position: relative;
   display: flex;
   justify-content: center;

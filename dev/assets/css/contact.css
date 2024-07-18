@@ -5,30 +5,30 @@
 }
 
 .contact-header-content {
-  margin-top: 107px;
-  text-align: center;
-  max-width: 1920px;
-  width: 100%;
-  height: 525px;
   background-image: url("../svg/svg-contact-page-background.svg");
   background-repeat: no-repeat;
-  background-position: center;
   background-size: cover;
+  text-align: left;
+  width: 100%;
+  margin-top: 107px;
+  padding: 1rem 4rem 5rem 4rem;
+  box-sizing: border-box;
 }
 
 .contact-header-content .description {
   font-size: 26px;
   font-weight: 500;
-  padding-bottom: 62px;
+  padding-bottom: 2rem;
   border-bottom: 2px solid #fff;
 }
 
 .contact-header-content h1 {
-  margin-top: 130px;
+  margin-top: 2rem;
 }
 
 .contact-header-content .motto {
-  margin-top: 64px;
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
 }
 
 .contact-header-content h1,
@@ -62,10 +62,9 @@
   display: flex;
   flex-direction: column;
   border: 1px solid #000;
+  max-width: min(100%, 500px);
   border-radius: 25px;
   overflow: hidden;
-  max-width: 692px;
-  width: 100%;
   margin-top: 116px;
   margin-bottom: 174px;
 }
@@ -81,11 +80,11 @@
 }
 
 .contact-card-header-icon {
-  width: 116px;
+  width: 5rem;
 }
 
 .contact-card-header-title {
-  font-size: 44px;
+  font-size: 2rem;
   font-weight: 700;
   color: #233548;
 }
@@ -94,10 +93,10 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  max-width: 505px;
   width: 100%;
-  gap: 55px;
+  gap: 1rem;
   padding-left: 70px;
+  padding-right: 70px;
   padding-top: 60px;
   padding-bottom: 70px;
 }
@@ -105,11 +104,11 @@
 .contact-card-content-item {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 2rem;
 }
 
 .contact-card-content-item-value {
-  font-size: 30px;
+  font-size: 1.5rem;
   font-weight: 500;
   color: #5d748b;
 }
@@ -124,14 +123,14 @@
 }
 
 .mail-icon-size {
-  width: 58px;
+  width: 2rem;
 }
 
 .phone-icon-size {
-  width: 43px;
+  width: 1.5rem;
 }
 .location-icon-size {
-  width: 52px;
+  width: 2rem;
 }
 
 .social-icon {
@@ -163,22 +162,13 @@
 
 @media screen and (max-width: 700px) {
   .contact-header-content {
-    background-image: url("../svg/svg-contact-page-background-small.svg");
-    background-position: unset;
-    background-size: contain;
+
     width: 100%;
-    height: 350px;
     margin-top: 81px;
   }
   .contact-header-content h1,
   .contact-header-content .motto {
     font-size: 20px;
-  }
-  .contact-header-content h1 {
-    margin-top: 50px;
-  }
-  .contact-header-content .motto {
-    margin-top: 40px;
   }
   .contact-header-content .description {
     font-size: 13px;
@@ -199,18 +189,17 @@
 
 @media screen and (max-width: 550px) {
   .contact-header-content {
-    height: 280px;
+    background-image: url("../svg/svg-contact-page-background-small.svg");
+    background-size: cover;
     margin-top: 76px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 3rem;
   }
   .contact-header-content h1,
   .contact-header-content .motto {
-    font-size: 17px;
-  }
-  .contact-header-content h1 {
-    margin-top: 40px;
-  }
-  .contact-header-content .motto {
-    margin-top: 30px;
+    font-size: 0.95rem;
+
   }
   .contact-header-content .description {
     font-size: 14px;
@@ -271,23 +260,3 @@
   }
 }
 
-@media screen and (max-width: 460px) {
-  .contact-header-content {
-    height: 230px;
-    margin-top: 71px;
-  }
-  .contact-header-content h1,
-  .contact-header-content .motto {
-    font-size: 12px;
-  }
-  .contact-header-content .description {
-    font-size: 12px;
-    padding-bottom: 25px;
-  }
-  .contact-header-content h1 {
-    margin-top: 30px;
-  }
-  .contact-header-content .motto {
-    margin-top: 25px;
-  }
-}

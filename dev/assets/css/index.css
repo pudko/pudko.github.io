@@ -228,14 +228,17 @@ h1 {
   justify-content: space-between;
   width: calc(100% - 6rem);
   padding: 0 3rem;
+  box-sizing: border-box;
 }
 
 .target-icon {
   width: 150px;
+  padding-left: 20px;
 }
 
 .workshop-icon {
   width: 180px;
+  padding-left: 20px;
 }
 /*.workshop-icon {*/
 /*  position: absolute;*/
@@ -552,6 +555,7 @@ h1 {
 }
 .guys-icon{
   width: 220px;
+  padding-left: 20px;
 }
 .border-image {
   width: 640px;
@@ -885,6 +889,7 @@ h1 {
     -moz-transform: translate(0, 55%);
     -o-transform: translate(0, 55%);
     transform: translate(0, 55%);
+    width: 100%;
   }
 }
 

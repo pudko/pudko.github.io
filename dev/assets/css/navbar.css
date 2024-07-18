@@ -4,7 +4,7 @@
 }
 .hamburger-menu-icon {
   display: none;
-  width: 36px;
+  width: 1.5rem;
 }
 
 .hamburger-menu {
@@ -112,6 +112,9 @@
   gap: 55px;
   padding-left: 32px;
   padding-right: 32px;
+  -webkit-box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.45);
+  -moz-box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.45);
+  box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.45);
 }
 
 .logo-size {
@@ -120,22 +123,20 @@
 
 .menu-items .navbar-item {
   font-weight: 600;
-  font-style: italic;
-  font-size: 23px;
+  font-size: 1rem;
   color: #000000;
 }
 
 .hamburger-menu .navbar-item {
   font-weight: 600;
-  font-style: normal;
-  font-size: 15px;
+  font-size: 1rem;
   color: #000000;
 }
 
 .hamburger-item {
   display: none;
   color: #233548;
-  font-size: 12px;
+  font-size: 0.95rem;
   font-weight: 500;
 }
 
@@ -194,7 +195,7 @@
     width: 200px;
   }
   .menu-items .navbar-item {
-    font-size: 20px;
+    /*font-size: 20px;*/
   }
   .navbar {
     gap: 35px;
