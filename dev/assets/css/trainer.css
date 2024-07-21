@@ -73,7 +73,7 @@ body{
   font-size: 1rem;
   font-weight: 500;
   max-width: 1716px;
-  padding-top: 1.5rem;
+  padding-top: 1rem;
 }
 
 .border-image {
@@ -137,7 +137,7 @@ body{
   }
 
   .description {
-    font-size: 1rem;
+    font-size: 0.875rem;
   }
 
   .trainer-image {
@@ -177,6 +177,9 @@ body{
 
   .trainer-info-content {
     padding-bottom: 7rem;
+  }
+  .trainer-info-header h1, .trainer-info-header .title, .trainer-info-header .certificate{
+    font-size: 0.95rem;
   }
 
   .trainer-image {

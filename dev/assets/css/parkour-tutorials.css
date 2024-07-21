@@ -41,7 +41,7 @@ body{
   display: block;
   position: absolute;
   border-bottom: 2px solid #fff;
-  width: calc(100% - 5rem);
+  width: calc(100% - 8rem);
   left: 50%;
   transform: translateX(-50%);
 }
@@ -147,6 +147,9 @@ body{
   .content-container{
     padding-left: 2.5rem;
     padding-right: 2.5rem;
+  }
+  .training-description::before {
+    width: calc(100% - 5rem);
   }
 
   .parkour-tutorials-video-list-container {
