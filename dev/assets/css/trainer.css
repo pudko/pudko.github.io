@@ -179,11 +179,11 @@ body{
   .trainer-info-content {
     padding-bottom: 7rem;
   }
-  .trainer-info-header .title{
+  .trainer-info-header .title, .trainer-info-header .certificate{
     font-size: 0.7rem;
     margin-bottom: 0.5rem;
   }
-  .trainer-info-header h1, .trainer-info-header .certificate{
+  .trainer-info-header h1{
     font-size: 0.95rem;
     margin-bottom: 0.5rem;
   }
@@ -216,7 +216,7 @@ body{
 
 @media only screen and (max-width: 420px) {
   .trainer-info-container{
-    padding-left: 0.875rem;
-    padding-right: 0.875rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }

@@ -154,6 +154,12 @@ body{
   .contact-header-content {
     margin-top: 91px;
   }
+  .contact-header-content .description {
+    padding-bottom: 1rem;
+  }
+  .contact-header-content .motto {
+    padding-top: 1rem;
+  }
 }
 
 @media screen and (max-width: 700px) {
