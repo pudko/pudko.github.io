@@ -77,7 +77,8 @@ body{
   display: flex;
   align-items: center;
   gap: 58px;
-  padding-left: 70px;
+  padding-left: 3rem;
+  padding-right: 3rem;
   padding-top: 40px;
   padding-bottom: 35px;
   border-bottom: 1px solid #d5dbde;
