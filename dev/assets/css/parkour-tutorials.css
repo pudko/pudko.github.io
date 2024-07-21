@@ -32,7 +32,6 @@ body{
   margin-top: 158px;
   background-image: url("../svg/svg-parkour-tutorials-page-background-two.svg");
   background-size: cover;
-  padding-bottom: 7rem;
   padding-top: 5rem;
 }
 
@@ -169,6 +168,9 @@ body{
   }
 }
 @media only screen and (max-width: 820px) {
+  .content-container{
+    padding-bottom: 2.5rem;
+  }
   .parkour-tutorials-background {
     margin-top: 91px;
   }
@@ -220,7 +222,7 @@ body{
     background-image: url("../svg/svg-parkour-tutorials-page-background-one-mobile.svg");
   }
   .parkour-art-background {
-    min-height: 530px;
+    padding-top: 3rem;
     background-image: url("../svg/svg-parkour-tutorials-page-background-two-mobile.svg");
   }
 
@@ -278,7 +280,6 @@ body{
     background-image: url("../svg/svg-parkour-tutorials-page-background-one-mobile.svg");
   }
   .parkour-art-background {
-    min-height: 400px;
     background-image: url("../svg/svg-parkour-tutorials-page-background-two-mobile.svg");
   }
 
