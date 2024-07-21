@@ -276,26 +276,18 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-color: #fcb223;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  mask-size: cover;
-  -webkit-mask-size: cover;
   height: auto;
 }
 .training-background.group {
-  mask-image: url(../svg/group-mask.svg);
-  -webkit-mask-image: url(../svg/group-mask.svg);
+  background-image: url(../svg/group-mask.svg);
 }
 
 .training-background.individual {
-  mask-image: url(../svg/individual-mask.svg);
-  -webkit-mask-image: url(../svg/individual-mask.svg);
+  background-image: url(../svg/individual-mask.svg);
 }
 
 .training-background.workshop {
-  mask-image: url(../svg/workshop-mask.svg);
-  -webkit-mask-image: url(../svg/workshop-mask.svg);
+  background-image: url(../svg/workshop-mask.svg);
 }
 
 .subscriptions {
@@ -816,6 +808,9 @@ h1 {
   .join-us h1 {
     font-size: 2rem;
   }
+  .join-us .button-join-us {
+    width: 3.5rem;
+  }
 
   h1 {
     font-size: 2rem;
@@ -933,9 +928,15 @@ h1 {
   .right-background .description {
     font-size: 21px;
   }
-
+  .join-us{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
   .join-us h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
+  }
+  .join-us .button-join-us {
+    width: 3rem;
   }
 
   #section-group-training {
@@ -1007,7 +1008,7 @@ h1 {
   }
 
   .join-us h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .training-title-description {
