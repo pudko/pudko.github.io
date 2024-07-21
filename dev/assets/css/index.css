@@ -12,7 +12,7 @@
 .pattern {
   background-color: white;
   background-repeat: no-repeat;
-  background-image: url("../svg/patternfarebny.svg");
+  background-image: url("../svg/patternfarebny.svg?t=1");
   background-size: cover;
   z-index: -1;
   position: absolute;
@@ -736,7 +736,7 @@ h1 {
   .pattern {
     left: 0;
     top: 0;
-    background-image: url("../svg/patternfarebny.svg");
+    background-image: url("../svg/patternfarebny.svg?t=1");
     height: 100%;
   }
   .right-background {
