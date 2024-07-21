@@ -21,7 +21,7 @@ body{
 }
 
 .contact-header-content .description {
-  font-size: 26px;
+  font-size: 0.875rem;
   font-weight: 500;
   padding-bottom: 2rem;
   border-bottom: 2px solid #fff;
@@ -38,20 +38,18 @@ body{
 
 .contact-header-content h1,
 .contact-header-content .motto {
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: 700;
 }
 
 .wrapper {
   position: relative;
   width: 100%;
-  height: 525px;
   overflow: hidden;
   z-index: -1;
 }
 
 .background {
-  width: 1920px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -120,7 +118,7 @@ body{
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  padding: 2rem 3rem;
+  padding: 2rem;
   background-color: #233548;
 }
 .contact-card-footer .social-icon{
@@ -142,24 +140,17 @@ body{
   width: 90px;
 }
 
-@media screen and (max-width: 1200px) {
-  .contact-header-content h1,
-  .contact-header-content .motto {
-    font-size: 30px;
-  }
-  .contact-header-content .description {
-    font-size: 20px;
-  }
-}
+/*@media screen and (max-width: 1200px) {*/
+/*  .contact-header-content h1,*/
+/*  .contact-header-content .motto {*/
+/*    font-size: 30px;*/
+/*  }*/
+/*  .contact-header-content .description {*/
+/*    font-size: 20px;*/
+/*  }*/
+/*}*/
 
 @media screen and (max-width: 820px) {
-  .contact-header-content h1,
-  .contact-header-content .motto {
-    font-size: 25px;
-  }
-  .contact-header-content .description {
-    font-size: 17px;
-  }
   .contact-header-content {
     margin-top: 91px;
   }
@@ -167,17 +158,11 @@ body{
 
 @media screen and (max-width: 700px) {
   .contact-header-content {
-
-    width: 100%;
     margin-top: 81px;
   }
   .contact-header-content h1,
   .contact-header-content .motto {
-    font-size: 20px;
-  }
-  .contact-header-content .description {
-    font-size: 13px;
-    padding-bottom: 40px;
+    font-size: 1.5rem;
   }
 
   .contact-card-header {
@@ -205,10 +190,6 @@ body{
   .contact-header-content .motto {
     font-size: 0.95rem;
 
-  }
-  .contact-header-content .description {
-    font-size: 14px;
-    padding-bottom: 30px;
   }
 
   .contact-card-header-title {
@@ -242,12 +223,6 @@ body{
 
   .social-icon {
     width: 37px;
-  }
-
-  .contact-card-footer {
-    height: 76px;
-    padding-left: 29px;
-    gap: 15px;
   }
 
   .contact-card-content-item-value {

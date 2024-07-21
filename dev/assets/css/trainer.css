@@ -138,6 +138,7 @@ body{
 
   .description {
     font-size: 0.875rem;
+    padding-top: 0.5rem;
   }
 
   .trainer-image {
@@ -178,8 +179,16 @@ body{
   .trainer-info-content {
     padding-bottom: 7rem;
   }
-  .trainer-info-header h1, .trainer-info-header .title, .trainer-info-header .certificate{
+  .trainer-info-header .title{
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+  }
+  .trainer-info-header h1, .trainer-info-header .certificate{
     font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+  .trainer-info-header .certificate{
+    padding-bottom: 0.75rem;
   }
 
   .trainer-image {
