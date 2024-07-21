@@ -12,7 +12,7 @@
 .pattern {
   background-color: white;
   background-repeat: no-repeat;
-  background-image: url("../svg/pattern-color.svg");
+  background-image: url("../svg/patternfarebny.svg");
   background-size: cover;
   z-index: -1;
   position: absolute;
@@ -188,7 +188,7 @@ h1 {
   margin-top: 1rem;
   font-size: 0.875rem;
   font-weight: 500;
-  border-top: 0.5pt solid #fff;
+  border-top: 2px solid #fff;
 }
 .training-description p:first-child{
   margin-top: 1rem;
@@ -736,7 +736,7 @@ h1 {
   .pattern {
     left: 0;
     top: 0;
-    background-image: url("../svg/pattern-color-mobile.svg");
+    background-image: url("../svg/patternfarebny.svg");
     height: 100%;
   }
   .right-background {
