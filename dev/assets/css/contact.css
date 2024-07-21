@@ -1,3 +1,8 @@
+body{
+  background-image: url("../svg/pattern-index-no-color.svg");
+  background-repeat: repeat;
+}
+
 .contact-header {
   position: relative;
   display: flex;
@@ -95,10 +100,7 @@
   flex-direction: column;
   width: 100%;
   gap: 1rem;
-  padding-left: 70px;
-  padding-right: 70px;
-  padding-top: 60px;
-  padding-bottom: 70px;
+  padding: 3.5rem 3rem;
 }
 
 .contact-card-content-item {
@@ -116,10 +118,12 @@
 .contact-card-footer {
   display: flex;
   align-items: center;
-  gap: 36px;
-  height: 185px;
-  padding-left: 73px;
+  gap: 1.5rem;
+  padding: 2rem 3rem;
   background-color: #233548;
+}
+.contact-card-footer .social-icon{
+  width: 3rem;
 }
 
 .mail-icon-size {
