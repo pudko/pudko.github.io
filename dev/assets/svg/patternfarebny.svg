@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 3814.47">
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 733.79">
   <defs>
     <style>
       .cls-1 {
-        fill: url(#New_Pattern_2);
+      fill: url(#New_Pattern_2);
       }
 
       .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10 {
-        stroke-width: 0px;
+      stroke-width: 0px;
       }
 
       .cls-2 {
-        fill: none;
+      fill: none;
       }
 
       .cls-3 {
-        fill: #42bca2;
+      fill: #42bca2;
       }
 
       .cls-4 {
-        fill: #ef5d77;
+      fill: #ef5d77;
       }
 
       .cls-5 {
-        fill: #40bca2;
+      fill: #40bca2;
       }
 
       .cls-6 {
-        fill: #000;
+      fill: #000;
       }
 
       .cls-7 {
-        fill: #fbb11f;
+      fill: #fbb11f;
       }
 
       .cls-8 {
-        fill: #fbb123;
+      fill: #fbb123;
       }
 
       .cls-9 {
-        fill: #63abde;
+      fill: #63abde;
       }
 
       .cls-10 {
-        fill: #6a62ab;
+      fill: #6a62ab;
       }
     </style>
-    <pattern id="New_Pattern_2" data-name="New Pattern 2" x="0" y="0" width="438.58" height="324.34" patternTransform="translate(21643.48 7003.08) scale(4.55 4.7)" patternUnits="userSpaceOnUse" viewBox="0 0 438.58 324.34">
+    <pattern id="New_Pattern_2" data-name="New Pattern 2" x="0" y="0" width="438.58" height="324.34" patternTransform="translate(20732.94 6793.84) scale(4.38 4.52)" patternUnits="userSpaceOnUse" viewBox="0 0 438.58 324.34">
       <g>
         <rect class="cls-2" width="438.58" height="324.34"/>
         <g>
@@ -1699,5 +1699,5 @@
       </g>
     </pattern>
   </defs>
-  <rect class="cls-1" width="1920" height="3814.47"/>
+  <rect class="cls-1" y="0" width="1920" height="733.79"/>
 </svg>
