@@ -3,418 +3,561 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
-    <title>Parkour tréningy</title>
-    <link rel="icon" type="image/png" href="icon/logo/logo.png" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="description" content="Na našich tréningoch Playinmove vytvárame pre deti základy zdravého životného štýlu plného pohybu a radosti. 
-    Vedené tréningy, rozvíjajúce všestranný pohyb, kondíciu a psychiku, s cieľom bezpečne sa naučiť parkourové kúsky či saltá.">
-  <meta name="keywords" content="parkour, služby, tréningy pre deti, Trenčín, Drietoma, skupinový tréning, Individuálny tréning, tréningy parkouru, parkourové tréningy, parkour workshop">
-  <meta name="author" content="Playinmove">
+    <title>PlayInMove.sk</title>
+
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="assets/favicon/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="assets/favicon/android-chrome-512x512.png"
+    />
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="manifest" href="assets/favicon/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-config" content="browserconfig.xml" />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <link rel="stylesheet" href="assets/css/navbar.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+
+    <link rel="stylesheet" href="assets/css/index.css" />
   </head>
-  <body>
-    <header>
-      <a href="/">
-        <div class="logonazov">
-          <img src="icon/logo/logo@2x.png" alt="Playinmove" class="logo" />
-        </div>
-      </a>
-
-      <div class="nav-links">
-        <a href="sluzby#individualnytrening.html">
-          <div class="navbig borderbottomlight navactive">PARKOUR TRÉNINGY</div>
+  <body style="background-image: url('assets/svg/patternSsedy.svg?t=1')">
+    <div class="container">
+      <div class="navbar">
+        <a href="index.html">
+          <object
+            style="pointer-events: none"
+            type="image/svg+xml"
+            data="assets/svg/logo-playInMove.svg"
+            class="logo-size"
+          ></object>
         </a>
-        <a href="trener.html">
-          <div data-lang="sk" class="navbig">TRÉNER</div>
-        </a>
-        <a href="kontakt.html">
-          <div class="navbig borderbottomorange">KONTAKT</div>
-        </a>
+        <div id="menu-items" class="menu-items">
+          <a href="index.html" class="navbar-item active"
+            ><span style="position: relative"> Parkour tréningy</span>
+          </a>
+          <a href="index.html#section-group-training" class="hamburger-item"
+            ><span style="position: relative"> Skupinový tréning</span>
+          </a>
+          <a href="index.html#section-individual-training" class="hamburger-item"
+            ><span style="position: relative"> Individuálny tréning</span>
+          </a>
+          <a href="index.html#section-parkour-workshop" class="hamburger-item"
+            ><span style="position: relative"> Parkour workshop</span>
+          </a>
+          <a href="trener.html" class="navbar-item">
+            <span style="position: relative">Trenér</span>
+          </a>
+          <a href="parkour-tutorialy.html" class="navbar-item">
+            <span style="position: relative">Parkour tutoriály a umenie parkouru</span>
+          </a>
+          <a href="kontakt.html" class="navbar-item">
+            <span style="position: relative">Kontakt</span>
+          </a>
+          <div id="hamburger-menu-footer">
+            <div class="hamburger-menu-footer-social-links">
+              <a href="https://www.instagram.com/playinmove/" target="_blank">
+                <img
+                        src="assets/svg/icon-instagram.svg"
+                        class="icon-social-size"
+                />
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=100069611048714" target="_blank"
+              ><img
+                      src="assets/svg/icon-facebook.svg"
+                      class="icon-social-size"
+              />
+              </a>
+              <a href="https://www.youtube.com/channel/UC6IL4oCWK1LVL6VYLiklppQ" target="_blank"
+              ><img
+                      src="assets/svg/icon-youtube.svg"
+                      class="icon-social-size"
+              />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <img
+          onclick="openHamburgerMenu()"
+          src="assets/svg/hamburger-menu-icon.svg"
+          alt="menu"
+          id="hamburger-menu-button"
+          class="hamburger-menu-icon"
+        />
       </div>
+    </div>
+    <div id="hamburger-menu-background"></div>
 
-
-      <div class="jazykmenu">
-        <div id="nav-icon3">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </header>
-
-    <nav>
-      <a href="/">
-        <div class="navbig borderbottomlight navactive">PARKOUR TRÉNINGY</div>
-      </a>
-
-      <a href="/#skupinovytrening">
-        <div class="navsmall">
-          <img
-            src="icon/mobile/arrowmenu@2x.png"
-            alt="navarrow"
-            class="navarrow"
-          />
-          <span data-lang="sk">SKUPINOVÝ TRÉNING</span>
+    <nav class="side-menu" id="navbar-tabs" >
+      <a class="nav-link" href="#section-group-training">
+        <div class="side-menu-item">
+          <div class="side-menu-icon">
+<!--            <embed src="assets/svg/side-menu-group-icon.svg" alt="">-->
+<!--              <object-->
+<!--                      style="pointer-events: none"-->
+<!--                      type="image/svg+xml"-->
+<!--                      data="assets/svg/side-menu-group-icon.svg"-->
+<!--                      width="100%"-->
+<!--                      height="100%"-->
+<!--              ></object>-->
+          </div>
+          <div class="side-menu-item-title">Skupinový tréning</div>
         </div>
       </a>
 
-      <a href="/#individualnytrening">
-        <div class="navsmall">
-          <img
-            src="icon/mobile/arrowmenu@2x.png"
-            alt="navarrow"
-            class="navarrow"
-          />
-          <span data-lang="sk">INDIVIDUÁLNY TRÉNING</span>
+      <a class="nav-link" href="#section-individual-training">
+        <div class="side-menu-item">
+          <div class="side-menu-icon">
+<!--            <object-->
+<!--              style="pointer-events: none"-->
+<!--              type="image/svg+xml"-->
+<!--              data="assets/svg/side-menu-individual-icon.svg"-->
+<!--              width="100%"-->
+<!--              height="100%"-->
+<!--            ></object>-->
+          </div>
+          <div class="side-menu-item-title">Individuálny tréning</div>
         </div>
       </a>
 
-      <a href="/#parkourworkshop">
-        <div class="navsmall">
-          <img
-            src="icon/mobile/arrowmenu@2x.png"
-            alt="navarrow"
-            class="navarrow"
-          />
-          PARKOUR WORKSHOP
+      <a class="nav-link" href="#section-parkour-workshop">
+        <div class="side-menu-item">
+          <div class="side-menu-icon">
+<!--            <object-->
+<!--              style="pointer-events: none"-->
+<!--              type="image/svg+xml"-->
+<!--              data="assets/svg/side-menu-parkour-icon.svg"-->
+<!--              width="100%"-->
+<!--              height="100%"-->
+<!--            ></object>-->
+          </div>
+
+          <div class="side-menu-item-title">Parkour workshop</div>
         </div>
       </a>
-
-
-      <a href="trener.html"> <div class="navbig">TRÉNER</div> </a>
-      <a href="kontakt.html">
-        <div class="navbig borderbottomorange">KONTAKT</div>
-      </a>
-      <div class="navss">
-        <div>
-          <a href="https://www.instagram.com/playinmove/"
-            ><img
-              src="icon/socialnesiete/insta@2x.png"
-              alt="instagram"
-              class="socialnesiete"
-          /></a>
-          <a href="https://www.facebook.com/profile.php?id=100069611048714"
-            ><img
-              src="icon/socialnesiete/fb@2x.png"
-              alt="facebook"
-              class="socialnesiete"
-          /></a>
-          <a href="https://www.youtube.com/channel/UC6IL4oCWK1LVL6VYLiklppQ"
-            ><img
-              src="icon/socialnesiete/yt@2x.png"
-              alt="youtube"
-              class="socialnesiete"
-          /></a>
-        </div>
-      </div>
     </nav>
-
-    <main>
-      <div class="headerplace"></div>
-
-      <div class="services" id="services">
-
-        <a
-        class="skupinovytrening service-wrapper"
-        id="treninglink"
-        href="/#skupinovytrening"
-      >
-        <div class="serviceitem">
-          <img
-            class="grouptrainingmenu"
-            src="icon/mobile/i5@2x.png"
-            alt="skupinový tréning ikona"
-          />
-          <div class="servicetitle" data-lang="sk">
-            Skupinový<br />tréning
+    <section id="section-welcome">
+      <div class="section-welcome-header-wrapper">
+        <video src="assets/Cover.mp4" autoplay loop muted playsinline></video>
+        <div class="hero-text">
+          <div class="description-container">
+            <h1>PLAYINMOVE - MIESTO KDE POHYB ZAČÍNA!</h1>
+            <div class="description">
+              <p>
+                Od budovania disciplíny a posilňovania psychiky, cez sebapoznávanie až po naplnenie naších potrieb či pochopenie nášho tela za pomoci tréningu a jeho štúdia.
+              </p>
+            </div>
           </div>
         </div>
-      </a>
-
-        <a
-          class="individualnytrening service-wrapper"
-          href="/#individualnytrening"
-        >
-          <div class="serviceitem">
-            <img
-              class="individualtrainingmenu"
-              src="icon/mobile/i1@2x.png"
-              alt="individuální trénink ikona"
-            />
-            <div class="servicetitle" data-lang="sk">
-              Individuálny<br />tréning
-            </div>
-          </div>
-        </a>
-
-        <a
-          class="parkourworkshop service-wrapper"
-          href="/#parkourworkshop"
-        >
-          <div class="serviceitem">
-            <img
-              class="parkourworkshopmenu"
-              src="icon/mobile/i2@2x.png"
-              alt="parkour workshop ikona"
-            />
-            <div class="servicetitle">Parkour<br />workshop</div>
-          </div>
-        </a>
-
+<!--        <div class="pattern"></div>-->
       </div>
-      <div class="servicemenuplace"></div>
-      <div class="servicesLayout">
-        <div id="skupinovytrening" class="anchor-service"></div>
-        <section>
-
-              <img
-                src="foto/STMOBILEFOTO1.jpg"
-                alt="skupinový tréning parkouru pre deti na základnej škole"
-                class="servicefoto"
-              />
-            </div>
-          </div>
-            </div>
-          </div>
-          <div class="container">
-            <img
-              src="icon/mobile/i5@2x.png"
-              alt="skupinový tréning"
-              class="serviceicon sticon"
-            />
-            <h3 data-lang="sk">SKUPINOVÝ TRÉNING - PARKOUR</h3>
-
-            <div class="service-description">
-
-              <p data-lang="sk">
-                Na našich tréningoch Playinmove vytvárame pre deti základy zdravého životného štýlu plného pohybu a radosti. 
-                Vedené tréningy, rozvíjajúce všestranný pohyb, kondíciu a psychiku, s cieľom bezpečne sa naučiť parkourové kúsky či saltá.
-              </p>
-            
-
-              <p data-lang="sk">
-                Každý pondelok a stredu - 17:00 - 18:00 v Jumpcentru v Drietomej (autom 5 min. od Trenčína). 
-                Presná adresa: Drietoma 703, 913 03 Drietoma
-              </p>
-
-              <p data-lang="sk">
-                Playinmove tréning je určený pre deti a mládež vo veku 8 - 15 rokov. 
-                Pracujeme na vytvorení skupiny vo veku 6-8 rokov. Máte záujem? Dajte nám vedieť.
-              </p>
-
-              <p data-lang="sk">
-                registrácie a viac informácii:
-                <a class="telephone-link" href="tel:+421949129155"
-                  >+ 421 949 129 155</a
-                >
-              </p>
-
-
-              <h5 data-lang="sk">CENA: 10 €</h5>
-
-              <a
-                class="nonedecoration"
-                href="kontakt.html?option=SkupinovýTréning"
-                ><button data-lang="sk" class="buttonwithicon">
-                  CHCEM TRÉNING
-                </button></a
-              >
-            </div>
-          </div>
-        <div id="individualnytrening" class="anchor-service"></div>
-        <section class="first-section">
-
-              <img
-                src="foto/ITMOB1.jpg"
-                alt="osobný tréning stojka na hlave"
-                class="servicefoto"
-              />
-              />
-            </div>
-          </div>
-            </div>
-          </div>
-          <div class="container">
-            <img
-              src="icon/mobile/i1@2x.png"
-              alt="individuální trénink"
-              class="serviceicon iticon"
-            />
-            <h3 data-lang="sk">INDIVIDUÁLNY TRÉNING - PARKOUR </h3>
-            <div class="service-description">
-
-
-              <p data-lang="sk">
-                Tréning je prispôsobený potrebám a cieľom účastínka a preto je vhodný aj pre úplných začiatočníkov.
-              </p>
-
-              <p data-lang="sk">
-                Individuálny tréning parkouru je stanovený pre jednu alebo dve osoby.
-                Štandardný čas je 1 hodina.
-              </p>
-
-              <p data-lang="sk">
-                Miesto a čas tréningu záleží od našej dohody. Cena je určená podľa počtu osôb a miesta tréningu.
-              </p>
-
-             
-                >
-              </p>
-
-            
-
-              <h5 data-lang="sk">CENA: OD 20 €</h5>
-
-              <a
-                class="nonedecoration"
-                href="kontakt.html"
-                ><button data-lang="sk" class="buttonwithicon">
-                  CHCEM TRÉNING
-                </button></a
-              >
-            </div>
-          </div>
-        </section>
-
-        <div id="parkourworkshop" class="anchor-service"></div>
-        <section>
-
-              <img
-                src="foto/PWMOBILEFOTO1.jpg"
-                alt="worshop parkouru v trampolínovom centre"
-                class="servicefoto"
-              />
-            </div>
-          </div>
-            </div>
-          </div>
-          <div class="container">
-            <img
-              src="icon/mobile/i2@2x.png"
-              alt="parkour workshop"
-              class="serviceicon pwicon"
-            />
-            <h3>PARKOUR WORKSHOP</h3>
-            <div class="service-description">
-              <p data-lang="sk">
-                Skupinová akcia určená pre každého kto má rád pohyb. Súčasťou
-                programu je vysvetlenie a tréning parkourových prvkov, ktorých
-                náročnosť je prispôsobená úrovni účastníkov. Program zahŕňa
-                zábavné hry a súťaže.
-              </p>
-              <p data-lang="sk">
-                Workshop môže slúžiť ako teambuilding, narodeninová oslava či
-                ako vhodný doplnok pre vašu akciu. S možnosťou zajednania priestoru.
-                Cena závysí od počtu ľudí.
-              </p>
-
-
-              <a
-                class="nonedecoration"
-                href="kontakt.html?option=ParkourWorkshop"
-                ><button data-lang="sk" class="buttonwithicon">
-                  MÁM ZÁUJEM
-                </button></a
-              >
-            </div>
-          </div>
-        </section>
-
-      
-       
-        
-
-        <footer id="service-footer">
-          <div class="location">TRENČÍN, SLOVENSKO</div>
-          <div class="ss">
-            <a href="https://www.instagram.com/playinmove/"
-              ><img
-                src="icon/socialnesiete/insta@2x.png"
-                alt="instagram"
-                class="socialnesiete"
-            /></a>
-            <a href="https://www.facebook.com/profile.php?id=100069611048714"
-              ><img
-                src="icon/socialnesiete/fb@2x.png"
-                alt="facebook"
-                class="socialnesiete"
-            /></a>
-            <a href="https://www.youtube.com/channel/UC6IL4oCWK1LVL6VYLiklppQ"
-              ><img
-                src="icon/socialnesiete/yt@2x.png"
-                alt="youtube"
-                class="socialnesiete"
-            /></a>
-          </div>
-        </footer>
+      <div class="join-us">
+        <h1>PRIDAJ SA K NÁM</h1>
+        <a class="button-join-us" href="#section-group-training">
+          <object
+            style="pointer-events: none"
+            type="image/svg+xml"
+            data="assets/svg/icon-join-us.svg"
+          ></object>
+        </a>
       </div>
-    </main>
-    <script src="jquery/jquery.js" type="text/javascript"></script>
-    <script type="text/javascript" src="slick/slick.min.js"></script>
-    <script src="script.js"></script>
-    <script type="text/javascript" src="./i18n-language.js"></script>
-    <script>
-      // Source: http://stackoverflow.com/questions/30734552/change-url-while-scrolling
-      // stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
-      function isElementInViewport(el) {
-        //special bonus for those using jQuery
-        if (typeof jQuery === "function" && el instanceof jQuery) {
-          el = el[0];
-        }
-        var rect = el.getBoundingClientRect();
-        return (
-          rect.top >= 0 &&
-          rect.left >= 0 &&
-          rect.bottom <=
-            (window.innerHeight ||
-              document.documentElement
-                .clientHeight) /*or $(window).height() */ &&
-          rect.right <=
-            (window.innerWidth ||
-              document.documentElement.clientWidth) /*or $(window).width() */
-        );
+    </section>
+
+    <section class="scrollSpyActive" id="section-group-training">
+      <div class="training-container">
+        <div class="training-header">
+          <div class="training-header-image">
+            <object
+              type="image/svg+xml"
+              class="border-image group"
+              data="assets/svg/border-image-blue.svg"
+            ></object>
+            <img class="training-png" src="assets/images/image-group-training.png" alt="" />
+          </div>
+          <object
+            type="image/svg+xml"
+            class="guys-icon"
+            data="assets/svg/svg-group-training-guys.svg"
+          ></object>
+        </div>
+        <div class="training-background group">
+          <div class="content-container">
+            <h1>SKUPINOVÝ TRÉNING</h1>
+            <span class="training-title-description">PARKOUR, TRAMPOLÍNY, WORKOUT, HRY</span>
+            <div class="training-description">
+              <p>
+                Na našich tréningoch Playinmove vytvárame pre deti základy zdravého životného štýlu plného pohybu a radosti. Vedené tréningy rozvíjajúce všestranný pohyb, kondíciu a psychiku, s cieľom bezpečne sa naučiť parkourové kúsky či saltá.
+              </p>
+              <p>
+                Tréningy prebiehajú každý pondelok, utorok, stredu a štvrtok v časoch 17:00 - 18:00 v Jumpcentru v Drietomej. Playinmove tréning je určený pre deti a mládež vo veku 5 - 15 rokov. Registrácie a viac informácií:
+                <a href="tel:+421 949 129 155" class="phone-number">+ 421 949 129 155</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="subscriptions">
+          <div class="subscription-card group">
+            <div class="subscription-card-header-container">
+              <div class="wrapper">
+                <div class="subscription-card-header">
+                  <object
+                          type="image/svg+xml"
+                          class="monthly-subscription-icon"
+                          data="assets/svg/icon-clenstvo.svg"
+                  ></object>
+                  <span class="subscription-card-title">ČLENSTVO NA MESIAC </span>
+                </div>
+                <div class="subscription-card-header-description">
+                  1 tréningy / týždeň<br />
+                  <span >minimálne 4 tréningy / mesiac</span>
+                </div>
+              </div>
+            </div>
+            <div class="info-content-container">
+              <div class="info-content">
+                <div class="info-content-header">
+                  <div class="info-content-title">Začiatočníci</div>
+                  <div class="info-content-age-range">zväčša 5-9 rokov</div>
+                </div>
+                <div class="info-content-description">
+                  <div class="info-content-date">Po a St</div>
+                  <div class="info-content-time">16:45 - 17:45</div>
+                </div>
+              </div>
+              <div class="info-content">
+                <div class="info-content-header">
+                  <div class="info-content-title">Pokročilý</div>
+                  <div class="info-content-age-range">zväčša 9-16 rokov</div>
+                </div>
+                <div class="info-content-description">
+                  <div class="info-content-date">Po a St</div>
+                  <div class="info-content-time">18:00 - 19:00</div>
+                </div>
+              </div>
+            </div>
+            <div class="subscription-card-bottom">
+              <div class="subscription-card-bottom-price-container">
+                <div class="subscription-card-bottom-price">
+                  34,9 <span style="font-size: 15px">€</span>
+                </div>
+                <div class="subscription-card-bottom-price-description">
+                  cena je uvedená<br />
+                  vrátane vstupu
+                </div>
+              </div>
+              <div class="subscription-card-bottom-card-image">
+                <object
+                        type="image/svg+xml"
+                        style="width: 119px; height: auto"
+                        data="assets/svg/subscription-card.svg"
+                ></object>
+              </div>
+            </div>
+          </div>
+          <div class="subscription-card group">
+            <div class="subscription-card-header-container">
+              <div class="wrapper">
+                <div class="subscription-card-header">
+                  <object
+                    type="image/svg+xml"
+                    class="monthly-subscription-icon"
+                    data="assets/svg/icon-clenstvo2.svg"
+                  ></object>
+                  <span class="subscription-card-title">ČLENSTVO NA MESIAC </span>
+                </div>
+                <div class="subscription-card-header-description">
+                  2 tréningy / týždeň<br />
+                  <span >minimálne 8 tréningov / mesiac</span>
+                </div>
+              </div>
+            </div>
+            <div class="info-content-container">
+              <div class="info-content">
+                <div class="info-content-header">
+                  <div class="info-content-title">Začiatočníci</div>
+                  <div class="info-content-age-range">zväčša 5-9 rokov</div>
+                </div>
+                <div class="info-content-description">
+                  <div class="info-content-date">Po a St</div>
+                  <div class="info-content-time">16:45 - 17:45</div>
+                </div>
+              </div>
+              <div class="info-content">
+                <div class="info-content-header">
+                  <div class="info-content-title">Pokročilý</div>
+                  <div class="info-content-age-range">zväčša 9-16 rokov</div>
+                </div>
+                <div class="info-content-description">
+                  <div class="info-content-date">Po a St</div>
+                  <div class="info-content-time">18:00 - 19:00</div>
+                </div>
+              </div>
+            </div>
+            <div class="subscription-card-bottom">
+              <div class="subscription-card-bottom-price-container">
+                <div class="subscription-card-bottom-price">
+                  59,9 <span style="font-size: 15px">€</span>
+                </div>
+                <div class="subscription-card-bottom-price-description">
+                  cena je uvedená<br />
+                  vrátane vstupu
+                </div>
+              </div>
+              <div class="subscription-card-bottom-card-image">
+                <object
+                  type="image/svg+xml"
+                  style="width: 119px; height: auto"
+                  data="assets/svg/subscription-card.svg"
+                ></object>
+              </div>
+            </div>
+          </div>
+          <div class="subscription-card group">
+            <div class="subscription-card-header-container">
+              <div class="wrapper">
+                <div class="subscription-card-header">
+                  <object
+                    type="image/svg+xml"
+                    class="one-time-access-icon"
+                    data="assets/svg/icon-one-access.svg"
+                  ></object>
+                  <span class="subscription-card-title">JEDNORÁZOVÝ VSTUP</span>
+                </div>
+                <div class="subscription-card-header-description">
+                  slúži ako skušobný tréning
+                </div>
+              </div>
+            </div>
+            <div class="info-content-container">
+              <div class="info-content">
+                <div class="info-content-header">
+                  <div class="info-content-title">Začiatočníci</div>
+                  <div class="info-content-age-range">zväčša 5-9 rokov</div>
+                </div>
+                <div class="info-content-description">
+                  <div class="info-content-date">Po a St</div>
+                  <div class="info-content-time">16:45 - 17:45</div>
+                </div>
+              </div>
+              <div class="info-content">
+                <div class="info-content-header">
+                  <div class="info-content-title">Pokročilý</div>
+                  <div class="info-content-age-range">zväčša 9-16 rokov</div>
+                </div>
+                <div class="info-content-description">
+                  <div class="info-content-date">Po a St</div>
+                  <div class="info-content-time">18:00 - 19:00</div>
+                </div>
+              </div>
+            </div>
+            <div class="subscription-card-bottom">
+              <div class="subscription-card-bottom-price-container one-time-access">
+                <span style="font-size: 40px">10 <span style="font-size: 23px">€</span></span>
+                <div class="subscription-card-bottom-price-description">
+                  cena je uvedená<br />
+                  vrátane vstupu
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="scrollSpyActive" id="section-individual-training">
+      <div class="training-container">
+        <div class="training-header">
+          <div class="training-header-image">
+            <object
+              type="image/svg+xml"
+              class="border-image individual"
+              data="assets/svg/border-image-green.svg"
+            ></object>
+            <img class="training-png" src="assets/images/image-individual-training.png" alt="" />
+          </div>
+          <object
+            type="image/svg+xml"
+            class="target-icon"
+            data="assets/svg/svg-individual-training-icon.svg"
+          ></object>
+        </div>
+        <div class="training-background individual">
+          <div class="content-container">
+            <h1>INDIVIDUÁLNY TRÉNING</h1>
+            <span class="training-title-description">PARKOUR, WORKOUT, TRAMPOLÍNY </span>
+            <div class="training-description individual">
+              <p>
+                Tréning je prispôsobený potrebám a cieľom účastníka a preto je vhodný pre každého záujemcu o pohyb bez ohľadu na vek, úroveň či pohlavie.
+                <br />
+                Tréning môže byť zameraný na stojky, rozvoj flexibility, posilňovanie tela či na parkourové kúsky. Registrácie a viac informácií
+                <a href="tel:+421 949 129 155" class="phone-number">+ 421 949 129 155</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="subscriptions">
+          <div class="subscription-card individual">
+          <div class="subscription-card-header-container">
+            <div class="wrapper">
+              <div class="subscription-card-title">1 - 4 OSOBY</div>
+              <div class="subscription-card-header-description" style="padding-left: 0; margin-top: 0">bez limitácie veku a schopností</div>
+            </div>
+          </div>
+          <div class="info-content-container">
+            <div class="info-content">
+              <div><span style="font-size: 26px">60 </span>minút</div>
+              <div><span style="font-size: 26px">Čas </span>dohodou</div>
+            </div>
+          </div>
+          <div class="subscription-card-bottom">
+            <div class="price-list">
+              <div><span class="price">24</span> € / os</div>
+              <div><span class="price">40</span> € / 2 os</div>
+              <div><span class="price">48</span> € / 3 os</div>
+              <div><span class="price">56</span> € / 4 os</div>
+            </div>
+            <div class="price-info-text">cena je uvedená vrátane vstupu</div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+    <section class="scrollSpyActive" id="section-parkour-workshop">
+      <div class="training-container">
+        <div class="training-header">
+          <div class="training-header-image">
+            <object
+              type="image/svg+xml"
+              class="border-image workshop"
+              data="assets/svg/border-image-pink.svg"
+            ></object>
+            <img class="training-png" src="assets/images/image-workshop-training.png" alt="" />
+          </div>
+          <object
+            type="image/svg+xml"
+            class="workshop-icon"
+            data="assets/svg/svg-workshop-training-icon.svg"
+          ></object>
+        </div>
+        <div class="training-background workshop">
+          <div class="content-container">
+            <h1>POHYBOVÝ WORKSHOP</h1>
+            <span class="training-title-description">PARKOUR, HRY, SÚŤAŽE </span>
+            <div class="training-description workshop">
+              <p>
+                Pohybový workshop je vhodným doplnkom pre každú skupinovú akciu. Je určený pre každého, kto
+                má rád pohyb a zábavu bez ohľadu na vek či pohlavie. Program workshopu poskytuje účastníkom
+                všetkých úrovní príležitosť naučiť sa základy pohybu so špecializáciou na parkour a zároveň si užiť
+                dynamické hry a súťaže pod vedením certifikovaného trénera. Cieľom workshopu je dopriať účastníkom
+                nezabudnuteľný zážitok plný aktivity a dobrodružstva.
+              </p>
+              <p>
+                Individuálny workshop je určený pre školy, narodeninové oslavy, teambuildingy či pre iné menšie skupiny.
+                Tento typ workshopu je možné zažiť v priestoroch v Jump centra, alebo ho v prípade vlastného nápadu vytvoriť
+                v akýchkoľvek priestoroch, ktoré sú vhodné pre pohyb.
+              </p>
+              <p>
+                Workshop pre podujatia je prispôsobený pre väčšie skupiny účastníkov a zameraný na akcie organizované
+                inými organizátormi. Viac informácií:
+                <a href="tel:+421 949 129 155" class="phone-number">+ 421 949 129 155</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="subscriptions" style="margin-bottom: 52px;">
+          <div class="subscription-card workshop">
+          <div class="subscription-card-header-container">
+            <div class="wrapper">
+              <div class="subscription-card-title">INDIVIDUÁLNY WORKSHOP</div>
+              <div class="subscription-card-header-description" style="padding-left: 0; margin-top: 0">minimálny počet osôb je 8<br />cena je v rámci vstupu do Jumpcentra</div>
+            </div>
+          </div>
+          <div class="info-content-container">
+            <div class="info-content"><span style="font-size: 22px">60 </span>minút</div>
+            <div class="info-content" style="font-size: 22px">Miesto a čas dohodou</div>
+          </div>
+          <div class="subscription-card-bottom">
+            <div class="price-list">
+              <div><span class="price">9</span> € / 1 os</div>
+            </div>
+            <div class="price-info-text">
+              cena sa môže líšiť<br />
+              v závyslosti od počtu osôb, miesta a dĺžky
+            </div>
+          </div>
+        </div>
+          <div class="subscription-card workshop">
+          <div class="subscription-card-header-container">
+            <div class="wrapper">
+              <div class="subscription-card-title">WORKSHOP PRE PODUJATIA</div>
+              <div class="subscription-card-header-description" style="padding-left: 0; margin-top: 0">v prípade záujmu dostanete na mail predbežný harmonogram workshopu</div>
+            </div>
+          </div>
+          <div class="info-content-container">
+            <div class="info-content"><span style="font-size: 22px">90 </span>minút</div>
+            <div class="info-content" style="font-size: 22px">Miesto a čas dohodou</div>
+          </div>
+          <div class="subscription-card-bottom">
+            <div class="price-list">
+              <div>od <span class="price">119</span> €</div>
+            </div>
+            <div class="price-info-text">
+              cena sa môže líšiť<br />
+              v závyslosti od počtu osôb, miesta a dĺžky
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+    <div class="footer-container">
+      <div class="footer">
+        <div class="location-text">TRENČÍN, SLOVENSKO</div>
+        <div class="social-links">
+          <a href="https://www.instagram.com/playinmove/" target="_blank">
+            <img
+                src="assets/svg/icon-instagram.svg"
+                class="icon-social-size"
+            />
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100069611048714" target="_blank"
+            ><img
+                src="assets/svg/icon-facebook.svg"
+                class="icon-social-size"
+            />
+          </a>
+          <a href="https://www.youtube.com/channel/UC6IL4oCWK1LVL6VYLiklppQ" target="_blank"
+            ><img
+                src="assets/svg/icon-youtube.svg"
+                class="icon-social-size"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/@sidsbrmnn/scrollspy@1.x/dist/scrollspy.min.js"></script>
+    <script defer>
+      window.onload = function () {
+        console.log('test');
+        scrollSpy('#navbar-tabs', {
+          sectionSelector: '.scrollSpyActive',
+          activeClass: 'active',
+          targetSelector: '.nav-link',
+          offset: 150,
+        });
       }
-      // click-to-scroll behavior
-      $(".service-wrapper").click(function (e) {
-        e.preventDefault();
-        var section = this.href;
-        var sectionClean = section.substring(section.indexOf("#"));
-        var offset = window.innerWidth > 1024 ? 85 : 148;
-
-        $("html, body").animate(
-          {
-            scrollTop: $(sectionClean).offset().top - offset,
-          },
-          500,
-          function () {
-            window.location.hash = sectionClean;
-          }
-        );
-      });
-      let cached = null;
-      // listen for the scroll event
-      $(document).on("scroll", function () {
-        if (!cached) {
-          setTimeout(() => {
-            //you can access the original event at `cached`
-            cached = null;
-            // check if the anchor elements are visible
-            $(".anchor-service").each(function (idx, el) {
-              if (isElementInViewport(el)) {
-                // update the URL hash
-                if (window.history.pushState) {
-                  var urlHash = "#" + $(el).attr("id");
-                  window.history.pushState(null, null, urlHash);
-                }
-              }
-            });
-          }, 50);
-        }
-        cached = event;
-      });
     </script>
   </body>
 </html>

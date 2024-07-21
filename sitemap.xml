@@ -9,17 +9,22 @@
 
 <url>
   <loc>https://playinmove.sk/</loc>
-  <lastmod>2024-01-19T00:08:23+00:00</lastmod>
+  <lastmod>2024-07-21T15:42:00+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://playinmove.sk/trener.html</loc>
-  <lastmod>2024-01-19T00:08:23+00:00</lastmod>
+  <lastmod>2024-07-21T15:42:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://playinmove.sk/parkour-tutorialy.html</loc>
+  <lastmod>2024-07-21T15:42:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://playinmove.sk/kontakt.html</loc>
-  <lastmod>2024-01-19T00:08:23+00:00</lastmod>
+  <lastmod>2024-07-21T15:42:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 

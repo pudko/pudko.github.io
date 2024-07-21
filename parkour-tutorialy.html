@@ -3,254 +3,300 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
     <title>Parkour tutoriály</title>
-    <link rel="icon" type="image/png" href="icon/logo/logo.png" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="description" content="Zábavné tutoriály vysvetlujúce parkourové, freerunningové či iné pohybové prvky pre začiatočníkov aj pokročilých. Ukážky, rozbor techniky, práca s telom a klúčové typy ktoré ti dajú ten správny smer. Nájdeš tu napríklad techniky pre základné saltá vo forme frontflip tutoriálu, sideflip tutoriálu, backflip tutoriálu či webster tutoriálu.">
-    <meta name="keywords" content="Parkour tutoriál, webster tutoriál, sideflip tutoriál, frontflip tutoriál, webster tutoriál, Michal Púdela tutoriály">
-    <meta name="author" content="Playinmove">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="assets/favicon/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="assets/favicon/android-chrome-512x512.png"
+    />
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="manifest" href="assets/favicon/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-config" content="browserconfig.xml" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <link rel="stylesheet" href="assets/css/navbar.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+
+    <link rel="stylesheet" href="assets/css/parkour-tutorials.css" />
   </head>
   <body>
-    <header>
-      <a href="index.html">
-        <div class="logonazov">
-          <img src="icon/logo/logo@2x.png" alt="Playinmove" class="logo" />
-        </div>
-      </a>
-
-      <div class="nav-links">
+    <div class="container">
+      <div class="navbar">
         <a href="index.html">
-          <div class="navbig borderbottomlight">PARKOUR TRÉNINGY</div>
+          <object
+            style="pointer-events: none"
+            type="image/svg+xml"
+            data="assets/svg/logo-playInMove.svg"
+            class="logo-size"
+          ></object>
         </a>
-        <a href="trener.html">
-          <div data-lang="sk" class="navbig">TRÉNER</div>
-        </a>
-        <a href="kontakt.html">
-          <div class="navbig borderbottomorange">KONTAKT</div>
-        </a>
-      </div>
-      
-
-
-      <div class="jazykmenu">
-        <div id="nav-icon3">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </header>
-
-    <nav>
-      <a href="index.html">
-        <div class="navbig borderbottomlight">PARKOUR TRÉNINGY</div>
-      </a>
-
-      <a href="index.html">
-        <div class="navsmall">
-          <img
-            src="icon/mobile/arrowmenu@2x.png"
-            alt="navarrow"
-            class="navarrow"
-          />
-          <span data-lang="sk">INDIVIDUÁLNY TRÉNING</span>
-        </div>
-      </a>
-
-      <a href="index.html#parkourworkshop">
-        <div class="navsmall">
-          <img
-            src="icon/mobile/arrowmenu@2x.png"
-            alt="navarrow"
-            class="navarrow"
-          />
-          PARKOUR WORKSHOP
-        </div>
-      </a>
-
-      <a href="index.html#skupinovytrening">
-        <div class="navsmall">
-          <img
-            src="icon/mobile/arrowmenu@2x.png"
-            alt="navarrow"
-            class="navarrow"
-          />
-          <span data-lang="sk">SKUPINOVÝ TRÉNING</span>
-        </div>
-      </a>
-
-      <a href="trener.html">
-        <div data-lang="sk" class="navbig">TRÉNER</div>
-      </a>
-      <a href="kontakt.html">
-        <div class="navbig borderbottomorange">KONTAKT</div>
-      </a>
-      <div class="navss">
-        <div>
-          <a href="https://www.instagram.com/playinmove/"
-            ><img
-              src="icon/socialnesiete/insta@2x.png"
-              alt="instagram"
-              class="socialnesiete"
-          /></a>
-          <a href="https://www.facebook.com/profile.php?id=100069611048714"
-            ><img
-              src="icon/socialnesiete/fb@2x.png"
-              alt="facebook"
-              class="socialnesiete"
-          /></a>
-          <a href="https://www.youtube.com/channel/UC6IL4oCWK1LVL6VYLiklppQ"
-            ><img
-              src="icon/socialnesiete/yt@2x.png"
-              alt="youtube"
-              class="socialnesiete"
-          /></a>
-        </div>
-
-
-
-
-      
-      </div>
-    </nav>
-
-    
-
-    <main>
-      <div class="headerplace"></div>
-
-      
-
-      <div class="mainindexsection">
-        <div class="services index-services">
-
-
-          <a href="index.html#skupinovytrening">
-            <div class="serviceitem">
-              <img
-                class="grouptrainingmenu"
-                src="icon/mobile/i5@2x.png"
-                alt="skupinový trénink ikona"
+        <div id="menu-items" class="menu-items">
+          <a href="index.html" class="navbar-item"
+            ><span style="position: relative"> Parkour tréningy</span>
+          </a>
+          <a href="index.html#section-group-training" class="hamburger-item"
+            ><span style="position: relative"> Skupinový tréning</span>
+          </a>
+          <a href="index.html#section-individual-training" class="hamburger-item"
+            ><span style="position: relative"> Individuálny tréning</span>
+          </a>
+          <a href="index.html#section-parkour-workshop" class="hamburger-item"
+            ><span style="position: relative"> Parkour workshop</span>
+          </a>
+          <a href="trener.html" class="navbar-item">
+            <span style="position: relative">Trenér</span>
+          </a>
+          <a href="parkour-tutorialy.html" class="navbar-item active">
+            <span style="position: relative">Parkour tutoriály a umenie parkouru</span>
+          </a>
+          <a href="kontakt.html" class="navbar-item">
+            <span style="position: relative">Kontakt</span>
+          </a>
+          <div id="hamburger-menu-footer">
+            <div class="hamburger-menu-footer-social-links">
+              <a href="https://www.instagram.com/playinmove/" target="_blank">
+                <img
+                        src="assets/svg/icon-instagram.svg"
+                        class="icon-social-size"
+                />
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=100069611048714" target="_blank"
+              ><img
+                      src="assets/svg/icon-facebook.svg"
+                      class="icon-social-size"
               />
-              <div class="servicetitle" data-lang="sk">
-                Skupinový<br />tréning
+              </a>
+              <a href="https://www.youtube.com/channel/UC6IL4oCWK1LVL6VYLiklppQ" target="_blank"
+              ><img
+                      src="assets/svg/icon-youtube.svg"
+                      class="icon-social-size"
+              />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <img
+          onclick="openHamburgerMenu()"
+          src="assets/svg/hamburger-menu-icon.svg"
+          alt="menu"
+          id="hamburger-menu-button"
+          class="hamburger-menu-icon"
+        />
+      </div>
+    </div>
+    <div id="hamburger-menu-background"></div>
+
+    <section id="parkour-tutorials">
+      <div class="content-container parkour-tutorials-background">
+        <h1 class="parkour-tutorials-title">PARKOUR TUTORIÁLY</h1>
+        <div class="training-description">
+          <p>
+            Zábavné tutoriály vysvetlujúce parkourové, freerunningové či iné pohybové prvky pre začiatočníkov aj pokročilých. Ukážky, rozbor techniky, práca s telom a kľúčové tipy, ktoré ti dajú ten správny smer. Vo videách nájdeš techniky na základné saltá ako sú napríklad Frontflip, Webster či Backflip, alebo parkourové základy ako sú dopadanie a parkourový kotúľ.
+          </p>
+          <p>
+            V tutoriáloch nájdeš aj vysvetlenie parkour flowu, ktorý je v dnešnej dobe jednou zo súťažných disciplín a patrí k najvyšším a najnáročnejším formám umenia parkouru.
+          </p>
+        </div>
+      </div>
+      <div class="parkour-tutorials-video-list-container">
+        <div class="parkour-tutorials-video-list">
+          <div class="video-container">
+            <iframe
+              class="video"
+              src="https://www.youtube.com/embed/xLh2a1PTfuE"
+              title="Parkour flow a jeho vysvetlenie"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+            <div class="video-info">
+              <div class="video-info-title">Parkour flow a jeho vysvetlenie</div>
+            </div>
+          </div>
+          <div class="video-container">
+            <iframe
+              class="video"
+              src="https://www.youtube.com/embed/n5dAOcuE2Fs"
+              title="Webster tutoriál"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+            <div class="video-info">
+              <div class="video-info-title">Webster tutoriál</div>
+            </div>
+          </div>
+          <div class="video-container">
+            <iframe
+              class="video"
+              src="https://www.youtube.com/embed/fGGqNGnWJQs"
+              title="Frontflip tutoriál"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+            <div class="video-info">
+              <div class="video-info-title">Frontflip tutoriál</div>
+            </div>
+          </div>
+          <div class="video-container">
+            <iframe
+                    class="video"
+                    src="https://www.youtube.com/embed/E-xafCA9lYY"
+                    title="VELTOČ TUTORIAL - MICHAL PÚDELA"
+                    frameborder="0"
+                    allowfullscreen
+            ></iframe>
+            <div class="video-info">
+              <div class="video-info-title">Veltoč tutoriáô</div>
+            </div>
+          </div>
+          <div class="video-container">
+            <iframe
+                    class="video"
+                    src="https://www.youtube.com/embed/isPisThQdRw"
+                    title="INWARD ROLL 360 TUTORIAL"
+                    frameborder="0"
+                    allowfullscreen
+            ></iframe>
+            <div class="video-info">
+              <div class="video-info-title">Inward roll 360 TUTORIAL</div>
+            </div>
+          </div>
+          <div class="video-container">
+            <iframe
+                    class="video"
+                    src="https://www.youtube.com/embed/L95LwsqX29I"
+                    title="Michal Púdela | Základ parkouru a freerunningu - Dopadanie/Parakotúľ | Začiatočníci"
+                    frameborder="0"
+                    allowfullscreen
+            ></iframe>
+            <div class="video-info">
+              <div class="video-info-title">Základ parkouru a freerunningu</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="parkour-art">
+      <div class="content-container parkour-art-background">
+        <h1 class="parkour-art-title">UMENIE PARKOURU</h1>
+        <div class="training-description">
+          <p>
+            Parkour je fyzická disciplína, ktorá zdôrazňuje efektívne pohyby a prekonávanie prekážok
+            len s pomocou svojho tela a okolitého prostredia. Je to kombinácia behu, skákania,
+            akrobácie a ďalších pohybových techník, ktoré majú za cieľ efektívne prekonávať
+            prekážky. Parkour je vnímaný aj ako filozofia, ktorá zdôrazňuje slobodu a vyjadrovanie
+            tvorivosti v pohybe a budovanie schopnosti prekonávať fyzické a mentálne prekážky.
+          </p>
+          <p>
+            Pozri si ukážky parkouru, freerunu, rôznorodých akrobacií či parkourového flowu a
+            načerpaj kus inšpirácie!
+          </p>
+        </div>
+      </div>
+      <!-- <div class="parkour-tutorials-background-two">
+        <object
+          type="image/svg+xml"
+          style="width: 1920px; position: absolute; left: 50%; transform: translateX(-50%)"
+          data="assets/svg/svg-parkour-tutorials-page-background-two.svg"
+        ></object>
+      </div> -->
+      <div class="parkour-tutorials-video-list-container">
+        <div class="parkour-tutorials-video-list">
+          <div class="video-container">
+            <iframe
+              class="video"
+              src="https://www.youtube.com/embed/3ixQcl7a0ME"
+              title="Stay tune for move"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+            <div class="video-info">
+              <div class="video-info-title">Stay tune for move</div>
+              <div class="video-info-description">
+                Vstúp do sveta adrenalínu a slobody, kde sa mestské prostredie stáva ihriskom pre
+                parkourové umenie. V tomto videu sa môžeš inšpirovať pohybom profesionálneho
+                parkourového atléta, ako prekonáva a využíva mestské prekážky. Odvážne skoky a
+                akrobatické kúsky sa spájajú do toku pohybu a energie. Toto video je viac ako len
+                sledovanie akrobatických kúskov - je to pozvanie na cestu pohybu!
               </div>
             </div>
-          </a>
-
-          <a href="index.html#individualnytrening">
-            <div class="serviceitem">
-              <img
-                class="individualtrainingmenu"
-                src="icon/mobile/i1@2x.png"
-                alt="individuální trénink ikona"
-              />
-              <div class="servicetitle" data-lang="sk">
-                Individuálny<br />tréning
+          </div>
+          <div class="video-container">
+            <iframe
+              class="video"
+              src="https://www.youtube.com/embed/RKY1nbYM0p8"
+              title="Movement on the castle"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+            <div class="video-info">
+              <div class="video-info-title">Movement on the castle</div>
+              <div class="video-info-description">
+                Video zachytáva svet parkouru a histórie, ktoré ťa zavedie do starovekého prostredia
+                Beckovského hradu. To, čo sa na prvý pohľad môže zdať ako neprístupná pevnosť, sa
+                pre parkourového umelca stáva skutočným pohybovým rajom. Kombinácia histórie, ktorá
+                sa stretáva s pohybom spoločne tvorí fascinujúcu ukážku pre diváka.
               </div>
             </div>
-          </a>
-
-          <a href="index.html#parkourworkshop">
-            <div class="serviceitem">
-              <img
-                class="parkourworkshopmenu"
-                src="icon/mobile/i2@2x.png"
-                alt="parkour workshop ikona"
-              />
-              <div class="servicetitle">Parkour<br />workshop</div>
+          </div>
+          <div class="video-container">
+            <iframe
+              class="video"
+              src="https://www.youtube.com/embed/Ea3dKO_-4ps"
+              title="50 trikov pre parkour a freerunning"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+            <div class="video-info">
+              <div class="video-info-title">50 trikov pre parkour a freerunning</div>
+              <div class="video-info-description">
+                Video pre každého nováčika, ktorý sa potrebuje efektívne zoznámiť s trikmi a ich
+                názvami, či prípadne pokročilého, ktorý potrebuje nájsť inšpiráciu. V tomto videu
+                nájdeš triky rôznych úrovní, od začiatočníckych techník cez pokročilé až po úroveň
+                experta za využitia zeme, steny, prekážok, ale aj hrazdy!
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="footer-container">
+      <div class="footer">
+        <div class="location-text">TRENČÍN, SLOVENSKO</div>
+        <div class="social-links">
+          <a href="https://www.instagram.com/playinmove/" target="_blank">
+            <img
+                    src="assets/svg/icon-instagram.svg"
+                    class="icon-social-size"
+            />
           </a>
-
-          
+          <a href="https://www.facebook.com/profile.php?id=100069611048714" target="_blank"
+          ><img
+                  src="assets/svg/icon-facebook.svg"
+                  class="icon-social-size"
+          />
+          </a>
+          <a href="https://www.youtube.com/channel/UC6IL4oCWK1LVL6VYLiklppQ" target="_blank"
+          ><img
+                  src="assets/svg/icon-youtube.svg"
+                  class="icon-social-size"
+          />
+          </a>
         </div>
-        <img src="foto/UVODNAFOTO.jpg" alt="frisbeetrick" class="coverphoto" />
       </div>
-
-      <div class="indexh3">
-        <h3 data-lang="sk">Zdolaj techniku</h3>
-      </div>
-      <div class="coverphotogroup">
-        <div class="videoContainer">
-          <iframe
-            class="videocover"
-            src="https://www.youtube.com/embed/n5dAOcuE2Fs?rel=0&amp;fs=0&amp;showinfo=0"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="videoContainer">
-          <iframe
-            class="videocover"
-            src="https://www.youtube.com/embed/fGGqNGnWJQs"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="videoContainer">
-          <iframe
-            class="videocover"
-            src="https://www.youtube.com/embed/L95LwsqX29I"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="videoContainer">
-          <iframe
-            class="videocover"
-            src="https://www.youtube.com/embed/hlipPR4olY8"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-
-        <div class="videoContainer">
-          <iframe
-            class="videocover"
-            src="https://www.youtube.com/embed/isPisThQdRw"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-
-    
-
-      </div>
-
-    
-      </div>
-      <footer>
-        <div class="location">TRENČÍN, SLOVENSKO</div>
-        <div class="ss">
-          <a href="https://www.instagram.com/playinmove/"
-            ><img
-              src="icon/socialnesiete/insta@2x.png"
-              alt="instagram"
-              class="socialnesiete"
-          /></a>
-          <a href="https://www.facebook.com/profile.php?id=100069611048714"
-            ><img
-              src="icon/socialnesiete/fb@2x.png"
-              alt="facebook"
-              class="socialnesiete"
-          /></a>
-          <a href="https://www.youtube.com/channel/UC6IL4oCWK1LVL6VYLiklppQ"
-            ><img
-              src="icon/socialnesiete/yt@2x.png"
-              alt="youtube"
-              class="socialnesiete"
-          /></a>
-        </div>
-      </footer>
-    </main>
-    <script src="script.js"></script>
-    <script type="text/javascript" src="./i18n-language.js"></script>
+    </div>
+    <script src="https://unpkg.com/@sidsbrmnn/scrollspy@1.x/dist/scrollspy.min.js"></script>
   </body>
 </html>
